@@ -109,7 +109,7 @@ export default function RecentBlog() {
                   to={`/blog/${post.id}`}
                   className="group bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-400 flex flex-col h-full border border-border/50"
                 >
-                  <div className="aspect-[3/4] overflow-hidden">
+                  <div className="aspect-[4/3] md:aspect-[3/4] overflow-hidden">
                     <img
                       src={BLOG_IMAGES[(i + 1) % BLOG_IMAGES.length]}
                       alt={post.title[locale]}
