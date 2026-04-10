@@ -5,13 +5,13 @@ import { getBlogPosts, getTherapy } from "@/lib/api";
 import { ArrowRight } from "lucide-react";
 
 const BLOG_IMAGES = [
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=75",
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=75",
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=75",
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75",
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=75",
-  "https://images.unsplash.com/photo-1559595500-e15296bdbb48?w=600&q=75",
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=75",
+  "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=75", // turquoise water light
+  "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=75", // calm nature morning
+  "https://images.unsplash.com/photo-1476611338391-6f395a0ebc7b?w=600&q=75", // green hills landscape
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75", // sandy beach light
+  "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=600&q=75", // clear lake nature
+  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&q=75", // foggy green valley
+  "https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?w=600&q=75", // blue sky nature path
 ];
 
 function FadeInOnScroll({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
