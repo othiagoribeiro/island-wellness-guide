@@ -108,23 +108,24 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
       {/* Background slideshow */}
       {HERO_IMAGES.map((src, i) => (
         <div
-          key={src}
+          key={i}
           className="absolute inset-0"
           style={{
             opacity: i === currentSlide ? 1 : 0,
             backgroundImage: `url(${src})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            transition: "opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1)",
+            filter: "saturate(0.55) brightness(0.85)",
+            transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         />
       ))}
 
-      {/* Dark overlay */}
+      {/* Dark overlay for readability */}
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.35) 100%)",
         }}
       />
 
