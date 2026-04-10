@@ -43,6 +43,8 @@ const App = () => (
             <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="/pro/register" element={<ProRegisterPage />} />
             <Route path="/para-profesionales" element={<ProLandingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
