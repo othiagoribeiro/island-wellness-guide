@@ -125,12 +125,54 @@ const translations = {
   "footer.about": { es: "Sobre nosotros", ca: "Sobre nosaltres", en: "About us", de: "Über uns" },
 
   // DIRECTORY
-  "dir.title": { es: "Directorio de profesionales", ca: "Directori de professionals", en: "Professional directory", de: "Fachkräfteverzeichnis" },
+  "dir.title": { es: "Directorio de profesionales", ca: "Directori de professionals", en: "Professional directory", de: "Fachleute-Verzeichnis" },
+  "dir.subtitle": {
+    es: "Profesionales verificados en terapias naturales y bienestar en Mallorca.",
+    ca: "Professionals verificats en teràpies naturals i benestar a Mallorca.",
+    en: "Verified professionals in natural therapies and wellbeing in Mallorca.",
+    de: "Verifizierte Fachleute für Naturtherapien und Wohlbefinden auf Mallorca.",
+  },
+  "dir.searchPlaceholder": { es: "Nombre, terapia o síntoma...", ca: "Nom, teràpia o símptoma...", en: "Name, therapy or symptom...", de: "Name, Therapie oder Symptom..." },
+  "dir.allCities": { es: "Todas las ciudades", ca: "Totes les ciutats", en: "All cities", de: "Alle Städte" },
+  "dir.searchBtn": { es: "Buscar", ca: "Cercar", en: "Search", de: "Suchen" },
+  "dir.proFound": { es: "profesionales encontrados", ca: "professionals trobats", en: "professionals found", de: "Fachleute gefunden" },
   "dir.results": { es: "resultados", ca: "resultats", en: "results", de: "Ergebnisse" },
-  "dir.showMap": { es: "Ver mapa", ca: "Veure mapa", en: "Show map", de: "Karte" },
+  "dir.showMap": { es: "Ver mapa", ca: "Veure mapa", en: "Show map", de: "Karte anzeigen" },
   "dir.hideMap": { es: "Ocultar mapa", ca: "Amagar mapa", en: "Hide map", de: "Karte ausblenden" },
   "dir.verified": { es: "Verificado", ca: "Verificat", en: "Verified", de: "Geprüft" },
   "dir.back": { es: "← Directorio", ca: "← Directori", en: "← Directory", de: "← Verzeichnis" },
+  "dir.noResults": {
+    es: "No hemos encontrado profesionales con estos filtros.",
+    ca: "No hem trobat professionals amb aquests filtres.",
+    en: "No professionals found with these filters.",
+    de: "Keine Fachleute mit diesen Filtern gefunden.",
+  },
+  "dir.clearFilters": { es: "Limpiar filtros", ca: "Netejar filtres", en: "Clear filters", de: "Filter löschen" },
+  "dir.viewProfile": { es: "Ver perfil →", ca: "Veure perfil →", en: "View profile →", de: "Profil ansehen →" },
+  "dir.more": { es: "más", ca: "més", en: "more", de: "mehr" },
+
+  // PROFESSIONAL PROFILE
+  "profile.back": { es: "Volver al directorio", ca: "Tornar al directori", en: "Back to directory", de: "Zurück zum Verzeichnis" },
+  "profile.therapies": { es: "Terapias", ca: "Teràpies", en: "Therapies", de: "Therapien" },
+  "profile.about": { es: "Sobre mí", ca: "Sobre mi", en: "About", de: "Über mich" },
+  "profile.canHelp": { es: "Puede ayudarte con", ca: "Et pot ajudar amb", en: "Can help you with", de: "Kann Ihnen helfen mit" },
+  "profile.certifications": { es: "Formación y certificaciones", ca: "Formació i certificacions", en: "Training and certifications", de: "Ausbildung und Zertifizierungen" },
+  "profile.contact": { es: "Contacto", ca: "Contacte", en: "Contact", de: "Kontakt" },
+  "profile.sendEmail": { es: "Enviar email", ca: "Enviar email", en: "Send email", de: "E-Mail senden" },
+  "profile.call": { es: "Llamar", ca: "Trucar", en: "Call", de: "Anrufen" },
+  "profile.website": { es: "Ver web", ca: "Veure web", en: "Website", de: "Website" },
+  "profile.booking": {
+    es: "Ver disponibilidad y reservar sesión →",
+    ca: "Veure disponibilitat i reservar sessió →",
+    en: "Check availability and book a session →",
+    de: "Verfügbarkeit prüfen und Sitzung buchen →",
+  },
+  "profile.bookingNote": {
+    es: "Serás redirigido al sistema de reservas externo del profesional.",
+    ca: "Seràs redirigit al sistema de reserves extern del professional.",
+    en: "You will be redirected to the professional's external booking system.",
+    de: "Sie werden zum externen Buchungssystem der Fachkraft weitergeleitet.",
+  },
 
   // ACTIVITIES
   "act.title": { es: "Agenda de actividades", ca: "Agenda d'activitats", en: "Activities calendar", de: "Aktivitätenkalender" },

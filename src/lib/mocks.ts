@@ -11,6 +11,12 @@ export interface Keyword {
   name: Record<Locale, string>;
 }
 
+export interface Certification {
+  title: string;
+  institution: string;
+  year: number;
+}
+
 export interface Professional {
   id: string;
   name: string;
@@ -27,6 +33,11 @@ export interface Professional {
   email?: string;
   phone?: string;
   website?: string;
+  instagram?: string;
+  linkedin?: string;
+  certifications?: Certification[];
+  plan?: "free" | "pro" | "premium";
+  externalCalendarUrl?: string;
 }
 
 export interface Activity {
@@ -80,7 +91,14 @@ export const professionals: Professional[] = [
     therapyIds: ["th_0003"], keywordIds: ["kw_0001", "kw_0004", "kw_0003", "kw_0002"],
     verificationStatus: "approved", published: true,
     bio: { es: "Especialista en acupuntura con más de 10 años de experiencia.", ca: "Especialista en acupuntura amb més de 10 anys d'experiència.", en: "Acupuncture specialist with over 10 years of experience.", de: "Akupunkturspezialistin mit über 10 Jahren Erfahrung." },
-    email: "ana@example.com",
+    email: "ana@example.com", phone: "+34 612 345 678", website: "https://anamaria-acupuntura.com",
+    instagram: "https://instagram.com/anamaria.acupuntura", linkedin: "https://linkedin.com/in/anamaria-ruiz",
+    plan: "pro",
+    externalCalendarUrl: "https://calendly.com/anamaria-ruiz",
+    certifications: [
+      { title: "Licenciada en Medicina Tradicional China", institution: "Universidad de Barcelona", year: 2008 },
+      { title: "Certificada en Acupuntura Clínica", institution: "Escuela Superior de MTC", year: 2010 },
+    ],
   },
   {
     id: "pro_0002", name: "Isabel Torres",
