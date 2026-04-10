@@ -151,6 +151,9 @@ const translations = {
     de: "Bald können Sie sich als Fachkraft registrieren. Kommen Sie bald wieder!",
   },
   "pro.back": { es: "← Volver al inicio", ca: "← Tornar a l'inici", en: "← Back to home", de: "← Zurück zur Startseite" },
+
+  // HOME FEATURED PROFESSIONALS
+  "home.professionals.title": { es: "NATURÓPATAS", ca: "NATURÒPATES", en: "PRACTITIONERS", de: "THERAPEUTEN" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
