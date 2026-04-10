@@ -1,4 +1,10 @@
 import type { Locale } from "@/i18n/locales";
+import photoPro0001 from "@/assets/pro_0001.jpg";
+import photoPro0002 from "@/assets/pro_0002.jpg";
+import photoPro0003 from "@/assets/pro_0003.jpg";
+import photoPro0004 from "@/assets/pro_0004.jpg";
+import photoPro0005 from "@/assets/pro_0005.jpg";
+import photoPro0006 from "@/assets/pro_0006.jpg";
 
 export interface Therapy {
   id: string;
