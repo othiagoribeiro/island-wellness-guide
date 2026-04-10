@@ -5,7 +5,7 @@ export default function CTASection() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-terracotta py-12 md:py-24">
+    <section className="bg-accent py-12 md:py-24">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: "white" }}>
           {t("cta.title")}
@@ -15,7 +15,7 @@ export default function CTASection() {
         </p>
         <Link
           to="/pro/register"
-          className="inline-block bg-primary text-primary-foreground font-semibold px-9 py-4 rounded-lg hover:shadow-lg hover:opacity-90 transition-all"
+          className="inline-block bg-surface text-primary font-semibold px-9 py-4 rounded-lg hover:shadow-lg hover:opacity-90 transition-all"
         >
           {t("cta.button")}
         </Link>
