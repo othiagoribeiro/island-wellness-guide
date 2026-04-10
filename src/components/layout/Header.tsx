@@ -18,7 +18,7 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-sm" style={{ borderBottom: '1px solid rgba(44,74,62,0.1)' }}>
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="font-bold text-xl text-brown tracking-tight">
           Mallorca Holística
