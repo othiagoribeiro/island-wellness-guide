@@ -12,10 +12,10 @@ export default function Index() {
       <Hero />
       <TrustStrip />
       <FeaturedProfessionals />
-      <HowItWorks />
       <RecentBlog />
-      <CTASection />
       <FAQ />
+      <HowItWorks />
+      <CTASection />
     </>
   );
 }
