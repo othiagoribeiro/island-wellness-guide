@@ -17,7 +17,7 @@ export default function CTASection() {
           {t("cta.subtitle")}
         </p>
         <Link
-          to="/pro/register"
+          to="/para-profesionales"
           className="inline-block bg-surface text-primary font-semibold px-9 py-4 rounded-[10px] hover:shadow-lg hover:opacity-95 transition-all"
           style={{ height: "56px", lineHeight: "24px" }}
         >
