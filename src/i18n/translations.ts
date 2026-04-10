@@ -524,6 +524,59 @@ const translations = {
     en: "Yes, you can cancel or change plans at any time. No commitments or penalties.",
     de: "Ja, Sie können jederzeit kündigen oder den Plan wechseln. Keine Verpflichtungen oder Strafen.",
   },
+
+  // ABOUT PAGE
+  "about.hero.title": { es: "¿Qué es Mallorca Holística?", ca: "Què és Mallorca Holística?", en: "What is Mallorca Holística?", de: "Was ist Mallorca Holística?" },
+  "about.hero.body": {
+    es: "Mallorca Holística nació de la necesidad de conectar a las personas con profesionales del bienestar de confianza en la isla. Una plataforma local, ética y multidisciplinar para residentes y visitantes.",
+    ca: "Mallorca Holística va néixer de la necessitat de connectar les persones amb professionals del benestar de confiança a l'illa. Una plataforma local, ètica i multidisciplinar per a residents i visitants.",
+    en: "Mallorca Holística was born from the need to connect people with trusted wellbeing professionals on the island. A local, ethical and multidisciplinary platform for residents and visitors.",
+    de: "Mallorca Holística entstand aus dem Bedürfnis, Menschen mit vertrauenswürdigen Wellness-Fachleuten auf der Insel zu verbinden. Eine lokale, ethische und multidisziplinäre Plattform für Einwohner und Besucher.",
+  },
+  "about.principles.title": { es: "Nuestros principios", ca: "Els nostres principis", en: "Our principles", de: "Unsere Grundsätze" },
+  "about.principles.ethics": { es: "Ética", ca: "Ètica", en: "Ethics", de: "Ethik" },
+  "about.principles.ethics.body": {
+    es: "Todos los profesionales aceptan nuestro código deontológico antes de publicar su perfil.",
+    ca: "Tots els professionals accepten el nostre codi deontològic abans de publicar el seu perfil.",
+    en: "All professionals accept our code of ethics before publishing their profile.",
+    de: "Alle Fachleute akzeptieren unseren Ethikkodex, bevor sie ihr Profil veröffentlichen.",
+  },
+  "about.principles.verification": { es: "Verificación", ca: "Verificació", en: "Verification", de: "Verifizierung" },
+  "about.principles.verification.body": {
+    es: "Revisamos identidad y titulación de cada profesional antes de validar su perfil.",
+    ca: "Revisem identitat i titulació de cada professional abans de validar el seu perfil.",
+    en: "We review each professional's identity and qualifications before validating their profile.",
+    de: "Wir überprüfen die Identität und Qualifikationen jeder Fachkraft, bevor wir ihr Profil freischalten.",
+  },
+  "about.principles.community": { es: "Comunidad", ca: "Comunitat", en: "Community", de: "Gemeinschaft" },
+  "about.principles.community.body": {
+    es: "Un ecosistema local de bienestar en crecimiento, para residentes y visitantes de Mallorca.",
+    ca: "Un ecosistema local de benestar en creixement, per a residents i visitants de Mallorca.",
+    en: "A growing local wellbeing ecosystem for residents and visitors in Mallorca.",
+    de: "Ein wachsendes lokales Wellness-Ökosystem für Einwohner und Besucher auf Mallorca.",
+  },
+  "about.code.title": { es: "Código deontológico", ca: "Codi deontològic", en: "Deontological code", de: "Ethikkodex" },
+  "about.code.body": {
+    es: "Todos los profesionales de Mallorca Holística se comprometen a ejercer con honestidad, respeto y transparencia. El bienestar del usuario es siempre la prioridad.",
+    ca: "Tots els professionals de Mallorca Holística es comprometen a exercir amb honestedat, respecte i transparència. El benestar de l'usuari és sempre la prioritat.",
+    en: "All Mallorca Holística professionals commit to practicing with honesty, respect and transparency. The user's wellbeing is always the priority.",
+    de: "Alle Fachleute von Mallorca Holística verpflichten sich zu Ehrlichkeit, Respekt und Transparenz. Das Wohlbefinden des Nutzers hat immer Vorrang.",
+  },
+  "about.code.check1": { es: "Actuar siempre en beneficio del cliente", ca: "Actuar sempre en benefici del client", en: "Always act in the client's best interest", de: "Immer im besten Interesse des Klienten handeln" },
+  "about.code.check2": { es: "Respetar los límites de su disciplina y derivar cuando sea necesario", ca: "Respectar els límits de la seva disciplina i derivar quan sigui necessari", en: "Respect the limits of their discipline and refer when necessary", de: "Die Grenzen ihrer Disziplin respektieren und bei Bedarf überweisen" },
+  "about.code.check3": { es: "Mantener la confidencialidad en todo momento", ca: "Mantenir la confidencialitat en tot moment", en: "Maintain confidentiality at all times", de: "Jederzeit Vertraulichkeit wahren" },
+  "about.code.note": {
+    es: "El código deontológico completo se entrega durante el proceso de registro.",
+    ca: "El codi deontològic complet s'entrega durant el procés de registre.",
+    en: "The full deontological code is provided during the registration process.",
+    de: "Der vollständige Ethikkodex wird während des Registrierungsprozesses bereitgestellt.",
+  },
+  "about.cta.title": { es: "¿Eres terapeuta?", ca: "Ets terapeuta?", en: "Are you a therapist?", de: "Sind Sie Therapeut?" },
+  "about.cta.body": { es: "Únete a la comunidad.", ca: "Uneix-te a la comunitat.", en: "Join the community.", de: "Treten Sie der Gemeinschaft bei." },
+  "about.cta.button": { es: "Crear mi perfil →", ca: "Crear el meu perfil →", en: "Create my profile →", de: "Mein Profil erstellen →" },
+
+  // FOOTER
+  "footer.about": { es: "Sobre nosotros", ca: "Sobre nosaltres", en: "About us", de: "Über uns" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
