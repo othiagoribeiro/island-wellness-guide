@@ -14,6 +14,7 @@ const HERO_IMAGES = [
 
 interface HeroProps {
   onAiSearch?: (query: string) => void;
+  onClassicSearch?: (filters: { q?: string; therapyId?: string; city?: string }) => void;
 }
 
 export default function Hero({ onAiSearch }: HeroProps) {
