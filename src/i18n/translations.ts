@@ -132,6 +132,8 @@ const translations = {
     de: "Beschreiben Sie, wie Sie sich fühlen oder was Sie brauchen...",
   },
   "orient.why": { es: "¿Por qué?", ca: "Per què?", en: "Why?", de: "Warum?" },
+  "orient.newSearch": { es: "Nueva búsqueda", ca: "Nova cerca", en: "New search", de: "Neue Suche" },
+  "orient.morePros": { es: "Más profesionales", ca: "Més professionals", en: "More professionals", de: "Mehr Fachleute" },
 
   // THERAPIES
   "ther.title": { es: "Guía de terapias", ca: "Guia de teràpies", en: "Therapy guide", de: "Therapieführer" },
