@@ -60,7 +60,7 @@ export default function Header() {
 
           <Link
             to="/pro/register"
-            className="border border-brown text-brown px-5 py-2 rounded-lg text-sm font-medium hover:bg-brown hover:text-primary-foreground transition-colors"
+            className="bg-primary text-primary-foreground px-5 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
           >
             {t("nav.pro")}
           </Link>
@@ -110,7 +110,7 @@ export default function Header() {
           <Link
             to="/pro/register"
             onClick={() => setMobileOpen(false)}
-            className="block text-center border border-brown text-brown px-5 py-3 rounded-lg text-sm font-medium"
+            className="block text-center bg-primary text-primary-foreground px-5 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
           >
             {t("nav.pro")}
           </Link>
