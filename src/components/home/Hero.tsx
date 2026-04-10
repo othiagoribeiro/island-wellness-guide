@@ -12,15 +12,16 @@ const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1600&q=80", // green nature aerial
 ];
 
-export default function Hero() {
+interface HeroProps {
+  onAiSearch?: (query: string) => void;
+}
+
+export default function Hero({ onAiSearch }: HeroProps) {
   const { t, locale } = useI18n();
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // AI panel state
   const [aiText, setAiText] = useState("");
-
-  // Search panel state
   const [searchQ, setSearchQ] = useState("");
   const [therapyId, setTherapyId] = useState("");
   const [city, setCity] = useState("");
@@ -36,9 +37,13 @@ export default function Hero() {
 
   const handleAiSubmit = useCallback(() => {
     if (aiText.trim()) {
-      navigate(`/orient?q=${encodeURIComponent(aiText.trim())}`);
+      if (onAiSearch) {
+        onAiSearch(aiText.trim());
+      } else {
+        navigate(`/orient?q=${encodeURIComponent(aiText.trim())}`);
+      }
     }
-  }, [aiText, navigate]);
+  }, [aiText, navigate, onAiSearch]);
 
   const handleSearchSubmit = useCallback(() => {
     const params = new URLSearchParams();
