@@ -5,9 +5,13 @@ import { getProfessionals, getKeywordsForProfessional } from "@/lib/api";
 import { MapPin, Star, Map as MapIcon, List } from "lucide-react";
 import DirectoryMap from "@/components/directory/DirectoryMap";
 
-export default function FeaturedProfessionals() {
+interface FeaturedProfessionalsProps {
+  professionals?: ReturnType<typeof getProfessionals>;
+}
+
+export default function FeaturedProfessionals({ professionals }: FeaturedProfessionalsProps) {
   const { t, locale } = useI18n();
-  const pros = getProfessionals();
+  const pros = professionals ?? getProfessionals();
   const [highlightedId, setHighlightedId] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(false);
 

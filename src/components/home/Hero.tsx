@@ -14,9 +14,10 @@ const HERO_IMAGES = [
 
 interface HeroProps {
   onAiSearch?: (query: string) => void;
+  onClassicSearch?: (filters: { q?: string; therapyId?: string; city?: string }) => void;
 }
 
-export default function Hero({ onAiSearch }: HeroProps) {
+export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
   const { t, locale } = useI18n();
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -46,12 +47,20 @@ export default function Hero({ onAiSearch }: HeroProps) {
   }, [aiText, navigate, onAiSearch]);
 
   const handleSearchSubmit = useCallback(() => {
-    const params = new URLSearchParams();
-    if (searchQ) params.set("q", searchQ);
-    if (therapyId) params.set("therapyId", therapyId);
-    if (city) params.set("city", city);
-    navigate(`/professionals?${params.toString()}`);
-  }, [searchQ, therapyId, city, navigate]);
+    const filters: { q?: string; therapyId?: string; city?: string } = {};
+    if (searchQ) filters.q = searchQ;
+    if (therapyId) filters.therapyId = therapyId;
+    if (city) filters.city = city;
+    if (onClassicSearch) {
+      onClassicSearch(filters);
+    } else {
+      const params = new URLSearchParams();
+      if (searchQ) params.set("q", searchQ);
+      if (therapyId) params.set("therapyId", therapyId);
+      if (city) params.set("city", city);
+      navigate(`/professionals?${params.toString()}`);
+    }
+  }, [searchQ, therapyId, city, navigate, onClassicSearch]);
 
   return (
     <section className="relative min-h-screen md:min-h-[680px] flex items-center justify-center overflow-hidden py-20 md:py-0">
