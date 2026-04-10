@@ -174,6 +174,16 @@ const translations = {
 
   // FAQ
   "faq.title": { es: "Preguntas frecuentes", ca: "Preguntes freqüents", en: "Frequently asked questions", de: "Häufig gestellte Fragen" },
+
+  // EXPLORE BY THERAPY
+  "explore.title": { es: "Explora por terapia", ca: "Explora per teràpia", en: "Explore by therapy", de: "Nach Therapie erkunden" },
+  "explore.bodywork": { es: "Corporal", ca: "Corporal", en: "Bodywork", de: "Körperarbeit" },
+  "explore.mind": { es: "Mente", ca: "Ment", en: "Mind", de: "Geist" },
+  "explore.energy": { es: "Energía", ca: "Energia", en: "Energy", de: "Energie" },
+  "explore.movement": { es: "Movimiento", ca: "Moviment", en: "Movement", de: "Bewegung" },
+  "explore.breath": { es: "Respiración", ca: "Respiració", en: "Breathwork", de: "Atemarbeit" },
+  "explore.traditional": { es: "Tradicional", ca: "Tradicional", en: "Traditional", de: "Traditionell" },
+  "explore.seeAll": { es: "Ver todas las terapias →", ca: "Veure totes les teràpies →", en: "See all therapies →", de: "Alle Therapien →" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
