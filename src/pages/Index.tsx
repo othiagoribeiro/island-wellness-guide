@@ -89,6 +89,9 @@ export default function Index() {
         />
       )}
 
+      {/* Featured professionals with map */}
+      <FeaturedProfessionals />
+
       {/* 2. Community counter strip */}
       <TrustStrip />
 
