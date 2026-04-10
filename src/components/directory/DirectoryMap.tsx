@@ -4,17 +4,24 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { Professional } from "@/lib/mocks";
 
-// Fix default marker icon
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
-delete (L.Icon.Default.prototype as any)._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-});
+// Custom elegant SVG pin
+function createPinIcon(highlighted: boolean) {
+  const color = highlighted ? "#5B8A72" : "#6B9B7D";
+  const size = highlighted ? 38 : 30;
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${Math.round(size * 1.35)}" viewBox="0 0 30 40" fill="none">
+      <path d="M15 0C6.716 0 0 6.716 0 15c0 10.5 15 25 15 25s15-14.5 15-25C30 6.716 23.284 0 15 0z" fill="${color}" fill-opacity="${highlighted ? '1' : '0.85'}"/>
+      <circle cx="15" cy="14" r="6" fill="white" fill-opacity="0.95"/>
+      <circle cx="15" cy="14" r="3" fill="${color}"/>
+    </svg>`;
+  return L.divIcon({
+    html: svg,
+    className: "custom-pin",
+    iconSize: [size, Math.round(size * 1.35)],
+    iconAnchor: [size / 2, Math.round(size * 1.35)],
+    popupAnchor: [0, -Math.round(size * 1.2)],
+  });
+}
 
 interface Props {
   professionals: Professional[];
@@ -42,7 +49,7 @@ export default function DirectoryMap({ professionals, highlightedId, onPinClick 
       style={{ zIndex: 0 }}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <MapBounds professionals={professionals} />
@@ -50,12 +57,15 @@ export default function DirectoryMap({ professionals, highlightedId, onPinClick 
         <Marker
           key={pro.id}
           position={[pro.lat, pro.lng]}
+          icon={createPinIcon(highlightedId === pro.id)}
           eventHandlers={{ click: () => onPinClick(pro.id) }}
         >
           <Popup>
-            <strong>{pro.name}</strong>
-            <br />
-            {pro.city}
+            <div className="text-center py-1">
+              <strong className="text-sm">{pro.name}</strong>
+              <br />
+              <span className="text-xs text-muted-foreground">{pro.city}</span>
+            </div>
           </Popup>
         </Marker>
       ))}
