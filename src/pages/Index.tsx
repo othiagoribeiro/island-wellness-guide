@@ -1,12 +1,13 @@
 import { useState, useCallback } from "react";
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/home/TrustStrip";
-import FeaturedProfessionals from "@/components/home/FeaturedProfessionals";
 import HowItWorks from "@/components/home/HowItWorks";
 import ExploreByTherapy from "@/components/home/ExploreByTherapy";
+import VerificationTrust from "@/components/home/VerificationTrust";
+import UpcomingActivities from "@/components/home/UpcomingActivities";
 import RecentBlog from "@/components/home/RecentBlog";
-import CTASection from "@/components/home/CTASection";
 import FAQ from "@/components/home/FAQ";
+import CTASection from "@/components/home/CTASection";
 import OrientResults from "@/components/home/OrientResults";
 import { getOrientResults } from "@/lib/api";
 import { useI18n } from "@/i18n/useI18n";
@@ -69,13 +70,15 @@ export default function Index() {
 
   const handleNewSearch = useCallback(() => {
     setOrientResult(null);
-    // Scroll back to hero
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
     <>
+      {/* 1. Hero */}
       <Hero onAiSearch={handleAiSearch} />
+
+      {/* Orient results (conditional) */}
       {orientResult && (
         <OrientResults
           query={orientResult.query}
@@ -84,12 +87,29 @@ export default function Index() {
           onNewSearch={handleNewSearch}
         />
       )}
+
+      {/* 2. Community counter strip */}
       <TrustStrip />
-      <FeaturedProfessionals />
-      <RecentBlog />
-      <FAQ />
+
+      {/* 3. How it works — patient journey */}
       <HowItWorks />
+
+      {/* 4. Therapy categories grid */}
       <ExploreByTherapy />
+
+      {/* 5. Verification trust block */}
+      <VerificationTrust />
+
+      {/* 6. Upcoming activities */}
+      <UpcomingActivities />
+
+      {/* 7. Blog preview */}
+      <RecentBlog />
+
+      {/* 8. FAQ */}
+      <FAQ />
+
+      {/* 9. Minimal therapist CTA */}
       <CTASection />
     </>
   );
