@@ -163,11 +163,11 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
         {/* Glass panels */}
         <div className="flex flex-col lg:flex-row max-w-[960px] mx-auto rounded-2xl overflow-hidden"
           style={{
-            background: "rgba(255,255,255,0.08)",
-            backdropFilter: "blur(24px) saturate(1.4)",
-            WebkitBackdropFilter: "blur(24px) saturate(1.4)",
-            border: "1px solid rgba(255,255,255,0.12)",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
+            background: "linear-gradient(135deg, rgba(220,225,230,0.18) 0%, rgba(255,255,255,0.14) 50%, rgba(200,210,220,0.16) 100%)",
+            backdropFilter: "blur(28px) saturate(1.3)",
+            WebkitBackdropFilter: "blur(28px) saturate(1.3)",
+            border: "1px solid rgba(255,255,255,0.22)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.18)",
           }}
         >
           {/* Panel Left — AI */}
