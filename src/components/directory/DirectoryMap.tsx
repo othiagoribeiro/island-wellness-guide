@@ -6,7 +6,7 @@ import type { Professional } from "@/lib/mocks";
 
 // Custom elegant SVG pin
 function createPinIcon(highlighted: boolean) {
-  const color = highlighted ? "#5B8A72" : "#6B9B7D";
+  const color = highlighted ? "#2C4A3E" : "#4A7C59";
   const size = highlighted ? 38 : 30;
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${Math.round(size * 1.35)}" viewBox="0 0 30 40" fill="none">
