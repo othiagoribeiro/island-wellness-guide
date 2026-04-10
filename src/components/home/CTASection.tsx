@@ -5,7 +5,7 @@ export default function CTASection() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-terracotta py-24">
+    <section className="bg-terracotta py-12 md:py-24">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: "white" }}>
           {t("cta.title")}

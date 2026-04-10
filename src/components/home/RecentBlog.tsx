@@ -57,7 +57,7 @@ export default function RecentBlog() {
   const featuredTherapy = featured ? getTherapy(featured.therapyId) : null;
 
   return (
-    <section className="py-20 md:py-28 bg-background">
+    <section className="py-12 md:py-28 bg-background">
       <div className="container mx-auto px-4">
         <FadeInOnScroll>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-14">

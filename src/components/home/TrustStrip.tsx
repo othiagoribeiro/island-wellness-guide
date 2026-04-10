@@ -44,8 +44,8 @@ export default function TrustStrip() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-primary py-16 md:py-20">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-center text-primary-foreground">
+    <section className="bg-primary py-10 md:py-20">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 text-center text-primary-foreground">
         <div className="flex flex-col items-center gap-2">
           <AnimatedCounter target={64} />
           <p className="text-sm font-medium opacity-80 tracking-wide">{t("trust.professionals")}</p>

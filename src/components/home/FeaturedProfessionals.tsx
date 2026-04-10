@@ -12,8 +12,8 @@ export default function FeaturedProfessionals() {
   const [showMap, setShowMap] = useState(false);
 
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-10 md:py-24 bg-background">
+      <div className="container mx-auto px-3 md:px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4 uppercase tracking-wider">
           {t("home.professionals.title")}
         </h2>
@@ -122,7 +122,7 @@ function ProfessionalRow({
     <Link
       ref={ref}
       to={`/professionals/${pro.id}`}
-      className={`flex items-start gap-5 py-6 group transition-all duration-300 hover:bg-muted/30 px-3 rounded-lg -mx-3 ${
+      className={`flex items-start gap-3 md:gap-5 py-4 md:py-6 group transition-all duration-300 hover:bg-muted/30 px-2 md:px-3 rounded-lg -mx-2 md:-mx-3 ${
         isHighlighted ? "bg-primary/5 ring-1 ring-primary/20" : ""
       }`}
       style={{
@@ -134,7 +134,7 @@ function ProfessionalRow({
       onMouseLeave={() => onHover(null)}
     >
       {/* Avatar */}
-      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center text-primary font-bold text-lg shrink-0 overflow-hidden ring-2 ring-border group-hover:ring-primary/40 transition-all duration-300">
+      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center text-primary font-bold text-sm md:text-lg shrink-0 overflow-hidden ring-2 ring-border group-hover:ring-primary/40 transition-all duration-300">
         {pro.photo ? (
           <img src={pro.photo} alt={pro.name} className="w-full h-full object-cover" />
         ) : (
