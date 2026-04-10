@@ -154,6 +154,15 @@ const translations = {
 
   // HOME FEATURED PROFESSIONALS
   "home.professionals.title": { es: "NATURÓPATAS", ca: "NATURÒPATES", en: "PRACTITIONERS", de: "THERAPEUTEN" },
+
+  // TRUST STRIP
+  "trust.multilingual": { es: "Multilingüe", ca: "Multilingüe", en: "Multilingual", de: "Mehrsprachig" },
+
+  // BLOG
+  "blog.seeAll": { es: "Ver todos los artículos", ca: "Veure tots els articles", en: "See all articles", de: "Alle Artikel ansehen" },
+
+  // FAQ
+  "faq.title": { es: "Preguntas frecuentes", ca: "Preguntes freqüents", en: "Frequently asked questions", de: "Häufig gestellte Fragen" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
