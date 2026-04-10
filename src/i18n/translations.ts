@@ -239,6 +239,12 @@ const translations = {
 
   // FAQ
   "faq.title": { es: "Preguntas frecuentes", ca: "Preguntes freqüents", en: "Frequently asked questions", de: "Häufig gestellte Fragen" },
+  "faq.subtitle": {
+    es: "Todo lo que necesitas saber sobre Mallorca Holística.",
+    ca: "Tot el que necessites saber sobre Mallorca Holística.",
+    en: "Everything you need to know about Mallorca Holística.",
+    de: "Alles, was Sie über Mallorca Holística wissen müssen.",
+  },
 
   // EXPLORE BY THERAPY
   "explore.title": { es: "Explora por tipo de terapia", ca: "Explora per tipus de teràpia", en: "Explore by therapy type", de: "Nach Therapieart erkunden" },

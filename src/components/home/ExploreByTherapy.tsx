@@ -3,90 +3,27 @@ import { Link } from "react-router-dom";
 import { useI18n } from "@/i18n/useI18n";
 import type { TranslationKey } from "@/i18n/translations";
 
+const CATEGORY_IMAGES = [
+  "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80", // bodywork / massage
+  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80", // mind / meditation
+  "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=600&q=80", // energy / reiki hands
+  "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=600&q=80", // movement / yoga
+  "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80", // breath / nature
+  "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80", // traditional / herbs
+];
+
 const CATEGORIES: {
   key: TranslationKey;
   subKey: TranslationKey;
   category: string;
-  icon: JSX.Element;
+  image: string;
 }[] = [
-  {
-    key: "explore.bodywork",
-    subKey: "explore.bodywork.sub",
-    category: "bodywork",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4C14.5 4 13 5.5 13 7.5C13 9.5 14.5 11 16 11C17.5 11 19 9.5 19 7.5C19 5.5 17.5 4 16 4Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M8 14C8 14 10 12 16 12C22 12 24 14 24 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M10 14V20C10 20 10 24 12 26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M22 14V20C22 20 22 24 20 26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M13 18H19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    key: "explore.mind",
-    subKey: "explore.mind.sub",
-    category: "mind",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 28V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M16 20C12 20 8 17 8 12C8 7 11.5 4 16 4C20.5 4 24 7 24 12C24 17 20 20 16 20Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12 12C12 12 13.5 14 16 14C18.5 14 20 12 20 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="13" cy="10" r="1" fill="currentColor"/>
-        <circle cx="19" cy="10" r="1" fill="currentColor"/>
-      </svg>
-    ),
-  },
-  {
-    key: "explore.energy",
-    subKey: "explore.energy.sub",
-    category: "energy",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4L14 14H18L16 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M8 12C8 12 10 10 12 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M24 12C24 12 22 10 20 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M7 18C7 18 9 16 11 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M25 18C25 18 23 16 21 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    key: "explore.movement",
-    subKey: "explore.movement.sub",
-    category: "movement",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="18" cy="6" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
-        <path d="M12 28L14 20L17 22V28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M14 20L10 14L15 12L20 14L24 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-  },
-  {
-    key: "explore.breath",
-    subKey: "explore.breath.sub",
-    category: "breath",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 20C6 20 10 12 16 12C22 12 26 20 26 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M6 16C6 16 10 8 16 8C22 8 26 16 26 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M10 24C10 24 12 20 16 20C20 20 22 24 22 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-  {
-    key: "explore.traditional",
-    subKey: "explore.traditional.sub",
-    category: "traditional",
-    icon: (
-      <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4C16 4 8 10 8 18C8 22 11 28 16 28C21 28 24 22 24 18C24 10 16 4 16 4Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M16 12V22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M12 16C12 16 14 18 16 18C18 18 20 16 20 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
+  { key: "explore.bodywork", subKey: "explore.bodywork.sub", category: "bodywork", image: CATEGORY_IMAGES[0] },
+  { key: "explore.mind", subKey: "explore.mind.sub", category: "mind", image: CATEGORY_IMAGES[1] },
+  { key: "explore.energy", subKey: "explore.energy.sub", category: "energy", image: CATEGORY_IMAGES[2] },
+  { key: "explore.movement", subKey: "explore.movement.sub", category: "movement", image: CATEGORY_IMAGES[3] },
+  { key: "explore.breath", subKey: "explore.breath.sub", category: "breath", image: CATEGORY_IMAGES[4] },
+  { key: "explore.traditional", subKey: "explore.traditional.sub", category: "traditional", image: CATEGORY_IMAGES[5] },
 ];
 
 export default function ExploreByTherapy() {
@@ -102,7 +39,7 @@ export default function ExploreByTherapy() {
           {t("explore.subtitle")}
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-5 max-w-4xl mx-auto">
           {CATEGORIES.map((cat, i) => (
             <CategoryCard key={cat.category} cat={cat} index={i} />
           ))}
@@ -152,22 +89,42 @@ function CategoryCard({
     <Link
       ref={ref}
       to={`/professionals?category=${cat.category}`}
-      className="bg-surface rounded-xl p-6 md:p-7 shadow-sm border border-border/40 flex flex-col items-center gap-2 transition-all duration-200 hover:-translate-y-[3px] hover:shadow-md group"
+      className="group relative rounded-2xl overflow-hidden aspect-[4/3] flex items-end"
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
-        transition: `opacity 0.5s cubic-bezier(0.22,1,0.36,1) ${index * 0.07}s, transform 0.5s cubic-bezier(0.22,1,0.36,1) ${index * 0.07}s, box-shadow 0.2s ease`,
+        transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.97)",
+        transition: `opacity 0.6s cubic-bezier(0.22,1,0.36,1) ${index * 0.08}s, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${index * 0.08}s`,
       }}
     >
-      <div className="text-accent group-hover:text-primary transition-colors duration-200">
-        {cat.icon}
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+        style={{ backgroundImage: `url(${cat.image})` }}
+      />
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 transition-opacity duration-300"
+        style={{
+          background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.05) 100%)",
+        }}
+      />
+      {/* Content */}
+      <div className="relative z-10 p-4 md:p-5 w-full">
+        <h3 className="text-white font-semibold text-[15px] md:text-[17px] mb-0.5">
+          {t(cat.key)}
+        </h3>
+        <p className="text-white/60 text-xs md:text-[13px] leading-snug">
+          {t(cat.subKey)}
+        </p>
       </div>
-      <span className="text-primary font-semibold text-[15px] text-center">
-        {t(cat.key)}
-      </span>
-      <span className="text-muted-foreground text-xs text-center leading-snug">
-        {t(cat.subKey)}
-      </span>
+      {/* Hover glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{
+          boxShadow: "inset 0 0 0 2px rgba(255,255,255,0.25)",
+          borderRadius: "inherit",
+        }}
+      />
     </Link>
   );
 }
