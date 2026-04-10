@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import Hero from "@/components/home/Hero";
+import FeaturedProfessionals from "@/components/home/FeaturedProfessionals";
 import TrustStrip from "@/components/home/TrustStrip";
 import HowItWorks from "@/components/home/HowItWorks";
 import ExploreByTherapy from "@/components/home/ExploreByTherapy";
@@ -87,6 +88,9 @@ export default function Index() {
           onNewSearch={handleNewSearch}
         />
       )}
+
+      {/* Featured professionals with map */}
+      <FeaturedProfessionals />
 
       {/* 2. Community counter strip */}
       <TrustStrip />
