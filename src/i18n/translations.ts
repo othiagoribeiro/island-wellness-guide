@@ -154,6 +154,14 @@ const translations = {
 
   // HOME FEATURED PROFESSIONALS
   "home.professionals.title": { es: "NATURÓPATAS", ca: "NATURÒPATES", en: "PRACTITIONERS", de: "THERAPEUTEN" },
+  "home.professionals.subtitle": {
+    es: "Encuentra al profesional más cercano a ti en Mallorca",
+    ca: "Troba el professional més proper a tu a Mallorca",
+    en: "Find the closest professional to you in Mallorca",
+    de: "Finden Sie die nächstgelegene Fachkraft auf Mallorca",
+  },
+  "home.professionals.list": { es: "Lista", ca: "Llista", en: "List", de: "Liste" },
+  "home.professionals.map": { es: "Mapa", ca: "Mapa", en: "Map", de: "Karte" },
 
   // TRUST STRIP
   "trust.multilingual": { es: "Multilingüe", ca: "Multilingüe", en: "Multilingual", de: "Mehrsprachig" },
