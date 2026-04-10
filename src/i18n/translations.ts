@@ -46,8 +46,9 @@ const translations = {
   "hero.search.button": { es: "Buscar profesionales →", ca: "Cercar professionals →", en: "Search professionals →", de: "Fachleute suchen →" },
 
   // TRUST STRIP
-  "trust.professionals": { es: "profesionales verificados", ca: "professionals verificats", en: "verified professionals", de: "geprüfte Fachleute" },
-  "trust.activities": { es: "actividades próximas", ca: "activitats pròximes", en: "upcoming activities", de: "bevorstehende Aktivitäten" },
+  "trust.professionals": { es: "profesionales del bienestar en Mallorca", ca: "professionals del benestar a Mallorca", en: "wellbeing professionals in Mallorca", de: "Wellness-Fachleute auf Mallorca" },
+  "trust.specialties": { es: "especialidades conectadas", ca: "especialitats connectades", en: "connected specialties", de: "vernetzte Fachgebiete" },
+  "trust.community": { es: "miembros de la comunidad", ca: "membres de la comunitat", en: "community members", de: "Community-Mitglieder" },
 
   // HOW IT WORKS
   "how.title": { es: "Cómo funciona", ca: "Com funciona", en: "How it works", de: "So funktioniert es" },
