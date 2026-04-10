@@ -77,6 +77,7 @@ export default function RecentBlog() {
                   src={BLOG_IMAGES[0]}
                   alt={featured.title[locale]}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  style={{ filter: "saturate(0.55) brightness(0.85)" }}
                   loading="lazy"
                 />
               </div>
@@ -113,6 +114,7 @@ export default function RecentBlog() {
                       src={BLOG_IMAGES[(i + 1) % BLOG_IMAGES.length]}
                       alt={post.title[locale]}
                       className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 ease-out"
+                      style={{ filter: "saturate(0.55) brightness(0.85)" }}
                       loading="lazy"
                     />
                   </div>
