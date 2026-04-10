@@ -6,9 +6,8 @@ import { CITIES } from "@/lib/mocks";
 import { Sparkles, Search } from "lucide-react";
 import type { Locale } from "@/i18n/locales";
 import heroCala from "@/assets/hero_cala.jpg";
-import heroSerenity from "@/assets/hero_serenity.jpg";
 
-const HERO_IMAGES = [heroCala, heroSerenity];
+const HERO_IMAGES = [heroCala];
 
 const ROTATING_TITLES: Record<Locale, string[]> = {
   es: [
