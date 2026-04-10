@@ -28,11 +28,11 @@ export default function OrientResults({ query, explanation, professionals, onNew
   }, []);
 
   return (
-    <section ref={containerRef} className="py-12 md:py-16 bg-muted/30 scroll-mt-20">
-      <div className="container mx-auto px-4 max-w-3xl">
+    <section ref={containerRef} className="py-8 md:py-16 bg-muted/30 scroll-mt-20">
+      <div className="container mx-auto px-3 md:px-4 max-w-3xl">
         <div className="bg-card rounded-2xl shadow-md border border-border/50 overflow-hidden animate-fade-in">
           {/* Empathetic message */}
-          <div className="p-6 md:p-8">
+          <div className="p-4 md:p-8">
             <div className="flex gap-4">
               <div className="shrink-0 mt-1">
                 <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
@@ -46,7 +46,7 @@ export default function OrientResults({ query, explanation, professionals, onNew
           </div>
 
           {/* Recommended professionals */}
-          <div className="border-t border-border/50 px-6 md:px-8 py-5">
+          <div className="border-t border-border/50 px-4 md:px-8 py-4 md:py-5">
             <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
               {t("orient.professionals")}
             </h3>
@@ -103,7 +103,7 @@ export default function OrientResults({ query, explanation, professionals, onNew
           </div>
 
           {/* Action buttons */}
-          <div className="border-t border-border/50 px-6 md:px-8 py-5 flex flex-col sm:flex-row gap-3">
+          <div className="border-t border-border/50 px-4 md:px-8 py-4 md:py-5 flex flex-col sm:flex-row gap-3">
             <button
               onClick={onNewSearch}
               className="flex-1 flex items-center justify-center gap-2 bg-background border border-border text-foreground font-medium rounded-lg hover:bg-muted transition-colors"

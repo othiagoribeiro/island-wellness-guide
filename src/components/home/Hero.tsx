@@ -54,7 +54,7 @@ export default function Hero({ onAiSearch }: HeroProps) {
   }, [searchQ, therapyId, city, navigate]);
 
   return (
-    <section className="relative h-screen min-h-[680px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen md:min-h-[680px] flex items-center justify-center overflow-hidden py-20 md:py-0">
       {/* Background slideshow */}
       {HERO_IMAGES.map((src, i) => (
         <div
@@ -84,19 +84,19 @@ export default function Hero({ onAiSearch }: HeroProps) {
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-3 md:px-4 text-center">
         {/* Eyebrow */}
         <p className="text-primary-foreground text-xs font-medium tracking-[0.3em] uppercase mb-4">
           {t("hero.eyebrow")}
         </p>
 
         {/* H1 */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4" style={{ color: "white" }}>
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4" style={{ color: "white" }}>
           {t("hero.title")}
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg mb-10 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.75)" }}>
+        <p className="text-sm md:text-lg mb-6 md:mb-10 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.75)" }}>
           {t("hero.subtitle")}
         </p>
 
@@ -108,7 +108,7 @@ export default function Hero({ onAiSearch }: HeroProps) {
         {/* Two panels */}
         <div className="flex flex-col lg:flex-row max-w-[960px] mx-auto rounded-2xl overflow-hidden shadow-2xl">
           {/* Panel Left — AI */}
-          <div className="bg-surface p-8 lg:w-[55%] text-left">
+          <div className="bg-surface p-5 md:p-8 lg:w-[55%] text-left">
             <div className="flex items-center gap-2 mb-3">
               <Sparkles size={18} className="text-terracotta" />
               <h2 className="text-lg font-semibold text-brown">{t("hero.ai.title")}</h2>
@@ -120,14 +120,14 @@ export default function Hero({ onAiSearch }: HeroProps) {
               className="w-full bg-transparent border-0 border-b-2 text-foreground placeholder:text-stone text-base resize-none focus:outline-none focus:border-terracotta transition-colors"
               style={{
                 borderBottomColor: "rgba(196,133,106,0.4)",
-                minHeight: "100px",
+                minHeight: "72px",
                 fontSize: "16px",
               }}
             />
             <button
               onClick={handleAiSubmit}
-              className="mt-4 w-full bg-terracotta text-surface font-semibold rounded-lg transition-opacity hover:opacity-90"
-              style={{ height: "56px", fontSize: "16px" }}
+              className="mt-3 w-full bg-terracotta text-surface font-semibold rounded-lg transition-opacity hover:opacity-90"
+              style={{ height: "48px", fontSize: "15px" }}
             >
               {t("hero.ai.button")}
             </button>
@@ -137,7 +137,7 @@ export default function Hero({ onAiSearch }: HeroProps) {
           <div className="hidden lg:block w-px" style={{ backgroundColor: "rgba(196,133,106,0.3)" }} />
 
           {/* Panel Right — Search */}
-          <div className="bg-surface p-8 lg:w-[45%] text-left">
+          <div className="bg-surface p-5 md:p-8 lg:w-[45%] text-left">
             <div className="flex items-center gap-2 mb-3">
               <Search size={18} className="text-brown" />
               <h2 className="text-lg font-semibold text-brown">{t("hero.search.title")}</h2>
@@ -147,15 +147,15 @@ export default function Hero({ onAiSearch }: HeroProps) {
               value={searchQ}
               onChange={(e) => setSearchQ(e.target.value)}
               placeholder={t("hero.search.placeholder")}
-              className="w-full bg-background border border-border rounded-lg px-4 text-foreground placeholder:text-stone focus:outline-none focus:ring-2 focus:ring-terracotta/30 mb-3"
-              style={{ height: "56px", fontSize: "16px" }}
+              className="w-full bg-background border border-border rounded-lg px-4 text-foreground placeholder:text-stone focus:outline-none focus:ring-2 focus:ring-terracotta/30 mb-2"
+              style={{ height: "48px", fontSize: "15px" }}
             />
 
             <select
               value={therapyId}
               onChange={(e) => setTherapyId(e.target.value)}
-              className="w-full bg-background border border-border rounded-lg px-4 text-foreground mb-3 focus:outline-none focus:ring-2 focus:ring-terracotta/30"
-              style={{ height: "56px", fontSize: "16px" }}
+              className="w-full bg-background border border-border rounded-lg px-4 text-foreground mb-2 focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+              style={{ height: "48px", fontSize: "15px" }}
             >
               <option value="">{t("hero.search.allTherapies")}</option>
               {therapies.map((th) => (
@@ -166,8 +166,8 @@ export default function Hero({ onAiSearch }: HeroProps) {
             <select
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className="w-full bg-background border border-border rounded-lg px-4 text-foreground mb-3 focus:outline-none focus:ring-2 focus:ring-terracotta/30"
-              style={{ height: "56px", fontSize: "16px" }}
+              className="w-full bg-background border border-border rounded-lg px-4 text-foreground mb-2 focus:outline-none focus:ring-2 focus:ring-terracotta/30"
+              style={{ height: "48px", fontSize: "15px" }}
             >
               <option value="">{t("hero.search.allCities")}</option>
               {CITIES.map((c) => (
@@ -178,7 +178,7 @@ export default function Hero({ onAiSearch }: HeroProps) {
             <button
               onClick={handleSearchSubmit}
               className="w-full bg-brown text-primary-foreground font-semibold rounded-lg transition-opacity hover:opacity-90"
-              style={{ height: "56px", fontSize: "16px" }}
+              style={{ height: "48px", fontSize: "15px" }}
             >
               {t("hero.search.button")}
             </button>
