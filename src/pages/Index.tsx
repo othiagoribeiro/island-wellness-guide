@@ -10,7 +10,7 @@ import RecentBlog from "@/components/home/RecentBlog";
 import FAQ from "@/components/home/FAQ";
 import CTASection from "@/components/home/CTASection";
 import OrientResults from "@/components/home/OrientResults";
-import { getOrientResults } from "@/lib/api";
+import { getOrientResults, getProfessionals } from "@/lib/api";
 import { useI18n } from "@/i18n/useI18n";
 import type { Professional } from "@/lib/mocks";
 
@@ -55,6 +55,7 @@ export default function Index() {
     explanation: string;
     professionals: Professional[];
   } | null>(null);
+  const [searchedProfessionals, setSearchedProfessionals] = useState<Professional[] | null>(null);
 
   const handleAiSearch = useCallback(
     (query: string) => {
@@ -65,19 +66,30 @@ export default function Index() {
         explanation,
         professionals: results.professionals,
       });
+      setSearchedProfessionals(results.professionals);
     },
     [locale]
   );
 
+  const handleClassicSearch = useCallback(
+    (filters: { q?: string; therapyId?: string; city?: string }) => {
+      const results = getProfessionals(filters);
+      setSearchedProfessionals(results);
+      setOrientResult(null);
+    },
+    []
+  );
+
   const handleNewSearch = useCallback(() => {
     setOrientResult(null);
+    setSearchedProfessionals(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
     <>
       {/* 1. Hero */}
-      <Hero onAiSearch={handleAiSearch} />
+      <Hero onAiSearch={handleAiSearch} onClassicSearch={handleClassicSearch} />
 
       {/* Orient results (conditional) */}
       {orientResult && (
@@ -90,7 +102,9 @@ export default function Index() {
       )}
 
       {/* Featured professionals with map */}
-      <FeaturedProfessionals />
+      {searchedProfessionals && searchedProfessionals.length > 0 && (
+        <FeaturedProfessionals professionals={searchedProfessionals} />
+      )}
 
       {/* 2. Community counter strip */}
       <TrustStrip />
