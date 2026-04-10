@@ -17,6 +17,8 @@ import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ProRegisterPage from "./pages/ProRegisterPage";
 import ProLandingPage from "./pages/ProLandingPage";
+import AboutPage from "./pages/AboutPage";
+import AdminPage from "./pages/AdminPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
