@@ -4,13 +4,41 @@ import { useI18n } from "@/i18n/useI18n";
 import { getTherapies } from "@/lib/api";
 import { CITIES } from "@/lib/mocks";
 import { Sparkles, Search } from "lucide-react";
+import type { Locale } from "@/i18n/locales";
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1600&q=80", // bright turquoise coast
-  "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=80", // light blue ocean aerial
-  "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1600&q=80", // sunlight through trees
-  "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1600&q=80", // green nature aerial
+  "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1600&q=80",
+  "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=80",
+  "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1600&q=80",
+  "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1600&q=80",
 ];
+
+const ROTATING_TITLES: Record<Locale, string[]> = {
+  es: [
+    "Encuentra tu bienestar en Mallorca",
+    "Terapias naturales, cerca de ti",
+    "Tu cuerpo y mente, en equilibrio",
+    "Profesionales verificados, resultados reales",
+  ],
+  ca: [
+    "Troba el teu benestar a Mallorca",
+    "Teràpies naturals, a prop teu",
+    "El teu cos i ment, en equilibri",
+    "Professionals verificats, resultats reals",
+  ],
+  en: [
+    "Find your wellbeing in Mallorca",
+    "Natural therapies, close to you",
+    "Your body and mind, in balance",
+    "Verified professionals, real results",
+  ],
+  de: [
+    "Finde dein Wohlbefinden auf Mallorca",
+    "Natürliche Therapien, in deiner Nähe",
+    "Dein Körper und Geist, im Gleichgewicht",
+    "Verifizierte Fachleute, echte Ergebnisse",
+  ],
+};
 
 interface HeroProps {
   onAiSearch?: (query: string) => void;
@@ -21,6 +49,8 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
   const { t, locale } = useI18n();
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentTitle, setCurrentTitle] = useState(0);
+  const [titleVisible, setTitleVisible] = useState(true);
 
   const [aiText, setAiText] = useState("");
   const [searchQ, setSearchQ] = useState("");
@@ -28,13 +58,27 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
   const [city, setCity] = useState("");
 
   const therapies = getTherapies();
+  const titles = ROTATING_TITLES[locale] || ROTATING_TITLES.es;
 
+  // Background slideshow
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  // Rotating title
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTitleVisible(false);
+      setTimeout(() => {
+        setCurrentTitle((prev) => (prev + 1) % titles.length);
+        setTitleVisible(true);
+      }, 600);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [titles.length]);
 
   const handleAiSubmit = useCallback(() => {
     if (aiText.trim()) {
@@ -63,130 +107,169 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
   }, [searchQ, therapyId, city, navigate, onClassicSearch]);
 
   return (
-    <section className="relative min-h-screen md:min-h-[680px] flex items-center justify-center overflow-hidden py-20 md:py-0">
+    <section className="relative min-h-screen md:min-h-[720px] flex items-center justify-center overflow-hidden py-20 md:py-0">
       {/* Background slideshow */}
       {HERO_IMAGES.map((src, i) => (
         <div
           key={src}
-          className="absolute inset-0 transition-opacity duration-1000"
+          className="absolute inset-0"
           style={{
             opacity: i === currentSlide ? 1 : 0,
             backgroundImage: `url(${src})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            transition: "opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         />
       ))}
 
-      {/* Overlay */}
+      {/* Dark overlay */}
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.25) 100%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-5 mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%)",
         }}
       />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-3 md:px-4 text-center">
         {/* Eyebrow */}
-        <p className="text-primary-foreground text-xs font-medium tracking-[0.3em] uppercase mb-4">
+        <p
+          className="text-xs font-medium tracking-[0.3em] uppercase mb-5"
+          style={{ color: "rgba(255,255,255,0.6)" }}
+        >
           {t("hero.eyebrow")}
         </p>
 
-        {/* H1 */}
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4" style={{ color: "white" }}>
-          {t("hero.title")}
+        {/* Rotating H1 */}
+        <h1
+          className="text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight"
+          style={{
+            color: "white",
+            opacity: titleVisible ? 1 : 0,
+            transform: titleVisible ? "translateY(0)" : "translateY(12px)",
+            transition: "opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1)",
+          }}
+        >
+          {titles[currentTitle]}
         </h1>
 
         {/* Subtitle */}
-        <p className="text-sm md:text-lg mb-6 md:mb-10 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.75)" }}>
+        <p
+          className="text-sm md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto"
+          style={{ color: "rgba(255,255,255,0.7)" }}
+        >
           {t("hero.subtitle")}
         </p>
 
-        {/* START HERE label */}
-        <p className="text-sm font-medium tracking-[0.2em] mb-4" style={{ color: "white" }}>
-          {t("hero.startHere")}
-        </p>
-
-        {/* Two panels */}
-        <div className="flex flex-col lg:flex-row max-w-[960px] mx-auto rounded-2xl overflow-hidden shadow-2xl">
+        {/* Glass panels */}
+        <div className="flex flex-col lg:flex-row max-w-[960px] mx-auto rounded-2xl overflow-hidden"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            backdropFilter: "blur(24px) saturate(1.4)",
+            WebkitBackdropFilter: "blur(24px) saturate(1.4)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1)",
+          }}
+        >
           {/* Panel Left — AI */}
-          <div className="bg-surface p-5 md:p-8 lg:w-[55%] text-left">
-            <div className="flex items-center gap-2 mb-3">
-              <Sparkles size={18} className="text-terracotta" />
-              <h2 className="text-lg font-semibold text-brown">{t("hero.ai.title")}</h2>
+          <div className="p-5 md:p-8 lg:w-[55%] text-left">
+            <div className="flex items-center gap-2 mb-4">
+              <Sparkles size={18} style={{ color: "rgba(255,255,255,0.7)" }} />
+              <h2 className="text-lg font-semibold text-white">{t("hero.ai.title")}</h2>
             </div>
             <textarea
               value={aiText}
               onChange={(e) => setAiText(e.target.value)}
               placeholder={t("hero.ai.placeholder")}
-              className="w-full bg-transparent border-0 border-b-2 text-foreground placeholder:text-stone text-base resize-none focus:outline-none focus:border-terracotta transition-colors"
+              className="w-full bg-transparent border-0 border-b text-white placeholder:text-white/40 text-base resize-none focus:outline-none transition-colors"
               style={{
-                borderBottomColor: "rgba(196,133,106,0.4)",
+                borderBottomColor: "rgba(255,255,255,0.2)",
                 minHeight: "72px",
                 fontSize: "16px",
               }}
+              onFocus={(e) => { e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.5)"; }}
+              onBlur={(e) => { e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.2)"; }}
             />
             <button
               onClick={handleAiSubmit}
-              className="mt-3 w-full bg-terracotta text-surface font-semibold rounded-lg transition-opacity hover:opacity-90"
-              style={{ height: "48px", fontSize: "15px" }}
+              className="mt-4 w-full font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+              style={{
+                height: "48px",
+                fontSize: "15px",
+                background: "rgba(255,255,255,0.15)",
+                color: "white",
+                border: "1px solid rgba(255,255,255,0.2)",
+                backdropFilter: "blur(8px)",
+              }}
             >
               {t("hero.ai.button")}
             </button>
           </div>
 
           {/* Divider */}
-          <div className="hidden lg:block w-px" style={{ backgroundColor: "rgba(196,133,106,0.3)" }} />
+          <div className="hidden lg:block w-px" style={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
+          <div className="lg:hidden h-px mx-5" style={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
 
           {/* Panel Right — Search */}
-          <div className="bg-surface p-5 md:p-8 lg:w-[45%] text-left">
-            <div className="flex items-center gap-2 mb-3">
-              <Search size={18} className="text-brown" />
-              <h2 className="text-lg font-semibold text-brown">{t("hero.search.title")}</h2>
+          <div className="p-5 md:p-8 lg:w-[45%] text-left">
+            <div className="flex items-center gap-2 mb-4">
+              <Search size={18} style={{ color: "rgba(255,255,255,0.7)" }} />
+              <h2 className="text-lg font-semibold text-white">{t("hero.search.title")}</h2>
             </div>
 
             <input
               value={searchQ}
               onChange={(e) => setSearchQ(e.target.value)}
               placeholder={t("hero.search.placeholder")}
-              className="w-full bg-background border border-border rounded-lg px-4 text-foreground placeholder:text-stone focus:outline-none focus:ring-2 focus:ring-terracotta/30 mb-2"
-              style={{ height: "48px", fontSize: "15px" }}
+              className="w-full rounded-lg px-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-1 focus:ring-white/30 mb-2"
+              style={{
+                height: "44px",
+                fontSize: "15px",
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.12)",
+              }}
             />
 
             <select
               value={therapyId}
               onChange={(e) => setTherapyId(e.target.value)}
-              className="w-full bg-background border border-border rounded-lg px-4 text-foreground mb-2 focus:outline-none focus:ring-2 focus:ring-terracotta/30"
-              style={{ height: "48px", fontSize: "15px" }}
+              className="w-full rounded-lg px-4 text-white focus:outline-none focus:ring-1 focus:ring-white/30 mb-2 appearance-none"
+              style={{
+                height: "44px",
+                fontSize: "15px",
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                colorScheme: "dark",
+              }}
             >
-              <option value="">{t("hero.search.allTherapies")}</option>
+              <option value="" style={{ background: "#2C4A3E" }}>{t("hero.search.allTherapies")}</option>
               {therapies.map((th) => (
-                <option key={th.id} value={th.id}>{th.name[locale]}</option>
+                <option key={th.id} value={th.id} style={{ background: "#2C4A3E" }}>{th.name[locale]}</option>
               ))}
             </select>
 
             <select
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className="w-full bg-background border border-border rounded-lg px-4 text-foreground mb-2 focus:outline-none focus:ring-2 focus:ring-terracotta/30"
-              style={{ height: "48px", fontSize: "15px" }}
+              className="w-full rounded-lg px-4 text-white focus:outline-none focus:ring-1 focus:ring-white/30 mb-3 appearance-none"
+              style={{
+                height: "44px",
+                fontSize: "15px",
+                background: "rgba(255,255,255,0.08)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                colorScheme: "dark",
+              }}
             >
-              <option value="">{t("hero.search.allCities")}</option>
+              <option value="" style={{ background: "#2C4A3E" }}>{t("hero.search.allCities")}</option>
               {CITIES.map((c) => (
-                <option key={c} value={c}>{c}</option>
+                <option key={c} value={c} style={{ background: "#2C4A3E" }}>{c}</option>
               ))}
             </select>
 
             <button
               onClick={handleSearchSubmit}
-              className="w-full bg-brown text-primary-foreground font-semibold rounded-lg transition-opacity hover:opacity-90"
+              className="w-full bg-primary text-primary-foreground font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               style={{ height: "48px", fontSize: "15px" }}
             >
               {t("hero.search.button")}
