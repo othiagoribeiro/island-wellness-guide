@@ -72,7 +72,7 @@ export default function RecentBlog() {
               to={`/blog/${featured.id}`}
               className="group block relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 max-w-5xl mx-auto"
             >
-              <div className="aspect-[21/9] md:aspect-[21/8]">
+              <div className="aspect-[16/10] md:aspect-[21/12]">
                 <img
                   src={BLOG_IMAGES[0]}
                   alt={featured.title[locale]}
@@ -109,7 +109,7 @@ export default function RecentBlog() {
                   to={`/blog/${post.id}`}
                   className="group bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-400 flex flex-col h-full border border-border/50"
                 >
-                  <div className="aspect-[16/10] overflow-hidden">
+                  <div className="aspect-[3/4] overflow-hidden">
                     <img
                       src={BLOG_IMAGES[(i + 1) % BLOG_IMAGES.length]}
                       alt={post.title[locale]}
