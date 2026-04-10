@@ -3,6 +3,7 @@ import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/home/TrustStrip";
 import FeaturedProfessionals from "@/components/home/FeaturedProfessionals";
 import HowItWorks from "@/components/home/HowItWorks";
+import ExploreByTherapy from "@/components/home/ExploreByTherapy";
 import RecentBlog from "@/components/home/RecentBlog";
 import CTASection from "@/components/home/CTASection";
 import FAQ from "@/components/home/FAQ";
@@ -88,6 +89,7 @@ export default function Index() {
       <RecentBlog />
       <FAQ />
       <HowItWorks />
+      <ExploreByTherapy />
       <CTASection />
     </>
   );
