@@ -156,17 +156,21 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
           {t("hero.eyebrow")}
         </p>
 
-        {/* Rotating H1 */}
+        {/* Typewriter H1 */}
         <h1
-          className="font-display italic text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight"
-          style={{
-            color: "white",
-            opacity: titleVisible ? 1 : 0,
-            transform: titleVisible ? "translateY(0)" : "translateY(12px)",
-            transition: "opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1)",
-          }}
+          className="font-display italic text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight min-h-[1.2em]"
+          style={{ color: "white" }}
         >
-          {titles[currentTitle]}
+          {displayedText}
+          <span
+            className="inline-block w-[3px] h-[0.85em] ml-1 align-text-bottom"
+            style={{
+              background: "rgba(255,255,255,0.7)",
+              animation: "blink 0.8s step-end infinite",
+              opacity: isTyping ? 1 : 0,
+              transition: "opacity 0.3s",
+            }}
+          />
         </h1>
 
         {/* Subtitle */}
