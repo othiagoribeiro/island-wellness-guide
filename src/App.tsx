@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,6 +23,34 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+function AppLayout() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith("/admin");
+
+  return (
+    <>
+      {!isAdmin && <Header />}
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/professionals" element={<ProfessionalsPage />} />
+        <Route path="/professionals/:id" element={<ProfessionalProfilePage />} />
+        <Route path="/therapies" element={<TherapiesPage />} />
+        <Route path="/therapies/:id" element={<TherapyDetailPage />} />
+        <Route path="/activities" element={<ActivitiesPage />} />
+        <Route path="/orient" element={<OrientPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:id" element={<BlogPostPage />} />
+        <Route path="/pro/register" element={<ProRegisterPage />} />
+        <Route path="/para-profesionales" element={<ProLandingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      {!isAdmin && <Footer />}
+    </>
+  );
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -30,24 +58,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/professionals" element={<ProfessionalsPage />} />
-            <Route path="/professionals/:id" element={<ProfessionalProfilePage />} />
-            <Route path="/therapies" element={<TherapiesPage />} />
-            <Route path="/therapies/:id" element={<TherapyDetailPage />} />
-            <Route path="/activities" element={<ActivitiesPage />} />
-            <Route path="/orient" element={<OrientPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:id" element={<BlogPostPage />} />
-            <Route path="/pro/register" element={<ProRegisterPage />} />
-            <Route path="/para-profesionales" element={<ProLandingPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
+          <AppLayout />
         </BrowserRouter>
       </I18nProvider>
     </TooltipProvider>
