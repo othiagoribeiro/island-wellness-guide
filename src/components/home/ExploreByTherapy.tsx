@@ -89,7 +89,7 @@ function CategoryCard({
     <Link
       ref={ref}
       to={`/professionals?category=${cat.category}`}
-      className="group relative rounded-2xl overflow-hidden aspect-[4/3] flex items-end"
+      className="group relative rounded-2xl overflow-hidden aspect-[3/4] flex items-end"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.97)",
