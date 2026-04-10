@@ -574,9 +574,6 @@ const translations = {
   "about.cta.title": { es: "¿Eres terapeuta?", ca: "Ets terapeuta?", en: "Are you a therapist?", de: "Sind Sie Therapeut?" },
   "about.cta.body": { es: "Únete a la comunidad.", ca: "Uneix-te a la comunitat.", en: "Join the community.", de: "Treten Sie der Gemeinschaft bei." },
   "about.cta.button": { es: "Crear mi perfil →", ca: "Crear el meu perfil →", en: "Create my profile →", de: "Mein Profil erstellen →" },
-
-  // FOOTER
-  "footer.about": { es: "Sobre nosotros", ca: "Sobre nosaltres", en: "About us", de: "Über uns" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
