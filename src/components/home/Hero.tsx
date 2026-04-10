@@ -5,13 +5,10 @@ import { getTherapies } from "@/lib/api";
 import { CITIES } from "@/lib/mocks";
 import { Sparkles, Search } from "lucide-react";
 import type { Locale } from "@/i18n/locales";
+import heroCala from "@/assets/hero_cala.jpg";
+import heroSerenity from "@/assets/hero_serenity.jpg";
 
-const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1600&q=80",
-  "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=80",
-  "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1600&q=80",
-  "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1600&q=80",
-];
+const HERO_IMAGES = [heroCala, heroSerenity];
 
 const ROTATING_TITLES: Record<Locale, string[]> = {
   es: [
