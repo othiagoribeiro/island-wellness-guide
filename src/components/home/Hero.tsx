@@ -141,7 +141,7 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
 
         {/* Rotating H1 */}
         <h1
-          className="text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight"
+          className="font-display italic text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight"
           style={{
             color: "white",
             opacity: titleVisible ? 1 : 0,
