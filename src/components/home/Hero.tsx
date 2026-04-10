@@ -5,13 +5,10 @@ import { getTherapies } from "@/lib/api";
 import { CITIES } from "@/lib/mocks";
 import { Sparkles, Search } from "lucide-react";
 import type { Locale } from "@/i18n/locales";
+import heroCala from "@/assets/hero_cala.jpg";
+import heroSerenity from "@/assets/hero_serenity.jpg";
 
-const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1600&q=80",
-  "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=80",
-  "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1600&q=80",
-  "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1600&q=80",
-];
+const HERO_IMAGES = [heroCala, heroSerenity];
 
 const ROTATING_TITLES: Record<Locale, string[]> = {
   es: [
@@ -111,23 +108,24 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
       {/* Background slideshow */}
       {HERO_IMAGES.map((src, i) => (
         <div
-          key={src}
+          key={i}
           className="absolute inset-0"
           style={{
             opacity: i === currentSlide ? 1 : 0,
             backgroundImage: `url(${src})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            transition: "opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1)",
+            filter: "saturate(0.55) brightness(0.85)",
+            transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
         />
       ))}
 
-      {/* Dark overlay */}
+      {/* Dark overlay for readability */}
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.35) 100%)",
         }}
       />
 
