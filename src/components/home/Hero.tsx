@@ -6,10 +6,10 @@ import { CITIES } from "@/lib/mocks";
 import { Sparkles, Search } from "lucide-react";
 
 const HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80",
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1600&q=80",
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600&q=80",
-  "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1600&q=80",
+  "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=1600&q=80", // bright turquoise coast
+  "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1600&q=80", // light blue ocean aerial
+  "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1600&q=80", // sunlight through trees
+  "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1600&q=80", // green nature aerial
 ];
 
 export default function Hero() {
