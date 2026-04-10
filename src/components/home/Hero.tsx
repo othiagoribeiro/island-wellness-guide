@@ -47,7 +47,8 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentTitle, setCurrentTitle] = useState(0);
-  const [titleVisible, setTitleVisible] = useState(true);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
 
   const [aiText, setAiText] = useState("");
   const [searchQ, setSearchQ] = useState("");
@@ -61,21 +62,37 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
-  // Rotating title
+  // Typewriter effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTitleVisible(false);
-      setTimeout(() => {
-        setCurrentTitle((prev) => (prev + 1) % titles.length);
-        setTitleVisible(true);
-      }, 600);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [titles.length]);
+    const fullText = titles[currentTitle];
+    let charIndex = 0;
+    setDisplayedText("");
+    setIsTyping(true);
+
+    const typeInterval = setInterval(() => {
+      charIndex++;
+      setDisplayedText(fullText.slice(0, charIndex));
+      if (charIndex >= fullText.length) {
+        clearInterval(typeInterval);
+        setIsTyping(false);
+      }
+    }, 45);
+
+    return () => clearInterval(typeInterval);
+  }, [currentTitle, titles]);
+
+  // Rotate to next title after typing + pause
+  useEffect(() => {
+    if (isTyping) return;
+    const timeout = setTimeout(() => {
+      setCurrentTitle((prev) => (prev + 1) % titles.length);
+    }, 3000);
+    return () => clearTimeout(timeout);
+  }, [isTyping, titles.length]);
 
   const handleAiSubmit = useCallback(() => {
     if (aiText.trim()) {
@@ -139,17 +156,21 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
           {t("hero.eyebrow")}
         </p>
 
-        {/* Rotating H1 */}
+        {/* Typewriter H1 */}
         <h1
-          className="font-display italic text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight"
-          style={{
-            color: "white",
-            opacity: titleVisible ? 1 : 0,
-            transform: titleVisible ? "translateY(0)" : "translateY(12px)",
-            transition: "opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1)",
-          }}
+          className="font-display italic text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight min-h-[1.2em]"
+          style={{ color: "white" }}
         >
-          {titles[currentTitle]}
+          {displayedText}
+          <span
+            className="inline-block w-[3px] h-[0.85em] ml-1 align-text-bottom"
+            style={{
+              background: "rgba(255,255,255,0.7)",
+              animation: "blink 0.8s step-end infinite",
+              opacity: isTyping ? 1 : 0,
+              transition: "opacity 0.3s",
+            }}
+          />
         </h1>
 
         {/* Subtitle */}
