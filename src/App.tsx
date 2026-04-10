@@ -16,6 +16,7 @@ import OrientPage from "./pages/OrientPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ProRegisterPage from "./pages/ProRegisterPage";
+import ProLandingPage from "./pages/ProLandingPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="/pro/register" element={<ProRegisterPage />} />
+            <Route path="/para-profesionales" element={<ProLandingPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

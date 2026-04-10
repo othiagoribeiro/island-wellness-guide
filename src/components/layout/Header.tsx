@@ -59,7 +59,7 @@ export default function Header() {
           </div>
 
           <Link
-            to="/pro/register"
+            to="/para-profesionales"
             className="bg-primary text-primary-foreground px-5 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
           >
             {t("nav.pro")}
@@ -108,7 +108,7 @@ export default function Header() {
             ))}
           </div>
           <Link
-            to="/pro/register"
+            to="/para-profesionales"
             onClick={() => setMobileOpen(false)}
             className="block text-center bg-primary text-primary-foreground px-5 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
           >

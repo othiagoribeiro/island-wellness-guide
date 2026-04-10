@@ -319,6 +319,169 @@ const translations = {
     en: "See all activities →",
     de: "Alle Aktivitäten ansehen →",
   },
+
+  // PRO LANDING PAGE
+  "proLanding.eyebrow": { es: "PARA PROFESIONALES", ca: "PER A PROFESSIONALS", en: "FOR PROFESSIONALS", de: "FÜR FACHLEUTE" },
+  "proLanding.hero.title": {
+    es: "Llega a más clientes. Forma parte de una comunidad ética.",
+    ca: "Arriba a més clients. Forma part d'una comunitat ètica.",
+    en: "Reach more clients. Join an ethical community.",
+    de: "Erreichen Sie mehr Klienten. Werden Sie Teil einer ethischen Gemeinschaft.",
+  },
+  "proLanding.hero.subtitle": {
+    es: "Mallorca Holística conecta a profesionales del bienestar verificados con personas que buscan ayuda en la isla.",
+    ca: "Mallorca Holística connecta professionals del benestar verificats amb persones que busquen ajuda a l'illa.",
+    en: "Mallorca Holística connects verified wellbeing professionals with people seeking help on the island.",
+    de: "Mallorca Holística verbindet verifizierte Wellness-Fachleute mit Menschen, die auf der Insel Hilfe suchen.",
+  },
+  "proLanding.hero.cta1": { es: "Crear mi perfil →", ca: "Crear el meu perfil →", en: "Create my profile →", de: "Mein Profil erstellen →" },
+  "proLanding.hero.cta2": { es: "Ver los planes", ca: "Veure els plans", en: "See plans", de: "Pläne ansehen" },
+  "proLanding.hero.trust": {
+    es: "Más de 60 profesionales ya forman parte de la comunidad.",
+    ca: "Més de 60 professionals ja formen part de la comunitat.",
+    en: "Over 60 professionals are already part of the community.",
+    de: "Über 60 Fachleute sind bereits Teil der Gemeinschaft.",
+  },
+
+  // WHY JOIN
+  "proLanding.why.title": { es: "¿Por qué unirte?", ca: "Per què unir-te?", en: "Why join?", de: "Warum beitreten?" },
+  "proLanding.why.card1.title": { es: "Aparece donde te buscan", ca: "Apareix on et busquen", en: "Appear where they search", de: "Erscheinen Sie dort, wo man Sie sucht" },
+  "proLanding.why.card1.body": {
+    es: "Tu perfil llega a residentes, expatriados y turistas que buscan profesionales de bienestar en Mallorca.",
+    ca: "El teu perfil arriba a residents, expatriats i turistes que busquen professionals de benestar a Mallorca.",
+    en: "Your profile reaches residents, expats and tourists looking for wellbeing professionals in Mallorca.",
+    de: "Ihr Profil erreicht Einwohner, Expats und Touristen, die Wellness-Fachleute auf Mallorca suchen.",
+  },
+  "proLanding.why.card2.title": { es: "En 4 idiomas", ca: "En 4 idiomes", en: "In 4 languages", de: "In 4 Sprachen" },
+  "proLanding.why.card2.body": {
+    es: "La plataforma funciona en español, catalán, inglés y alemán. Llega a clientes de toda Europa.",
+    ca: "La plataforma funciona en espanyol, català, anglès i alemany. Arriba a clients de tota Europa.",
+    en: "The platform works in Spanish, Catalan, English and German. Reach clients from all over Europe.",
+    de: "Die Plattform funktioniert auf Spanisch, Katalanisch, Englisch und Deutsch. Erreichen Sie Kunden aus ganz Europa.",
+  },
+  "proLanding.why.card3.title": { es: "Verificación que te diferencia", ca: "Verificació que et diferencia", en: "Verification that sets you apart", de: "Verifizierung, die Sie auszeichnet" },
+  "proLanding.why.card3.body": {
+    es: "El badge de verificado genera confianza inmediata en quienes visitan tu perfil.",
+    ca: "El badge de verificat genera confiança immediata en qui visita el teu perfil.",
+    en: "The verified badge creates immediate trust in those who visit your profile.",
+    de: "Das Verifiziert-Badge schafft sofortiges Vertrauen bei Profilbesuchern.",
+  },
+  "proLanding.why.card4.title": { es: "El buscador IA te recomienda", ca: "El cercador IA et recomana", en: "AI search recommends you", de: "Die KI-Suche empfiehlt Sie" },
+  "proLanding.why.card4.body": {
+    es: "Cuando un usuario describe su necesidad, nuestro sistema de orientación sugiere profesionales relevantes automáticamente.",
+    ca: "Quan un usuari descriu la seva necessitat, el nostre sistema d'orientació suggereix professionals rellevants automàticament.",
+    en: "When a user describes their need, our guidance system automatically suggests relevant professionals.",
+    de: "Wenn ein Benutzer seinen Bedarf beschreibt, schlägt unser Orientierungssystem automatisch relevante Fachleute vor.",
+  },
+
+  // HOW IT WORKS FOR PROS
+  "proLanding.how.title": { es: "¿Cómo funciona para ti?", ca: "Com funciona per a tu?", en: "How does it work for you?", de: "Wie funktioniert es für Sie?" },
+  "proLanding.how.step1.title": { es: "Crea tu cuenta", ca: "Crea el teu compte", en: "Create your account", de: "Erstellen Sie Ihr Konto" },
+  "proLanding.how.step1.body": {
+    es: "Completa tu información profesional: bio, terapias, palabras clave y datos de contacto.",
+    ca: "Completa la teva informació professional: bio, teràpies, paraules clau i dades de contacte.",
+    en: "Complete your professional information: bio, therapies, keywords and contact details.",
+    de: "Vervollständigen Sie Ihre beruflichen Daten: Bio, Therapien, Schlüsselwörter und Kontaktdaten.",
+  },
+  "proLanding.how.step2.title": { es: "Envía tu documentación", ca: "Envia la teva documentació", en: "Submit your documentation", de: "Reichen Sie Ihre Dokumentation ein" },
+  "proLanding.how.step2.body": {
+    es: "Necesitamos tu documento de identidad y tu diploma o certificación profesional.",
+    ca: "Necessitem el teu document d'identitat i el teu diploma o certificació professional.",
+    en: "We need your ID document and your professional diploma or certification.",
+    de: "Wir benötigen Ihren Ausweis und Ihr Berufsdiplom oder Ihre Zertifizierung.",
+  },
+  "proLanding.how.step3.title": { es: "Aparece en el directorio", ca: "Apareix al directori", en: "Appear in the directory", de: "Erscheinen Sie im Verzeichnis" },
+  "proLanding.how.step3.body": {
+    es: "Una vez verificado, tu perfil es visible para todos los usuarios de la plataforma.",
+    ca: "Un cop verificat, el teu perfil és visible per a tots els usuaris de la plataforma.",
+    en: "Once verified, your profile is visible to all platform users.",
+    de: "Nach der Verifizierung ist Ihr Profil für alle Plattformnutzer sichtbar.",
+  },
+  "proLanding.how.step4.title": { es: "Recibe clientes", ca: "Rep clients", en: "Receive clients", de: "Empfangen Sie Klienten" },
+  "proLanding.how.step4.body": {
+    es: "Los usuarios te contactan directamente por email, teléfono o a través de tu agenda online.",
+    ca: "Els usuaris et contacten directament per email, telèfon o a través de la teva agenda en línia.",
+    en: "Users contact you directly by email, phone or through your online calendar.",
+    de: "Benutzer kontaktieren Sie direkt per E-Mail, Telefon oder über Ihren Online-Kalender.",
+  },
+
+  // PLANS
+  "proLanding.plans.title": { es: "Elige tu plan", ca: "Tria el teu pla", en: "Choose your plan", de: "Wählen Sie Ihren Plan" },
+  "proLanding.plans.subtitle": {
+    es: "Empieza gratis. Crece cuando estés listo.",
+    ca: "Comença gratis. Creix quan estiguis preparat.",
+    en: "Start free. Grow when you're ready.",
+    de: "Starten Sie kostenlos. Wachsen Sie, wenn Sie bereit sind.",
+  },
+  "proLanding.plans.recommended": { es: "Recomendado", ca: "Recomanat", en: "Recommended", de: "Empfohlen" },
+  "proLanding.plans.free.title": { es: "Free", ca: "Free", en: "Free", de: "Free" },
+  "proLanding.plans.free.price": { es: "Gratis para siempre", ca: "Gratis per sempre", en: "Free forever", de: "Für immer kostenlos" },
+  "proLanding.plans.free.f1": { es: "Perfil básico en el directorio", ca: "Perfil bàsic al directori", en: "Basic profile in directory", de: "Basisprofil im Verzeichnis" },
+  "proLanding.plans.free.f2": { es: "Hasta 2 actividades por año", ca: "Fins a 2 activitats per any", en: "Up to 2 activities per year", de: "Bis zu 2 Aktivitäten pro Jahr" },
+  "proLanding.plans.free.f3": { es: "Apareces en búsquedas", ca: "Apareixes en cerques", en: "Appear in searches", de: "Erscheinen in Suchergebnissen" },
+  "proLanding.plans.free.f4": { es: "Contacto directo (email/teléfono)", ca: "Contacte directe (email/telèfon)", en: "Direct contact (email/phone)", de: "Direkter Kontakt (E-Mail/Telefon)" },
+  "proLanding.plans.free.x1": { es: "Enlace a agenda online", ca: "Enllaç a agenda en línia", en: "Online calendar link", de: "Online-Kalender-Link" },
+  "proLanding.plans.free.x2": { es: "Perfil destacado", ca: "Perfil destacat", en: "Featured profile", de: "Hervorgehobenes Profil" },
+  "proLanding.plans.pro.title": { es: "Pro", ca: "Pro", en: "Pro", de: "Pro" },
+  "proLanding.plans.pro.price": { es: "9 €/mes", ca: "9 €/mes", en: "€9/month", de: "9 €/Monat" },
+  "proLanding.plans.pro.f1": { es: "Todo lo del plan Free", ca: "Tot el del pla Free", en: "Everything in Free", de: "Alles im Free-Plan" },
+  "proLanding.plans.pro.f2": { es: "Actividades ilimitadas", ca: "Activitats il·limitades", en: "Unlimited activities", de: "Unbegrenzte Aktivitäten" },
+  "proLanding.plans.pro.f3": { es: "Enlace a agenda online", ca: "Enllaç a agenda en línia", en: "Online calendar link", de: "Online-Kalender-Link" },
+  "proLanding.plans.pro.f4": { es: "Perfil destacado en búsquedas", ca: "Perfil destacat en cerques", en: "Featured in searches", de: "Hervorgehoben in Suchergebnissen" },
+  "proLanding.plans.pro.f5": { es: "Badge \"Pro\" visible", ca: "Badge \"Pro\" visible", en: "Visible \"Pro\" badge", de: "Sichtbares \"Pro\"-Badge" },
+  "proLanding.plans.premium.title": { es: "Premium", ca: "Premium", en: "Premium", de: "Premium" },
+  "proLanding.plans.premium.price": { es: "19 €/mes", ca: "19 €/mes", en: "€19/month", de: "19 €/Monat" },
+  "proLanding.plans.premium.f1": { es: "Todo lo del plan Pro", ca: "Tot el del pla Pro", en: "Everything in Pro", de: "Alles im Pro-Plan" },
+  "proLanding.plans.premium.f2": { es: "Artículo en el blog con tu nombre", ca: "Article al blog amb el teu nom", en: "Blog article with your name", de: "Blog-Artikel mit Ihrem Namen" },
+  "proLanding.plans.premium.f3": { es: "Aparición en home como destacado", ca: "Aparició a la home com a destacat", en: "Featured on homepage", de: "Auf der Startseite hervorgehoben" },
+  "proLanding.plans.premium.f4": { es: "Soporte prioritario", ca: "Suport prioritari", en: "Priority support", de: "Prioritärer Support" },
+  "proLanding.plans.selectPlan": { es: "Empezar →", ca: "Començar →", en: "Get started →", de: "Loslegen →" },
+
+  // PRO LANDING FINAL CTA
+  "proLanding.finalCta.title": {
+    es: "¿Listo para crecer?",
+    ca: "Preparat per créixer?",
+    en: "Ready to grow?",
+    de: "Bereit zu wachsen?",
+  },
+  "proLanding.finalCta.body": {
+    es: "Crea tu perfil hoy y empieza a recibir clientes que buscan exactamente lo que ofreces.",
+    ca: "Crea el teu perfil avui i comença a rebre clients que busquen exactament el que ofereixes.",
+    en: "Create your profile today and start receiving clients looking for exactly what you offer.",
+    de: "Erstellen Sie noch heute Ihr Profil und empfangen Sie Klienten, die genau das suchen, was Sie anbieten.",
+  },
+  "proLanding.finalCta.button": { es: "Crear mi perfil gratis →", ca: "Crear el meu perfil gratis →", en: "Create my free profile →", de: "Mein kostenloses Profil erstellen →" },
+
+  // PRO LANDING FAQ
+  "proLanding.faq.title": { es: "Preguntas frecuentes", ca: "Preguntes freqüents", en: "Frequently asked questions", de: "Häufig gestellte Fragen" },
+  "proLanding.faq.q1": { es: "¿Es realmente gratis?", ca: "És realment gratis?", en: "Is it really free?", de: "Ist es wirklich kostenlos?" },
+  "proLanding.faq.a1": {
+    es: "Sí. El plan Free te permite tener un perfil visible en el directorio sin coste alguno, para siempre.",
+    ca: "Sí. El pla Free et permet tenir un perfil visible al directori sense cap cost, per sempre.",
+    en: "Yes. The Free plan lets you have a visible profile in the directory at no cost, forever.",
+    de: "Ja. Der Free-Plan ermöglicht Ihnen ein sichtbares Profil im Verzeichnis ohne Kosten, für immer.",
+  },
+  "proLanding.faq.q2": { es: "¿Qué documentación necesito?", ca: "Quina documentació necessito?", en: "What documentation do I need?", de: "Welche Dokumentation benötige ich?" },
+  "proLanding.faq.a2": {
+    es: "Necesitas un documento de identidad vigente (DNI, NIE o pasaporte) y tu diploma o certificación profesional.",
+    ca: "Necessites un document d'identitat vigent (DNI, NIE o passaport) i el teu diploma o certificació professional.",
+    en: "You need a valid ID (national ID or passport) and your professional diploma or certification.",
+    de: "Sie benötigen einen gültigen Ausweis und Ihr Berufsdiplom oder Ihre Zertifizierung.",
+  },
+  "proLanding.faq.q3": { es: "¿Cuánto tarda la verificación?", ca: "Quant triga la verificació?", en: "How long does verification take?", de: "Wie lange dauert die Verifizierung?" },
+  "proLanding.faq.a3": {
+    es: "Normalmente entre 24 y 48 horas laborables tras recibir toda la documentación.",
+    ca: "Normalment entre 24 i 48 hores laborables després de rebre tota la documentació.",
+    en: "Usually between 24 and 48 business hours after receiving all documentation.",
+    de: "In der Regel zwischen 24 und 48 Geschäftsstunden nach Erhalt aller Unterlagen.",
+  },
+  "proLanding.faq.q4": { es: "¿Puedo cancelar en cualquier momento?", ca: "Puc cancel·lar en qualsevol moment?", en: "Can I cancel at any time?", de: "Kann ich jederzeit kündigen?" },
+  "proLanding.faq.a4": {
+    es: "Sí, puedes cancelar o cambiar de plan en cualquier momento. Sin permanencias ni penalizaciones.",
+    ca: "Sí, pots cancel·lar o canviar de pla en qualsevol moment. Sense permanències ni penalitzacions.",
+    en: "Yes, you can cancel or change plans at any time. No commitments or penalties.",
+    de: "Ja, Sie können jederzeit kündigen oder den Plan wechseln. Keine Verpflichtungen oder Strafen.",
+  },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
