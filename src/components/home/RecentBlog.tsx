@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 const BLOG_IMAGES = [
   "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&q=75", // turquoise water light
-  "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=75", // calm nature morning
+  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=75", // golden field sunrise
   "https://images.unsplash.com/photo-1476611338391-6f395a0ebc7b?w=600&q=75", // green hills landscape
   "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75", // sandy beach light
   "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=600&q=75", // clear lake nature
