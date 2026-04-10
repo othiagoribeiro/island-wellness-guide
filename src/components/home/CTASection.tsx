@@ -15,7 +15,7 @@ export default function CTASection() {
         </p>
         <Link
           to="/pro/register"
-          className="inline-block bg-surface text-brown font-semibold px-9 py-4 rounded-lg hover:shadow-lg transition-shadow"
+          className="inline-block bg-primary text-primary-foreground font-semibold px-9 py-4 rounded-lg hover:shadow-lg hover:opacity-90 transition-all"
         >
           {t("cta.button")}
         </Link>
