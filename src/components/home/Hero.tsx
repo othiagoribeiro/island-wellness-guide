@@ -81,7 +81,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 text-center">
         {/* Eyebrow */}
-        <p className="text-terracotta text-xs font-medium tracking-[0.3em] uppercase mb-4">
+        <p className="text-primary-foreground text-xs font-medium tracking-[0.3em] uppercase mb-4">
           {t("hero.eyebrow")}
         </p>
 
