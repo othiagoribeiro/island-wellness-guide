@@ -175,7 +175,7 @@ export default function ProRegisterPage() {
           <img src={registerBg} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, hsl(34,33%,95%,0.85), hsl(34,33%,95%,0.92))" }} />
         </div>
-        <div className="bg-white rounded-2xl p-12 max-w-[480px] w-full text-center shadow-sm">
+        <div className="relative z-10 bg-white rounded-2xl p-12 max-w-[480px] w-full text-center shadow-sm">
           <div className="mx-auto w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: "hsl(160,26%,35%)" }}>
             <Check className="text-white" size={36} />
           </div>
