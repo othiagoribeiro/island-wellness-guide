@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useI18n } from "@/i18n/useI18n";
+import isotipo from "@/assets/isotipo.png";
 
 export default function Footer() {
   const { t } = useI18n();
@@ -8,7 +9,10 @@ export default function Footer() {
     <footer className="text-primary-foreground py-10 md:py-16" style={{ backgroundColor: "hsl(160, 26%, 16%)" }}>
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
         <div>
-          <h3 className="font-bold text-lg mb-3">Mallorca Holística</h3>
+          <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+            <img src={isotipo} alt="" className="w-6 h-6" style={{ filter: "brightness(0) invert(1) opacity(0.9)" }} />
+            Mallorca Holística
+          </h3>
           <p className="text-sm opacity-75">{t("footer.tagline")}</p>
         </div>
         <div>
