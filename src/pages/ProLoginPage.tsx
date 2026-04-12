@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useI18n } from "@/i18n/useI18n";
+import loginBg from "@/assets/login-bg.jpg";
 
 export default function ProLoginPage() {
   const { t } = useI18n();
@@ -20,9 +21,13 @@ export default function ProLoginPage() {
   }, [email, password, navigate]);
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-4">
+    <div className="min-h-screen relative flex items-center justify-center px-4">
+      <div className="absolute inset-0 z-0">
+        <img src={loginBg} alt="" className="w-full h-full object-cover saturate-[0.35] contrast-[0.85] brightness-[0.45]" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,40,34,0.55), rgba(30,40,34,0.7))" }} />
+      </div>
       <div
-        className="w-full bg-card"
+        className="relative z-10 w-full bg-card"
         style={{
           maxWidth: 420,
           borderRadius: 16,
