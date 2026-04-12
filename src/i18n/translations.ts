@@ -4,7 +4,7 @@ const translations = {
   "nav.directorio": { es: "DIRECTORIO", ca: "DIRECTORI", en: "DIRECTORY", de: "VERZEICHNIS" },
   "nav.actividades": { es: "ACTIVIDADES", ca: "ACTIVITATS", en: "ACTIVITIES", de: "AKTIVITÄTEN" },
   "nav.terapias": { es: "TERAPIAS", ca: "TERÀPIES", en: "THERAPIES", de: "THERAPIEN" },
-  "nav.blog": { es: "BLOG", ca: "BLOG", en: "BLOG", de: "BLOG" },
+  "nav.blog": { es: "Blog", ca: "Blog", en: "Blog", de: "Blog" },
   "nav.pro": { es: "¿Eres profesional? →", ca: "Ets professional? →", en: "Are you a professional? →", de: "Sind Sie Fachkraft? →" },
 
   // HERO
