@@ -208,7 +208,7 @@ const translations = {
   "ther.relatedBlog": { es: "Artículos relacionados", ca: "Articles relacionats", en: "Related articles", de: "Verwandte Artikel" },
 
   // BLOG
-  "blog.title": { es: "Blog", ca: "Blog", en: "Blog", de: "Blog" },
+  "blog.title": { es: "BLOG", ca: "BLOG", en: "BLOG", de: "BLOG" },
   "blog.back": { es: "← Blog", ca: "← Blog", en: "← Blog", de: "← Blog" },
 
   // PRO REGISTER
