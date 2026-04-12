@@ -119,7 +119,7 @@ function HowItWorksPro() {
                 <step.icon size={28} className="text-accent" strokeWidth={1.4} />
               </div>
               <h3 className="font-semibold text-primary text-base mb-2">{t(step.titleKey)}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed max-w-[240px]">{t(step.bodyKey)}</p>
+              <p className="text-sm leading-relaxed max-w-[240px]" style={{ color: "rgba(0,0,0,0.9)" }}>{t(step.bodyKey)}</p>
             </div>
           ))}
         </div>
