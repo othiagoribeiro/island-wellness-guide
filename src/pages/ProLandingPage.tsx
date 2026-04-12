@@ -118,10 +118,9 @@ function HowItWorksPro() {
                   </svg>
                 </div>
               )}
-              <span className="text-[48px] font-bold text-accent/60 leading-none mb-3" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                {step.num}
-              </span>
-              <step.icon size={26} className="text-accent mb-4" />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: "hsl(24 40% 92%)" }}>
+                <step.icon size={28} className="text-accent" strokeWidth={1.4} />
+              </div>
               <h3 className="font-semibold text-primary text-base mb-2">{t(step.titleKey)}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-[240px]">{t(step.bodyKey)}</p>
             </div>
