@@ -29,7 +29,7 @@ function ProHero() {
           {t("proLanding.hero.title")}
         </h1>
         <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.75)" }}>
-          {t("proLanding.hero.subtitle")}
+          {t("proLanding.hero.trust")}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
@@ -49,9 +49,6 @@ function ProHero() {
           </button>
         </div>
 
-        <p className="text-[13px] italic mb-3" style={{ color: "rgba(255,255,255,0.5)" }}>
-          {t("proLanding.hero.trust")}
-        </p>
         <Link to="/pro/login" className="text-[13px] hover:underline" style={{ color: "rgba(255,255,255,0.6)" }}>
           {t("proLogin.hasAccount")}
         </Link>
