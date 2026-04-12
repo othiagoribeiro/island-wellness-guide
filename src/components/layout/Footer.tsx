@@ -5,7 +5,7 @@ export default function Footer() {
   const { t } = useI18n();
 
   return (
-    <footer className="bg-brown text-primary-foreground py-10 md:py-16">
+    <footer className="text-primary-foreground py-10 md:py-16" style={{ backgroundColor: "hsl(160, 26%, 16%)" }}>
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
         <div>
           <h3 className="font-bold text-lg mb-3">Mallorca Holística</h3>
