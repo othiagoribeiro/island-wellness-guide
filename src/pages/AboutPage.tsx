@@ -8,9 +8,9 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Section 1 — Hero text */}
-      <section className="bg-background py-16 md:py-24">
+      <section className="bg-background" style={{ padding: "96px 0" }}>
         <div className="max-w-[800px] mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+          <h1 className="font-sans text-3xl md:text-4xl font-bold text-primary mb-6">
             {t("about.hero.title")}
           </h1>
           <p className="text-foreground text-[16px] leading-[1.8]">
@@ -20,9 +20,9 @@ export default function AboutPage() {
       </section>
 
       {/* Section 2 — Principles */}
-      <section className="bg-card py-16 md:py-24">
+      <section className="bg-card" style={{ padding: "96px 0" }}>
         <div className="max-w-[800px] mx-auto px-4">
-          <h2 className="text-2xl font-semibold text-primary text-center mb-10">
+          <h2 className="font-sans text-2xl font-semibold text-primary text-center mb-10">
             {t("about.principles.title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -34,10 +34,10 @@ export default function AboutPage() {
               <div
                 key={card.titleKey}
                 className="bg-card rounded-xl p-7 text-center"
-                style={{ boxShadow: "0 2px 12px rgba(44,74,62,0.08)" }}
+                style={{ boxShadow: "0 2px 12px rgba(44,74,62,0.08)", borderRadius: 12 }}
               >
                 <card.icon size={32} className="text-accent mx-auto mb-4" />
-                <h3 className="font-semibold text-primary mb-2">{t(card.titleKey)}</h3>
+                <h3 className="font-sans font-semibold text-primary mb-2">{t(card.titleKey)}</h3>
                 <p className="text-muted-foreground text-sm">{t(card.bodyKey)}</p>
               </div>
             ))}
@@ -46,9 +46,9 @@ export default function AboutPage() {
       </section>
 
       {/* Section 3 — Deontological code */}
-      <section className="bg-background py-16 md:py-24">
+      <section className="bg-background" style={{ padding: "96px 0" }}>
         <div className="max-w-[800px] mx-auto px-4">
-          <h2 className="text-2xl font-semibold text-primary mb-4">
+          <h2 className="font-sans text-2xl font-semibold text-primary mb-4">
             {t("about.code.title")}
           </h2>
           <p className="text-foreground text-[16px] leading-[1.8] mb-6">
@@ -69,20 +69,22 @@ export default function AboutPage() {
       </section>
 
       {/* Section 4 — CTA */}
-      <section className="bg-primary py-16 md:py-20">
+      <section className="bg-primary" style={{ padding: "80px 0" }}>
         <div className="max-w-[800px] mx-auto px-4 text-center">
-          <h2 className="text-2xl font-semibold text-white mb-2">
+          <h2 className="font-sans text-2xl font-semibold text-white mb-2">
             {t("about.cta.title")}
           </h2>
           <p className="text-white/75 mb-6">{t("about.cta.body")}</p>
           <Link
             to="/pro/register"
-            className="inline-flex items-center justify-center bg-white text-primary font-semibold rounded-[10px] px-8 hover:opacity-90 transition-opacity"
-            style={{ height: 56 }}
+            className="inline-flex items-center justify-center bg-white text-primary font-semibold px-8 hover:opacity-90 transition-opacity"
+            style={{ height: 56, borderRadius: 10 }}
           >
             {t("about.cta.button")}
           </Link>
-          <p className="text-white/60 text-sm mt-4">hola@mallorcaholistica.com</p>
+          <p className="text-sm mt-4" style={{ color: "rgba(255,255,255,0.6)" }}>
+            hola@mallorcaholistica.com
+          </p>
         </div>
       </section>
     </div>
