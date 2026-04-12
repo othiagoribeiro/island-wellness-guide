@@ -114,10 +114,10 @@ const translations = {
 
   // FOOTER
   "footer.tagline": {
-    es: "Mallorca Holística es una plataforma online creada para reunir, visibilizar y conectar a los profesionales, proyectos y espacios que cultivan el bienestar, la consciencia y la sostenibilidad en la isla. Un directorio vivo donde descubrir, inspirarse y formar parte de una comunidad que late al ritmo del alma.",
-    ca: "Mallorca Holística és una plataforma online creada per reunir, visibilitzar i connectar els professionals, projectes i espais que cultiven el benestar, la consciència i la sostenibilitat a l'illa. Un directori viu on descobrir, inspirar-se i formar part d'una comunitat que batega al ritme de l'ànima.",
-    en: "Mallorca Holística is an online platform created to bring together, make visible and connect the professionals, projects and spaces that cultivate wellbeing, consciousness and sustainability on the island. A living directory where you can discover, be inspired and become part of a community that beats to the rhythm of the soul.",
-    de: "Mallorca Holística ist eine Online-Plattform, die geschaffen wurde, um Fachleute, Projekte und Räume zusammenzubringen, sichtbar zu machen und zu verbinden, die Wohlbefinden, Bewusstsein und Nachhaltigkeit auf der Insel fördern. Ein lebendiges Verzeichnis zum Entdecken, Inspirieren und Teil einer Gemeinschaft zu werden, die im Rhythmus der Seele schlägt.",
+    es: "Plataforma online creada para reunir, visibilizar y conectar a los profesionales, proyectos y espacios que cultivan el bienestar, la consciencia y la sostenibilidad en la isla. Un directorio vivo donde descubrir, inspirarse y formar parte de una comunidad que late al ritmo del alma.",
+    ca: "Plataforma online creada per reunir, visibilitzar i connectar els professionals, projectes i espais que cultiven el benestar, la consciència i la sostenibilitat a l'illa. Un directori viu on descobrir, inspirar-se i formar part d'una comunitat que batega al ritme de l'ànima.",
+    en: "Online platform created to bring together, make visible and connect the professionals, projects and spaces that cultivate wellbeing, consciousness and sustainability on the island. A living directory where you can discover, be inspired and become part of a community that beats to the rhythm of the soul.",
+    de: "Online-Plattform, die geschaffen wurde, um Fachleute, Projekte und Räume zusammenzubringen, sichtbar zu machen und zu verbinden, die Wohlbefinden, Bewusstsein und Nachhaltigkeit auf der Insel fördern. Ein lebendiges Verzeichnis zum Entdecken, Inspirieren und Teil einer Gemeinschaft zu werden, die im Rhythmus der Seele schlägt.",
   },
   "footer.motto": {
     es: "Detente. Respira. Siente.",
