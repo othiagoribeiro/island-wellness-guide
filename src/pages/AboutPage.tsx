@@ -16,6 +16,9 @@ export default function AboutPage() {
           <p className="text-foreground text-[16px] leading-[1.8]">
             {t("about.hero.body")}
           </p>
+          <p className="text-accent text-lg italic mt-6 font-medium">
+            {t("footer.motto")}
+          </p>
         </div>
       </section>
 
