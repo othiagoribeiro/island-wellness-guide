@@ -194,43 +194,48 @@ export default function ProRegisterPage() {
   const stepLabels = [t("step1.label"), t("step2.label"), t("step3.label")];
 
   const StepIndicator = (
-    <div className="flex items-start justify-center gap-0 mb-10">
-      {stepLabels.map((label, i) => {
-        const num = i + 1;
-        const isCompleted = num < step;
-        const isActive = num === step;
-        return (
-          <div key={num} className="flex items-start" style={{ minWidth: 0 }}>
-            {i > 0 && (
-              <div className="flex items-center mt-4">
-                <div className="w-12 sm:w-20 h-0.5 rounded" style={{ backgroundColor: isCompleted || isActive ? "hsl(160,26%,35%)" : "rgba(44,74,62,0.15)" }} />
+    <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-6 py-5 mb-8 shadow-sm">
+      <div className="flex items-center justify-between max-w-[420px] mx-auto">
+        {stepLabels.map((label, i) => {
+          const num = i + 1;
+          const isCompleted = num < step;
+          const isActive = num === step;
+          return (
+            <div key={num} className="flex items-center" style={{ flex: i < stepLabels.length - 1 ? 1 : "none" }}>
+              <div className="flex flex-col items-center" style={{ minWidth: 64 }}>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-all"
+                  style={{
+                    backgroundColor: isCompleted ? "hsl(160,26%,35%)" : isActive ? "hsl(160,26%,23%)" : "hsl(34,33%,95%)",
+                    color: isCompleted || isActive ? "white" : "hsl(24,16%,58%)",
+                    boxShadow: isActive ? "0 0 0 3px rgba(44,74,62,0.15)" : "none",
+                  }}
+                >
+                  {isCompleted ? <Check size={16} strokeWidth={2.5} /> : num}
+                </div>
+                <span
+                  className="text-[11px] sm:text-xs mt-2 text-center leading-tight whitespace-nowrap"
+                  style={{
+                    color: isActive ? "hsl(160,26%,23%)" : isCompleted ? "hsl(160,26%,35%)" : "hsl(24,16%,58%)",
+                    fontFamily: "DM Sans",
+                    fontWeight: isActive ? 700 : isCompleted ? 600 : 400,
+                  }}
+                >
+                  {label}
+                </span>
               </div>
-            )}
-            <div className="flex flex-col items-center" style={{ minWidth: 72 }}>
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold shrink-0"
-                style={{
-                  backgroundColor: isCompleted ? "hsl(160,26%,35%)" : isActive ? "hsl(160,26%,23%)" : "white",
-                  color: isCompleted || isActive ? "white" : "hsl(24,16%,58%)",
-                  border: !isCompleted && !isActive ? "1.5px solid hsl(24,16%,58%)" : "none",
-                }}
-              >
-                {isCompleted ? <Check size={16} /> : num}
-              </div>
-              <span
-                className="text-xs mt-1.5 text-center font-semibold leading-tight"
-                style={{
-                  color: isActive ? "hsl(160,26%,23%)" : "hsl(24,16%,58%)",
-                  fontFamily: "DM Sans",
-                  fontWeight: isActive ? 600 : 400,
-                }}
-              >
-                {label}
-              </span>
+              {i < stepLabels.length - 1 && (
+                <div className="flex-1 mx-2 sm:mx-3 mt-[-18px]">
+                  <div
+                    className="h-[2px] w-full rounded-full transition-colors"
+                    style={{ backgroundColor: isCompleted ? "hsl(160,26%,35%)" : "rgba(44,74,62,0.12)" }}
+                  />
+                </div>
+              )}
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 
