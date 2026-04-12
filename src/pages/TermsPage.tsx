@@ -15,20 +15,20 @@ export default function TermsPage() {
 
   return (
     <main className="max-w-[760px] mx-auto px-4 py-12 md:py-20">
-      <h1 className="font-display text-3xl md:text-4xl font-semibold text-[hsl(var(--green-dark))] mb-2">
+      <h1 className="font-['DM_Sans'] text-3xl md:text-4xl font-semibold text-primary mb-2">
         {t("terms.title")}
       </h1>
-      <p className="text-[13px] italic text-[hsl(var(--stone))] mb-10">
+      <p className="text-[13px] italic text-muted-foreground mb-10">
         {t("terms.updated")}
       </p>
 
       <div className="space-y-8">
         {sections.map((s, i) => (
           <section key={i}>
-            <h2 className="font-display text-xl font-semibold text-[hsl(var(--green-dark))] mb-2">
+            <h2 className="font-['DM_Sans'] text-xl font-semibold text-primary mb-2">
               {s.title}
             </h2>
-            <p className="text-[hsl(var(--ink))] leading-[1.8] text-[15px]">
+            <p className="text-foreground leading-[1.8] text-[15px]">
               {s.body}
             </p>
           </section>
