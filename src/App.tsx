@@ -21,6 +21,8 @@ import ProLandingPage from "./pages/ProLandingPage";
 import ProLoginPage from "./pages/ProLoginPage";
 import AboutPage from "./pages/AboutPage";
 import AdminPage from "./pages/AdminPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -47,6 +49,8 @@ function AppLayout() {
         <Route path="/pro/login" element={<ProLoginPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {!isAdmin && <Footer />}

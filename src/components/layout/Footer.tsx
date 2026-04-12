@@ -32,6 +32,13 @@ export default function Footer() {
           <p className="text-sm opacity-75">hola@mallorcaholistica.com</p>
         </div>
       </div>
+      <div className="container mx-auto px-4 mt-8 pt-6 border-t border-white/10">
+        <p className="text-[13px] opacity-50 text-center">
+          <Link to="/terms" className="hover:opacity-80 transition-opacity">{t("footer.terms")}</Link>
+          <span className="mx-1">·</span>
+          <Link to="/privacy" className="hover:opacity-80 transition-opacity">{t("footer.privacy")}</Link>
+        </p>
+      </div>
     </footer>
   );
 }
