@@ -1,10 +1,10 @@
 const translations = {
   // NAV
-  "nav.inicio": { es: "INICIO", ca: "INICI", en: "HOME", de: "START" },
-  "nav.directorio": { es: "DIRECTORIO", ca: "DIRECTORI", en: "DIRECTORY", de: "VERZEICHNIS" },
-  "nav.actividades": { es: "ACTIVIDADES", ca: "ACTIVITATS", en: "ACTIVITIES", de: "AKTIVITÄTEN" },
-  "nav.terapias": { es: "TERAPIAS", ca: "TERÀPIES", en: "THERAPIES", de: "THERAPIEN" },
-  "nav.blog": { es: "BLOG", ca: "BLOG", en: "BLOG", de: "BLOG" },
+  "nav.inicio": { es: "Inicio", ca: "Inici", en: "Home", de: "Start" },
+  "nav.directorio": { es: "Directorio", ca: "Directori", en: "Directory", de: "Verzeichnis" },
+  "nav.actividades": { es: "Actividades", ca: "Activitats", en: "Activities", de: "Aktivitäten" },
+  "nav.terapias": { es: "Terapias", ca: "Teràpies", en: "Therapies", de: "Therapien" },
+  "nav.blog": { es: "Blog", ca: "Blog", en: "Blog", de: "Blog" },
   "nav.pro": { es: "¿Eres profesional? →", ca: "Ets professional? →", en: "Are you a professional? →", de: "Sind Sie Fachkraft? →" },
 
   // HERO
@@ -208,7 +208,7 @@ const translations = {
   "ther.relatedBlog": { es: "Artículos relacionados", ca: "Articles relacionats", en: "Related articles", de: "Verwandte Artikel" },
 
   // BLOG
-  "blog.title": { es: "BLOG", ca: "BLOG", en: "BLOG", de: "BLOG" },
+  "blog.title": { es: "Blog", ca: "Blog", en: "Blog", de: "Blog" },
   "blog.back": { es: "← Blog", ca: "← Blog", en: "← Blog", de: "← Blog" },
 
   // PRO REGISTER

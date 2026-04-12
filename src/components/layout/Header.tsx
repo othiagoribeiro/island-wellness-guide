@@ -30,7 +30,7 @@ export default function Header() {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium tracking-wide transition-colors hover:text-terracotta ${
+              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-terracotta ${
                 location.pathname === link.path ? "text-terracotta" : "text-brown"
               }`}
             >
@@ -85,7 +85,7 @@ export default function Header() {
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
-                className={`text-sm font-medium py-2 ${
+                className={`text-sm font-medium py-2 uppercase ${
                   location.pathname === link.path ? "text-terracotta" : "text-brown"
                 }`}
               >
