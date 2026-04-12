@@ -114,10 +114,16 @@ const translations = {
 
   // FOOTER
   "footer.tagline": {
-    es: "Tu guía de bienestar holístico en Mallorca.",
-    ca: "La teva guia de benestar holístic a Mallorca.",
-    en: "Your holistic wellbeing guide in Mallorca.",
-    de: "Ihr ganzheitlicher Wellness-Guide auf Mallorca.",
+    es: "Mallorca Holística es una plataforma online creada para reunir, visibilizar y conectar a los profesionales, proyectos y espacios que cultivan el bienestar, la consciencia y la sostenibilidad en la isla. Un directorio vivo donde descubrir, inspirarse y formar parte de una comunidad que late al ritmo del alma.",
+    ca: "Mallorca Holística és una plataforma online creada per reunir, visibilitzar i connectar els professionals, projectes i espais que cultiven el benestar, la consciència i la sostenibilitat a l'illa. Un directori viu on descobrir, inspirar-se i formar part d'una comunitat que batega al ritme de l'ànima.",
+    en: "Mallorca Holística is an online platform created to bring together, make visible and connect the professionals, projects and spaces that cultivate wellbeing, consciousness and sustainability on the island. A living directory where you can discover, be inspired and become part of a community that beats to the rhythm of the soul.",
+    de: "Mallorca Holística ist eine Online-Plattform, die geschaffen wurde, um Fachleute, Projekte und Räume zusammenzubringen, sichtbar zu machen und zu verbinden, die Wohlbefinden, Bewusstsein und Nachhaltigkeit auf der Insel fördern. Ein lebendiges Verzeichnis zum Entdecken, Inspirieren und Teil einer Gemeinschaft zu werden, die im Rhythmus der Seele schlägt.",
+  },
+  "footer.motto": {
+    es: "Detente. Respira. Siente.",
+    ca: "Atura't. Respira. Sent.",
+    en: "Stop. Breathe. Feel.",
+    de: "Halte an. Atme. Fühle.",
   },
   "footer.explore": { es: "Explorar", ca: "Explorar", en: "Explore", de: "Entdecken" },
   "footer.contact": { es: "Contacto", ca: "Contacte", en: "Contact", de: "Kontakt" },
@@ -536,10 +542,10 @@ const translations = {
   // ABOUT PAGE
   "about.hero.title": { es: "¿Qué es Mallorca Holística?", ca: "Què és Mallorca Holística?", en: "What is Mallorca Holística?", de: "Was ist Mallorca Holística?" },
   "about.hero.body": {
-    es: "Mallorca Holística nació de la necesidad de conectar a las personas con profesionales del bienestar de confianza en la isla. Una plataforma local, ética y multidisciplinar para residentes y visitantes.",
-    ca: "Mallorca Holística va néixer de la necessitat de connectar les persones amb professionals del benestar de confiança a l'illa. Una plataforma local, ètica i multidisciplinar per a residents i visitants.",
-    en: "Mallorca Holística was born from the need to connect people with trusted wellbeing professionals on the island. A local, ethical and multidisciplinary platform for residents and visitors.",
-    de: "Mallorca Holística entstand aus dem Bedürfnis, Menschen mit vertrauenswürdigen Wellness-Fachleuten auf der Insel zu verbinden. Eine lokale, ethische und multidisziplinäre Plattform für Einwohner und Besucher.",
+    es: "Mallorca Holística es una plataforma online creada para reunir, visibilizar y conectar a los profesionales, proyectos y espacios que cultivan el bienestar, la consciencia y la sostenibilidad en la isla. Un directorio vivo donde descubrir, inspirarse y formar parte de una comunidad que late al ritmo del alma.",
+    ca: "Mallorca Holística és una plataforma online creada per reunir, visibilitzar i connectar els professionals, projectes i espais que cultiven el benestar, la consciència i la sostenibilitat a l'illa. Un directori viu on descobrir, inspirar-se i formar part d'una comunitat que batega al ritme de l'ànima.",
+    en: "Mallorca Holística is an online platform created to bring together, make visible and connect the professionals, projects and spaces that cultivate wellbeing, consciousness and sustainability on the island. A living directory where you can discover, be inspired and become part of a community that beats to the rhythm of the soul.",
+    de: "Mallorca Holística ist eine Online-Plattform, die geschaffen wurde, um Fachleute, Projekte und Räume zusammenzubringen, sichtbar zu machen und zu verbinden, die Wohlbefinden, Bewusstsein und Nachhaltigkeit auf der Insel fördern. Ein lebendiges Verzeichnis zum Entdecken, Inspirieren und Teil einer Gemeinschaft zu werden, die im Rhythmus der Seele schlägt.",
   },
   "about.principles.title": { es: "Nuestros principios", ca: "Els nostres principis", en: "Our principles", de: "Unsere Grundsätze" },
   "about.principles.ethics": { es: "Ética", ca: "Ètica", en: "Ethics", de: "Ethik" },
