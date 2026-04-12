@@ -10,6 +10,7 @@ const navLinks = [
   { key: "nav.actividades" as const, path: "/activities" },
   { key: "nav.terapias" as const, path: "/therapies" },
   { key: "nav.blog" as const, path: "/blog" },
+  { key: "nav.soporte" as const, path: "/support" },
 ];
 
 export default function Header() {
