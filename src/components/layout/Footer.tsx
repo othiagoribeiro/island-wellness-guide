@@ -15,10 +15,10 @@ export default function Footer() {
           <h4 className="font-semibold mb-3">{t("footer.explore")}</h4>
           <nav className="flex flex-col gap-2 text-sm opacity-75">
             <Link to="/professionals" className="hover:opacity-100 transition-opacity">{t("footer.professionals")}</Link>
-            <Link to="/blog" className="hover:opacity-100 transition-opacity">{t("nav.blog")}</Link>
             <Link to="/therapies" className="hover:opacity-100 transition-opacity">{t("footer.therapies")}</Link>
             <Link to="/activities" className="hover:opacity-100 transition-opacity">{t("footer.activities")}</Link>
             <Link to="/about" className="hover:opacity-100 transition-opacity">{t("footer.about")}</Link>
+            <Link to="/blog" className="hover:opacity-100 transition-opacity">{t("nav.blog")}</Link>
           </nav>
         </div>
         <div>
