@@ -9,6 +9,7 @@ import UpcomingActivities from "@/components/home/UpcomingActivities";
 import RecentBlog from "@/components/home/RecentBlog";
 import FAQ from "@/components/home/FAQ";
 import CTASection from "@/components/home/CTASection";
+import Testimonials from "@/components/home/Testimonials";
 import OrientResults from "@/components/home/OrientResults";
 import { getOrientResults, getProfessionals } from "@/lib/api";
 import { useI18n } from "@/i18n/useI18n";
@@ -124,7 +125,10 @@ export default function Index() {
       {/* 7. Blog preview */}
       <RecentBlog />
 
-      {/* 8. FAQ */}
+      {/* 8. Testimonials */}
+      <Testimonials />
+
+      {/* 9. FAQ */}
       <FAQ />
 
       {/* 9. Minimal therapist CTA */}
