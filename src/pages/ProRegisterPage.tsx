@@ -254,8 +254,12 @@ export default function ProRegisterPage() {
   );
 
   return (
-    <div className="min-h-screen bg-background py-16 md:py-16 px-4" style={{ paddingTop: 64, paddingBottom: 64 }}>
-      <div className="max-w-[680px] mx-auto">
+    <div className="min-h-screen relative py-16 md:py-16 px-4" style={{ paddingTop: 64, paddingBottom: 64 }}>
+      <div className="absolute inset-0 z-0">
+        <img src={registerBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, hsl(34,33%,95%,0.85), hsl(34,33%,95%,0.92))" }} />
+      </div>
+      <div className="max-w-[680px] mx-auto relative z-10">
         {StepIndicator}
 
         {/* STEP 1 */}
