@@ -123,6 +123,7 @@ const translations = {
   "footer.professionals": { es: "Profesionales", ca: "Professionals", en: "Professionals", de: "Fachleute" },
   "footer.therapies": { es: "Terapias", ca: "Teràpies", en: "Therapies", de: "Therapien" },
   "footer.about": { es: "Sobre nosotros", ca: "Sobre nosaltres", en: "About us", de: "Über uns" },
+  "footer.activities": { es: "Actividades", ca: "Activitats", en: "Activities", de: "Aktivitäten" },
 
   // DIRECTORY
   "dir.title": { es: "Directorio de profesionales", ca: "Directori de professionals", en: "Professional directory", de: "Fachleute-Verzeichnis" },
