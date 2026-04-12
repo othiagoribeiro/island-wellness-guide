@@ -16,7 +16,7 @@ export default function Footer() {
           <p className="text-sm opacity-75 leading-relaxed">{t("footer.tagline")}</p>
           <p className="text-sm opacity-60 italic mt-3">{t("footer.motto")}</p>
         </div>
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center">
           <h4 className="font-semibold mb-3">{t("footer.explore")}</h4>
           <nav className="flex flex-col gap-2 text-sm opacity-75">
             <Link to="/about" className="hover:opacity-100 transition-opacity">{t("footer.about")}</Link>
