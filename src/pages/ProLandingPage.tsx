@@ -49,9 +49,12 @@ function ProHero() {
           </button>
         </div>
 
-        <p className="text-[13px] italic" style={{ color: "rgba(255,255,255,0.5)" }}>
+        <p className="text-[13px] italic mb-3" style={{ color: "rgba(255,255,255,0.5)" }}>
           {t("proLanding.hero.trust")}
         </p>
+        <Link to="/pro/login" className="text-[13px] hover:underline" style={{ color: "rgba(255,255,255,0.6)" }}>
+          {t("proLogin.hasAccount")}
+        </Link>
       </div>
     </section>
   );
