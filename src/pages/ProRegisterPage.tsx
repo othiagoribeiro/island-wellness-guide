@@ -16,6 +16,11 @@ export default function ProRegisterPage() {
         >
           <ArrowLeft size={16} /> {t("pro.back")}
         </Link>
+        <p className="mt-4">
+          <Link to="/pro/login" className="text-accent text-sm hover:underline">
+            {t("proLogin.hasAccount")}
+          </Link>
+        </p>
       </div>
     </div>
   );

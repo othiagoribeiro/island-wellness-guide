@@ -17,6 +17,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ProRegisterPage from "./pages/ProRegisterPage";
 import ProLandingPage from "./pages/ProLandingPage";
+import ProLoginPage from "./pages/ProLoginPage";
 import AboutPage from "./pages/AboutPage";
 import AdminPage from "./pages/AdminPage";
 import NotFound from "./pages/NotFound";
@@ -42,6 +43,7 @@ function AppLayout() {
         <Route path="/blog/:id" element={<BlogPostPage />} />
         <Route path="/pro/register" element={<ProRegisterPage />} />
         <Route path="/para-profesionales" element={<ProLandingPage />} />
+        <Route path="/pro/login" element={<ProLoginPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="*" element={<NotFound />} />
