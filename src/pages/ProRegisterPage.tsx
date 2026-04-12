@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useI18n } from "@/i18n/useI18n";
 import { therapies, keywords } from "@/lib/mocks";
 import { Check, UploadCloud, X, Loader2 } from "lucide-react";
+import registerBg from "@/assets/register-bg.jpg";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -169,8 +170,12 @@ export default function ProRegisterPage() {
   /* ---- SUCCESS ---- */
   if (done) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center py-16 px-4">
-        <div className="bg-white rounded-2xl p-12 max-w-[480px] w-full text-center shadow-sm">
+      <div className="min-h-screen flex items-center justify-center py-16 px-4 relative">
+        <div className="absolute inset-0 z-0">
+          <img src={registerBg} alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, hsl(34,33%,95%,0.85), hsl(34,33%,95%,0.92))" }} />
+        </div>
+        <div className="relative z-10 bg-white rounded-2xl p-12 max-w-[480px] w-full text-center shadow-sm">
           <div className="mx-auto w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: "hsl(160,26%,35%)" }}>
             <Check className="text-white" size={36} />
           </div>
@@ -249,8 +254,12 @@ export default function ProRegisterPage() {
   );
 
   return (
-    <div className="min-h-screen bg-background py-16 md:py-16 px-4" style={{ paddingTop: 64, paddingBottom: 64 }}>
-      <div className="max-w-[680px] mx-auto">
+    <div className="min-h-screen relative py-16 md:py-16 px-4" style={{ paddingTop: 64, paddingBottom: 64 }}>
+      <div className="absolute inset-0 z-0">
+        <img src={registerBg} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, hsl(34,33%,95%,0.85), hsl(34,33%,95%,0.92))" }} />
+      </div>
+      <div className="max-w-[680px] mx-auto relative z-10">
         {StepIndicator}
 
         {/* STEP 1 */}
