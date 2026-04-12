@@ -5,6 +5,7 @@ const translations = {
   "nav.actividades": { es: "Actividades", ca: "Activitats", en: "Activities", de: "Aktivitäten" },
   "nav.terapias": { es: "Terapias", ca: "Teràpies", en: "Therapies", de: "Therapien" },
   "nav.blog": { es: "Blog", ca: "Blog", en: "Blog", de: "Blog" },
+  "nav.soporte": { es: "Soporte", ca: "Suport", en: "Support", de: "Support" },
   "nav.pro": { es: "¿Eres profesional? →", ca: "Ets professional? →", en: "Are you a professional? →", de: "Sind Sie Fachkraft? →" },
 
   // HERO
