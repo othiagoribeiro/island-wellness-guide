@@ -17,7 +17,7 @@ export default function Footer() {
             <Link to="/professionals" className="hover:opacity-100 transition-opacity">{t("footer.professionals")}</Link>
             <Link to="/blog" className="hover:opacity-100 transition-opacity">{t("nav.blog")}</Link>
             <Link to="/therapies" className="hover:opacity-100 transition-opacity">{t("footer.therapies")}</Link>
-            <Link to="/activities" className="hover:opacity-100 transition-opacity">{t("nav.actividades")}</Link>
+            <Link to="/activities" className="hover:opacity-100 transition-opacity">{t("footer.activities")}</Link>
             <Link to="/about" className="hover:opacity-100 transition-opacity">{t("footer.about")}</Link>
           </nav>
         </div>
