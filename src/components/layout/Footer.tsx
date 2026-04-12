@@ -13,7 +13,8 @@ export default function Footer() {
             <img src={isotipo} alt="" className="w-6 h-6" style={{ filter: "brightness(0) invert(1) opacity(0.9)" }} />
             Mallorca Holística
           </h3>
-          <p className="text-sm opacity-75">{t("footer.tagline")}</p>
+          <p className="text-sm opacity-75 leading-relaxed">{t("footer.tagline")}</p>
+          <p className="text-sm opacity-60 italic mt-3">{t("footer.motto")}</p>
         </div>
         <div>
           <h4 className="font-semibold mb-3">{t("footer.explore")}</h4>
