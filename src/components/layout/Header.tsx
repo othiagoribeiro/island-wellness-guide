@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useI18n } from "@/i18n/useI18n";
 import { LOCALES, type Locale } from "@/i18n/locales";
 import { Menu, X } from "lucide-react";
+import isotipo from "@/assets/isotipo.png";
 
 const navLinks = [
   { key: "nav.inicio" as const, path: "/" },
@@ -21,7 +22,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-sm" style={{ borderBottom: '1px solid rgba(44,74,62,0.1)' }}>
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="font-bold text-xl text-brown tracking-tight">
+        <Link to="/" className="flex items-center gap-2 text-xl text-brown tracking-tight">
+          <img src={isotipo} alt="" className="w-7 h-7" style={{ filter: "sepia(1) saturate(3) hue-rotate(120deg) brightness(0.45)" }} />
           Mallorca Holística
         </Link>
 
