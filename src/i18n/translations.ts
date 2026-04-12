@@ -580,6 +580,18 @@ const translations = {
   "about.cta.title": { es: "¿Eres terapeuta?", ca: "Ets terapeuta?", en: "Are you a therapist?", de: "Sind Sie Therapeut?" },
   "about.cta.body": { es: "Únete a la comunidad.", ca: "Uneix-te a la comunitat.", en: "Join the community.", de: "Treten Sie der Gemeinschaft bei." },
   "about.cta.button": { es: "Crear mi perfil →", ca: "Crear el meu perfil →", en: "Create my profile →", de: "Mein Profil erstellen →" },
+  // PRO LOGIN
+  "proLogin.subtitle": { es: "Acceso para profesionales", ca: "Accés per a professionals", en: "Professional access", de: "Zugang für Fachleute" },
+  "proLogin.email": { es: "Correo electrónico", ca: "Correu electrònic", en: "Email", de: "E-Mail" },
+  "proLogin.password": { es: "Contraseña", ca: "Contrasenya", en: "Password", de: "Passwort" },
+  "proLogin.forgot": { es: "¿Olvidaste tu contraseña?", ca: "Has oblidat la contrasenya?", en: "Forgot your password?", de: "Passwort vergessen?" },
+  "proLogin.submit": { es: "Entrar", ca: "Entrar", en: "Sign in", de: "Anmelden" },
+  "proLogin.noAccount": { es: "¿Aún no tienes perfil?", ca: "Encara no tens perfil?", en: "Don't have a profile yet?", de: "Noch kein Profil?" },
+  "proLogin.createProfile": { es: "Crear mi perfil →", ca: "Crear el meu perfil →", en: "Create my profile →", de: "Mein Profil erstellen →" },
+  "proLogin.errorEmail": { es: "Por favor introduce tu correo.", ca: "Si us plau introdueix el teu correu.", en: "Please enter your email.", de: "Bitte geben Sie Ihre E-Mail ein." },
+  "proLogin.errorPassword": { es: "Por favor introduce tu contraseña.", ca: "Si us plau introdueix la teva contrasenya.", en: "Please enter your password.", de: "Bitte geben Sie Ihr Passwort ein." },
+  "proLogin.footer": { es: "¿Tienes preguntas? hola@mallorcaholistica.com", ca: "Tens preguntes? hola@mallorcaholistica.com", en: "Have questions? hola@mallorcaholistica.com", de: "Fragen? hola@mallorcaholistica.com" },
+  "proLogin.hasAccount": { es: "¿Ya tienes cuenta? Accede aquí", ca: "Ja tens compte? Accedeix aquí", en: "Already have an account? Sign in here", de: "Schon ein Konto? Hier anmelden" },
 } as const;
 
 export type TranslationKey = keyof typeof translations;
