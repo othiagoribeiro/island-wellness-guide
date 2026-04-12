@@ -53,7 +53,7 @@ export default function AdminPage() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed lg:static z-40 top-0 left-0 h-full w-[240px] bg-primary flex flex-col transition-transform lg:translate-x-0 ${
+        className={`fixed lg:static z-40 top-0 left-0 min-h-screen w-[240px] bg-primary flex flex-col transition-transform lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
