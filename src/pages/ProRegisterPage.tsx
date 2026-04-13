@@ -515,16 +515,14 @@ export default function ProRegisterPage() {
 
             {/* Nav */}
             <div className="flex justify-between mt-8">
-              <div role="button" tabIndex={0} className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack} onKeyDown={(e) => e.key === "Enter" && goBack()}>
+              <button type="button" className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack}>
                 {t("btn.back")}
-              </div>
-              <div
-                role="button"
-                tabIndex={0}
+              </button>
+              <button
+                type="button"
                 className={btnPrimary + " flex items-center justify-center cursor-pointer flex-1 ml-3"}
-                style={submitting ? { opacity: 0.7 } : {}}
-                onClick={() => !submitting && handleSubmit()}
-                onKeyDown={(e) => e.key === "Enter" && !submitting && handleSubmit()}
+                disabled={submitting}
+                onClick={handleSubmit}
               >
                 {submitting ? (
                   <>
@@ -534,7 +532,7 @@ export default function ProRegisterPage() {
                 ) : (
                   t("btn.submit")
                 )}
-              </div>
+              </button>
             </div>
           </Card>
         )}
