@@ -98,7 +98,7 @@ const CITIES = ["Palma", "Sóller", "Deià", "Manacor", "Pollença", "Alcúdia"]
 /*  Shared styles                                                      */
 /* ------------------------------------------------------------------ */
 
-const inputBase = "w-full h-14 rounded-[10px] text-base px-4 font-sans bg-white outline-none transition-colors";
+const inputBase = "w-full h-14 rounded-[10px] text-base px-4 font-sans bg-white text-foreground outline-none transition-colors";
 const inputBorder = "border border-[rgba(44,74,62,0.25)] focus:border-[hsl(160,26%,35%)] focus:ring-2 focus:ring-[rgba(44,74,62,0.15)]";
 const labelStyle = "block text-sm font-semibold text-ink mb-1.5";
 const errorStyle = "text-[#C0392B] text-xs mt-1 font-normal";
@@ -248,13 +248,13 @@ export default function ProRegisterPage() {
   const NavButtons = ({ onNext, nextLabel, showBack = true }: { onNext: () => void; nextLabel: string; showBack?: boolean }) => (
     <div className={`flex ${showBack ? "justify-between" : "justify-end"} mt-8`}>
       {showBack && (
-        <div role="button" tabIndex={0} className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack} onKeyDown={(e) => e.key === "Enter" && goBack()}>
+        <button type="button" className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack}>
           {t("btn.back")}
-        </div>
+        </button>
       )}
-      <div role="button" tabIndex={0} className={btnPrimary + " flex items-center justify-center cursor-pointer"} onClick={onNext} onKeyDown={(e) => e.key === "Enter" && onNext()}>
+      <button type="button" className={btnPrimary + " flex items-center justify-center cursor-pointer"} onClick={onNext}>
         {nextLabel}
-      </div>
+      </button>
     </div>
   );
 
@@ -515,16 +515,14 @@ export default function ProRegisterPage() {
 
             {/* Nav */}
             <div className="flex justify-between mt-8">
-              <div role="button" tabIndex={0} className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack} onKeyDown={(e) => e.key === "Enter" && goBack()}>
+              <button type="button" className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack}>
                 {t("btn.back")}
-              </div>
-              <div
-                role="button"
-                tabIndex={0}
+              </button>
+              <button
+                type="button"
                 className={btnPrimary + " flex items-center justify-center cursor-pointer flex-1 ml-3"}
-                style={submitting ? { opacity: 0.7 } : {}}
-                onClick={() => !submitting && handleSubmit()}
-                onKeyDown={(e) => e.key === "Enter" && !submitting && handleSubmit()}
+                disabled={submitting}
+                onClick={handleSubmit}
               >
                 {submitting ? (
                   <>
@@ -534,7 +532,7 @@ export default function ProRegisterPage() {
                 ) : (
                   t("btn.submit")
                 )}
-              </div>
+              </button>
             </div>
           </Card>
         )}
