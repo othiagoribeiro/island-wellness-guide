@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "@/i18n/useI18n";
 import { therapies, keywords } from "@/lib/mocks";
@@ -105,6 +105,31 @@ const errorStyle = "text-[#C0392B] text-xs mt-1 font-normal";
 const btnPrimary = "h-14 rounded-[10px] bg-[hsl(160,26%,23%)] text-white font-medium text-sm px-8 hover:opacity-90 transition-opacity disabled:opacity-50";
 const btnGhost = "h-14 rounded-[10px] border border-[hsl(160,26%,23%)] text-[hsl(160,26%,23%)] font-medium text-sm px-8 hover:bg-[hsl(160,26%,23%)]/5 transition-colors";
 
+const FormCard = ({ children }: { children: ReactNode }) => (
+  <div className="bg-white rounded-2xl p-7 sm:p-10 shadow-sm">{children}</div>
+);
+
+interface StepNavButtonsProps {
+  onNext: () => void;
+  onBack: () => void;
+  nextLabel: string;
+  backLabel: string;
+  showBack?: boolean;
+}
+
+const StepNavButtons = ({ onNext, onBack, nextLabel, backLabel, showBack = true }: StepNavButtonsProps) => (
+  <div className={`flex ${showBack ? "justify-between" : "justify-end"} mt-8`}>
+    {showBack && (
+      <button type="button" className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={onBack}>
+        {backLabel}
+      </button>
+    )}
+    <button type="button" className={btnPrimary + " flex items-center justify-center cursor-pointer"} onClick={onNext}>
+      {nextLabel}
+    </button>
+  </div>
+);
+
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
@@ -151,21 +176,31 @@ export default function ProRegisterPage() {
   };
 
   const goNext = () => {
-    if (step === 1 && validateStep1()) { setStep(2); setErrors({}); }
-    else if (step === 2 && validateStep2()) { setStep(3); setErrors({}); }
+    if (step === 1 && validateStep1()) {
+      setStep(2);
+      setErrors({});
+    } else if (step === 2 && validateStep2()) {
+      setStep(3);
+      setErrors({});
+    }
   };
 
-  const goBack = () => { setStep(step - 1); setErrors({}); };
+  const goBack = () => {
+    setStep(step - 1);
+    setErrors({});
+  };
 
   const handleSubmit = () => {
     if (!validateStep3()) return;
     setSubmitting(true);
-    setTimeout(() => { setSubmitting(false); setDone(true); }, 1500);
+    setTimeout(() => {
+      setSubmitting(false);
+      setDone(true);
+    }, 1500);
   };
 
   /* ---- Toggle helpers ---- */
-  const toggleArr = (arr: string[], id: string) =>
-    arr.includes(id) ? arr.filter((x) => x !== id) : [...arr, id];
+  const toggleArr = (arr: string[], id: string) => (arr.includes(id) ? arr.filter((x) => x !== id) : [...arr, id]);
 
   /* ---- SUCCESS ---- */
   if (done) {
@@ -179,11 +214,17 @@ export default function ProRegisterPage() {
           <div className="mx-auto w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: "hsl(160,26%,35%)" }}>
             <Check className="text-white" size={36} />
           </div>
-          <h2 className="text-2xl font-bold mt-6" style={{ color: "hsl(160,26%,23%)", fontFamily: "DM Sans" }}>{t("success.title")}</h2>
+          <h2 className="text-2xl font-bold mt-6" style={{ color: "hsl(160,26%,23%)", fontFamily: "DM Sans" }}>
+            {t("success.title")}
+          </h2>
           <p className="text-stone text-[15px] leading-[1.7] mt-4">{t("success.body")}</p>
           <div className="flex flex-col gap-3 mt-8">
-            <Link to="/pro/dashboard" className={`${btnPrimary} flex items-center justify-center`}>{t("success.dashboard")}</Link>
-            <Link to="/" className={`${btnGhost} flex items-center justify-center`}>{t("success.home")}</Link>
+            <Link to="/pro/dashboard" className={`${btnPrimary} flex items-center justify-center`}>
+              {t("success.dashboard")}
+            </Link>
+            <Link to="/" className={`${btnGhost} flex items-center justify-center`}>
+              {t("success.home")}
+            </Link>
           </div>
         </div>
       </div>
@@ -239,25 +280,6 @@ export default function ProRegisterPage() {
     </div>
   );
 
-  /* ---- CARD WRAPPER ---- */
-  const Card = ({ children }: { children: React.ReactNode }) => (
-    <div className="bg-white rounded-2xl p-7 sm:p-10 shadow-sm">{children}</div>
-  );
-
-  /* ---- NAV BUTTONS ---- */
-  const NavButtons = ({ onNext, nextLabel, showBack = true }: { onNext: () => void; nextLabel: string; showBack?: boolean }) => (
-    <div className={`flex ${showBack ? "justify-between" : "justify-end"} mt-8`}>
-      {showBack && (
-        <button type="button" className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack}>
-          {t("btn.back")}
-        </button>
-      )}
-      <button type="button" className={btnPrimary + " flex items-center justify-center cursor-pointer"} onClick={onNext}>
-        {nextLabel}
-      </button>
-    </div>
-  );
-
   return (
     <div className="min-h-screen relative py-16 md:py-16 px-4" style={{ paddingTop: 64, paddingBottom: 64 }}>
       <div className="absolute inset-0 z-0">
@@ -267,42 +289,40 @@ export default function ProRegisterPage() {
       <div className="max-w-[680px] mx-auto relative z-10">
         {StepIndicator}
 
-        {/* STEP 1 */}
         {step === 1 && (
-          <Card>
+          <FormCard>
             <div className="space-y-5">
-              {/* Name */}
               <div>
                 <label className={labelStyle}>{t("field.name")}</label>
                 <input className={`${inputBase} ${inputBorder}`} value={s1.name} onChange={(e) => setS1({ ...s1, name: e.target.value })} placeholder={t("field.name.ph")} />
                 {errors.name && <p className={errorStyle}>{errors.name}</p>}
               </div>
-              {/* Email */}
+
               <div>
                 <label className={labelStyle}>{t("field.email")}</label>
                 <input className={`${inputBase} ${inputBorder}`} type="email" value={s1.email} onChange={(e) => setS1({ ...s1, email: e.target.value })} placeholder="hola@ejemplo.com" />
                 {errors.email && <p className={errorStyle}>{errors.email}</p>}
               </div>
-              {/* Phone */}
+
               <div>
                 <label className={labelStyle}>{t("field.phone")}</label>
                 <input className={`${inputBase} ${inputBorder}`} value={s1.phone} onChange={(e) => setS1({ ...s1, phone: e.target.value })} placeholder="+34 600 000 000" />
               </div>
-              {/* City */}
+
               <div>
                 <label className={labelStyle}>{t("field.city")}</label>
-                <select
-                  className={`${inputBase} ${inputBorder} appearance-none cursor-pointer`}
-                  value={s1.city}
-                  onChange={(e) => setS1({ ...s1, city: e.target.value })}
-                >
+                <select className={`${inputBase} ${inputBorder} appearance-none cursor-pointer`} value={s1.city} onChange={(e) => setS1({ ...s1, city: e.target.value })}>
                   <option value="">{t("field.city.select")}</option>
-                  {CITIES.map((c) => <option key={c} value={c}>{c}</option>)}
+                  {CITIES.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
                   <option value="other">{t("field.city.other")}</option>
                 </select>
                 {errors.city && <p className={errorStyle}>{errors.city}</p>}
               </div>
-              {/* Bio */}
+
               <div>
                 <label className={labelStyle}>{t("field.bio")}</label>
                 <div className="relative">
@@ -314,29 +334,25 @@ export default function ProRegisterPage() {
                     onChange={(e) => setS1({ ...s1, bio: e.target.value })}
                     placeholder={t("field.bio.ph")}
                   />
-                  <span
-                    className="absolute bottom-2 right-3 text-xs"
-                    style={{ color: 500 - s1.bio.length < 50 ? "hsl(160,26%,35%)" : "hsl(24,16%,58%)" }}
-                  >
+                  <span className="absolute bottom-2 right-3 text-xs" style={{ color: 500 - s1.bio.length < 50 ? "hsl(160,26%,35%)" : "hsl(24,16%,58%)" }}>
                     {s1.bio.length}/500
                   </span>
                 </div>
                 {errors.bio && <p className={errorStyle}>{errors.bio}</p>}
               </div>
-              {/* Website */}
+
               <div>
                 <label className={labelStyle}>{t("field.website")}</label>
                 <input className={`${inputBase} ${inputBorder}`} value={s1.website} onChange={(e) => setS1({ ...s1, website: e.target.value })} placeholder="https://..." />
               </div>
             </div>
-            <NavButtons onNext={goNext} nextLabel={t("btn.next")} showBack={false} />
-          </Card>
+
+            <StepNavButtons onNext={goNext} onBack={goBack} nextLabel={t("btn.next")} backLabel={t("btn.back")} showBack={false} />
+          </FormCard>
         )}
 
-        {/* STEP 2 */}
         {step === 2 && (
-          <Card>
-            {/* Therapies */}
+          <FormCard>
             <div className="mb-8">
               <label className={labelStyle}>{t("therapies.label")}</label>
               <p className="text-stone text-[13px] mb-3">{t("therapies.sub")}</p>
@@ -368,7 +384,6 @@ export default function ProRegisterPage() {
               {errors.therapies && <p className={errorStyle}>{errors.therapies}</p>}
             </div>
 
-            {/* Keywords */}
             <div className="mb-8">
               <label className={labelStyle}>{t("keywords.label")}</label>
               <p className="text-stone text-[13px] mb-3">{t("keywords.sub")}</p>
@@ -399,7 +414,6 @@ export default function ProRegisterPage() {
               </div>
             </div>
 
-            {/* Plan */}
             <div className="mb-8">
               <div className="flex items-baseline justify-between mb-3">
                 <label className={labelStyle + " mb-0"}>{t("plan.label")}</label>
@@ -417,6 +431,7 @@ export default function ProRegisterPage() {
                     pro: [t("plan.pro.b1"), t("plan.pro.b2")],
                     premium: [t("plan.premium.b1"), t("plan.premium.b2")],
                   };
+
                   return (
                     <div
                       key={plan}
@@ -435,11 +450,15 @@ export default function ProRegisterPage() {
                           {t("plan.recommended")}
                         </span>
                       )}
-                      <p className="font-bold text-base" style={{ color: "hsl(160,26%,23%)", fontFamily: "DM Sans" }}>{titles[plan]}</p>
+                      <p className="font-bold text-base" style={{ color: "hsl(160,26%,23%)", fontFamily: "DM Sans" }}>
+                        {titles[plan]}
+                      </p>
                       <p className="text-stone text-sm mt-1">{prices[plan]}</p>
                       <ul className="mt-3 space-y-1">
                         {bullets[plan].map((b, i) => (
-                          <li key={i} className="text-stone text-[13px]">• {b}</li>
+                          <li key={i} className="text-stone text-[13px]">
+                            • {b}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -448,7 +467,6 @@ export default function ProRegisterPage() {
               </div>
             </div>
 
-            {/* Calendar URL */}
             {(s2.plan === "pro" || s2.plan === "premium") && (
               <div className="mb-2 animate-in fade-in slide-in-from-top-2 duration-300">
                 <label className={labelStyle}>{t("calendar.label")}</label>
@@ -457,16 +475,14 @@ export default function ProRegisterPage() {
               </div>
             )}
 
-            <NavButtons onNext={goNext} nextLabel={t("btn.next")} />
-          </Card>
+            <StepNavButtons onNext={goNext} onBack={goBack} nextLabel={t("btn.next")} backLabel={t("btn.back")} />
+          </FormCard>
         )}
 
-        {/* STEP 3 */}
         {step === 3 && (
-          <Card>
+          <FormCard>
             <p className="text-ink text-[15px] leading-[1.7] mb-8">{t("verify.intro")}</p>
 
-            {/* Upload 1 - Identity */}
             <UploadArea
               label={t("upload.id.label")}
               subtitle={t("upload.id.sub")}
@@ -476,7 +492,6 @@ export default function ProRegisterPage() {
               onFile={(f) => setS3({ ...s3, identityFile: f })}
             />
 
-            {/* Upload 2 - Cert */}
             <div className="mt-6">
               <UploadArea
                 label={t("upload.cert.label")}
@@ -488,7 +503,6 @@ export default function ProRegisterPage() {
               />
             </div>
 
-            {/* Deontological code */}
             <div className="mt-8">
               <div className="flex items-start gap-3">
                 <div
@@ -506,24 +520,20 @@ export default function ProRegisterPage() {
                 </div>
                 <p className="text-ink text-sm leading-relaxed">
                   {t("code.text1")}
-                  <Link to="/about" className="underline" style={{ color: "hsl(160,26%,35%)" }}>{t("code.link")}</Link>
+                  <Link to="/about" className="underline" style={{ color: "hsl(160,26%,35%)" }}>
+                    {t("code.link")}
+                  </Link>
                   {t("code.text2")}
                 </p>
               </div>
               {errors.code && <p className={errorStyle + " ml-8"}>{errors.code}</p>}
             </div>
 
-            {/* Nav */}
             <div className="flex justify-between mt-8">
               <button type="button" className={btnGhost + " flex items-center justify-center cursor-pointer"} onClick={goBack}>
                 {t("btn.back")}
               </button>
-              <button
-                type="button"
-                className={btnPrimary + " flex items-center justify-center cursor-pointer flex-1 ml-3"}
-                disabled={submitting}
-                onClick={handleSubmit}
-              >
+              <button type="button" className={btnPrimary + " flex items-center justify-center cursor-pointer flex-1 ml-3"} disabled={submitting} onClick={handleSubmit}>
                 {submitting ? (
                   <>
                     <Loader2 size={18} className="animate-spin mr-2" />
@@ -534,7 +544,7 @@ export default function ProRegisterPage() {
                 )}
               </button>
             </div>
-          </Card>
+          </FormCard>
         )}
       </div>
     </div>
@@ -546,10 +556,19 @@ export default function ProRegisterPage() {
 /* ------------------------------------------------------------------ */
 
 function UploadArea({
-  label, subtitle, dragText, removeText, file, onFile,
+  label,
+  subtitle,
+  dragText,
+  removeText,
+  file,
+  onFile,
 }: {
-  label: string; subtitle: string; dragText: string; removeText: string;
-  file: File | null; onFile: (f: File | null) => void;
+  label: string;
+  subtitle: string;
+  dragText: string;
+  removeText: string;
+  file: File | null;
+  onFile: (f: File | null) => void;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -565,13 +584,7 @@ function UploadArea({
         <div className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ border: "1.5px solid rgba(44,74,62,0.25)", background: "rgba(44,74,62,0.03)" }}>
           <Check size={18} style={{ color: "hsl(160,26%,35%)" }} />
           <span className="text-sm text-ink truncate flex-1">{file.name}</span>
-          <span
-            role="button"
-            tabIndex={0}
-            className="text-stone text-xs cursor-pointer hover:underline"
-            onClick={() => onFile(null)}
-            onKeyDown={(e) => e.key === "Enter" && onFile(null)}
-          >
+          <span role="button" tabIndex={0} className="text-stone text-xs cursor-pointer hover:underline" onClick={() => onFile(null)} onKeyDown={(e) => e.key === "Enter" && onFile(null)}>
             {removeText}
           </span>
         </div>
@@ -591,7 +604,10 @@ function UploadArea({
         onClick={() => inputRef.current?.click()}
         onKeyDown={(e) => e.key === "Enter" && inputRef.current?.click()}
         onDragOver={(e) => e.preventDefault()}
-        onDrop={(e) => { e.preventDefault(); handleFile(e.dataTransfer.files); }}
+        onDrop={(e) => {
+          e.preventDefault();
+          handleFile(e.dataTransfer.files);
+        }}
       >
         <UploadCloud size={32} style={{ color: "hsl(160,26%,35%)" }} />
         <p className="text-stone text-sm mt-2 text-center px-4">{dragText}</p>
