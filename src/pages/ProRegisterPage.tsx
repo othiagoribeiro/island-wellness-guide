@@ -446,7 +446,7 @@ export default function ProRegisterPage() {
                       onKeyDown={(e) => e.key === "Enter" && setS2({ ...s2, plan })}
                     >
                       {plan === "pro" && (
-                        <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded" style={{ backgroundColor: "hsl(160,26%,35%)", color: "hsl(160,26%,23%)" }}>
+                        <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded text-white" style={{ backgroundColor: "hsl(160,26%,35%)" }}>
                           {t("plan.recommended")}
                         </span>
                       )}
