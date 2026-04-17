@@ -45,14 +45,14 @@ export default function HowItWorks() {
               <div
                 className="w-20 h-20 rounded-full flex items-center justify-center mb-5"
                 style={{
-                  background: "hsl(24 40% 92%)",
-                  border: "1px solid hsl(24 30% 85%)",
+                  background: "hsl(var(--primary) / 0.15)",
+                  border: "1px solid hsl(var(--primary) / 0.25)",
                 }}
               >
                 <step.icon
                   size={34}
                   strokeWidth={1.4}
-                  className="text-stone"
+                  className="text-primary"
                 />
               </div>
 
