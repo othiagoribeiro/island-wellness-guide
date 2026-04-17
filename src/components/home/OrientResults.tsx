@@ -7,7 +7,7 @@ import { Heart, MapPin, Star, ArrowRight, RotateCcw, Users } from "lucide-react"
 
 interface OrientResultsProps {
   query: string;
-  explanation: string;
+  explanation?: string;
   professionals: Professional[];
   onNewSearch: () => void;
 }
