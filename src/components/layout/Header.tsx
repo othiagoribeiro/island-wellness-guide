@@ -44,7 +44,7 @@ export default function Header() {
 
         <div className="hidden lg:flex items-center gap-4">
           {/* Language switcher */}
-          <div className="flex items-center gap-1 text-sm text-stone">
+          <div className="flex items-center gap-1 text-xs text-stone">
             {LOCALES.map((l, i) => (
               <span key={l}>
                 {i > 0 && <span className="mx-1 text-border">|</span>}
@@ -63,7 +63,7 @@ export default function Header() {
 
           <Link
             to="/para-profesionales"
-            className="border border-primary text-primary px-5 py-2 rounded-lg text-sm font-medium hover:bg-primary/5 transition-colors"
+            className="border border-primary text-primary px-4 py-1.5 rounded-lg text-xs font-medium hover:bg-primary/5 transition-colors"
           >
             {t("nav.pro")}
           </Link>
@@ -88,7 +88,7 @@ export default function Header() {
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
-                className={`text-sm font-medium py-2 uppercase ${
+                className={`text-xs font-medium py-2 capitalize ${
                   location.pathname === link.path ? "text-terracotta" : "text-brown"
                 }`}
               >
@@ -96,7 +96,7 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-2 pb-3 text-sm">
+          <div className="flex items-center gap-2 pb-3 text-xs">
             {LOCALES.map((l, i) => (
               <span key={l}>
                 {i > 0 && <span className="text-border">|</span>}
@@ -113,7 +113,7 @@ export default function Header() {
           <Link
             to="/para-profesionales"
             onClick={() => setMobileOpen(false)}
-            className="block text-center border border-primary text-primary px-5 py-3 rounded-lg text-sm font-medium hover:bg-primary/5 transition-colors"
+            className="block text-center border border-primary text-primary px-5 py-2.5 rounded-lg text-xs font-medium hover:bg-primary/5 transition-colors"
           >
             {t("nav.pro")}
           </Link>
