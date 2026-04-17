@@ -23,7 +23,7 @@ export default function HowItWorks() {
   const { t } = useI18n();
 
   return (
-    <section className="py-16 md:py-24 bg-surface">
+    <section className="py-24 md:py-36 bg-surface">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-primary text-center mb-14 md:mb-20">
           {t("how.title")}

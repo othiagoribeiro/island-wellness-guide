@@ -17,39 +17,36 @@ function ProHero() {
   };
 
   return (
-    <section className="bg-primary py-20 md:py-[120px]">
+    <section className="bg-background py-20 md:py-[120px] border-b border-border/50">
       <div className="container mx-auto px-4 max-w-[800px] text-center">
-        <span className="text-accent text-xs font-semibold uppercase tracking-[0.15em] mb-5 block">
+        <span className="text-accent text-xs uppercase tracking-[0.15em] mb-5 block">
           {t("proLanding.eyebrow")}
         </span>
-        <h1
-          className="text-3xl md:text-[42px] font-bold text-primary-foreground leading-tight mb-5"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
+        <h1 className="text-3xl md:text-[42px] text-primary leading-tight mb-5">
           {t("proLanding.hero.title")}
         </h1>
-        <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.75)" }}>
+        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
           {t("proLanding.hero.trust")}
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <Link
             to="/pro/register"
-            className="bg-surface text-primary font-semibold px-8 rounded-[10px] hover:shadow-lg hover:opacity-95 transition-all flex items-center justify-center"
+            className="bg-primary text-primary-foreground px-8 rounded-[10px] hover:opacity-90 transition-all flex items-center justify-center"
             style={{ height: 56 }}
           >
             {t("proLanding.hero.cta1")}
           </Link>
           <button
             onClick={scrollToPlans}
-            className="border-[1.5px] border-white text-white font-semibold px-8 rounded-[10px] hover:bg-white/10 transition-all flex items-center justify-center"
+            className="border border-primary text-primary px-8 rounded-[10px] hover:bg-primary/5 transition-all flex items-center justify-center"
             style={{ height: 56 }}
           >
             {t("proLanding.hero.cta2")}
           </button>
         </div>
 
-        <Link to="/pro/login" className="text-[13px] hover:underline" style={{ color: "rgba(255,255,255,0.6)" }}>
+        <Link to="/pro/login" className="text-[13px] text-muted-foreground hover:text-primary transition-colors">
           {t("proLogin.hasAccount")}
         </Link>
       </div>
@@ -291,20 +288,17 @@ function ProFAQ() {
 function FinalCTA() {
   const { t } = useI18n();
   return (
-    <section className="bg-accent py-16 md:py-20">
+    <section className="bg-background py-24 md:py-32 border-t border-border/50">
       <div className="container mx-auto px-4 text-center max-w-[700px]">
-        <h2
-          className="text-2xl md:text-3xl font-semibold text-white mb-4"
-          style={{ fontFamily: "'DM Sans', sans-serif" }}
-        >
+        <h2 className="text-2xl md:text-3xl text-primary mb-4">
           {t("proLanding.finalCta.title")}
         </h2>
-        <p className="text-base mb-8" style={{ color: "rgba(255,255,255,0.75)" }}>
+        <p className="text-base text-muted-foreground mb-8">
           {t("proLanding.finalCta.body")}
         </p>
         <Link
           to="/pro/register"
-          className="inline-block bg-white text-primary font-semibold px-9 py-4 rounded-[10px] hover:shadow-lg transition-all"
+          className="inline-block bg-primary text-primary-foreground px-9 py-4 rounded-[10px] hover:opacity-90 transition-all"
         >
           {t("proLanding.finalCta.button")}
         </Link>

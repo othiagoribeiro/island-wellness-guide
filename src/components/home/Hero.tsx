@@ -45,9 +45,6 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
   const { t, locale } = useI18n();
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [currentTitle, setCurrentTitle] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
 
   const [aiText, setAiText] = useState("");
   const [searchQ, setSearchQ] = useState("");
@@ -56,6 +53,7 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
 
   const therapies = getTherapies();
   const titles = ROTATING_TITLES[locale] || ROTATING_TITLES.es;
+  const heroTitle = titles[0];
 
   // Background slideshow
   useEffect(() => {
@@ -64,34 +62,6 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
     }, 6000);
     return () => clearInterval(interval);
   }, []);
-
-  // Typewriter effect
-  useEffect(() => {
-    const fullText = titles[currentTitle];
-    let charIndex = 0;
-    setDisplayedText("");
-    setIsTyping(true);
-
-    const typeInterval = setInterval(() => {
-      charIndex++;
-      setDisplayedText(fullText.slice(0, charIndex));
-      if (charIndex >= fullText.length) {
-        clearInterval(typeInterval);
-        setIsTyping(false);
-      }
-    }, 45);
-
-    return () => clearInterval(typeInterval);
-  }, [currentTitle, titles]);
-
-  // Rotate to next title after typing + pause
-  useEffect(() => {
-    if (isTyping) return;
-    const timeout = setTimeout(() => {
-      setCurrentTitle((prev) => (prev + 1) % titles.length);
-    }, 3000);
-    return () => clearTimeout(timeout);
-  }, [isTyping, titles.length]);
 
   const handleAiSubmit = useCallback(() => {
     if (aiText.trim()) {
@@ -155,21 +125,12 @@ export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
           {t("hero.eyebrow")}
         </p>
 
-        {/* Typewriter H1 */}
+        {/* Static H1 */}
         <h1
-          className="font-display italic text-3xl md:text-5xl lg:text-[56px] font-bold mb-4 md:mb-5 leading-tight min-h-[1.2em]"
+          className="font-display italic text-3xl md:text-5xl lg:text-[56px] mb-4 md:mb-5 leading-tight"
           style={{ color: "white" }}
         >
-          {displayedText}
-          <span
-            className="inline-block w-[3px] h-[0.85em] ml-1 align-text-bottom"
-            style={{
-              background: "rgba(255,255,255,0.7)",
-              animation: "blink 0.8s step-end infinite",
-              opacity: isTyping ? 1 : 0,
-              transition: "opacity 0.3s",
-            }}
-          />
+          {heroTitle}
         </h1>
 
         {/* Subtitle */}

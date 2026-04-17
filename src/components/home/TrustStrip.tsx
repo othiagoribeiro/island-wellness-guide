@@ -34,7 +34,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   }, [target]);
 
   return (
-    <span ref={ref} className="text-3xl md:text-4xl font-bold">
+    <span ref={ref} className="text-3xl md:text-4xl text-primary">
       {count}{suffix}
     </span>
   );
@@ -44,19 +44,19 @@ export default function TrustStrip() {
   const { t } = useI18n();
 
   return (
-    <section className="bg-primary py-10 md:py-20">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 text-center text-primary-foreground">
+    <section className="bg-background py-16 md:py-28 border-t border-border/50">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 text-center">
         <div className="flex flex-col items-center gap-2">
           <AnimatedCounter target={64} />
-          <p className="text-sm font-medium opacity-80 tracking-wide">{t("trust.professionals")}</p>
+          <p className="text-sm text-muted-foreground tracking-wide">{t("trust.professionals")}</p>
         </div>
         <div className="flex flex-col items-center gap-2">
           <AnimatedCounter target={12} />
-          <p className="text-sm font-medium opacity-80 tracking-wide">{t("trust.specialties")}</p>
+          <p className="text-sm text-muted-foreground tracking-wide">{t("trust.specialties")}</p>
         </div>
         <div className="flex flex-col items-center gap-2">
           <AnimatedCounter target={1500} suffix="+" />
-          <p className="text-sm font-medium opacity-80 tracking-wide">{t("trust.community")}</p>
+          <p className="text-sm text-muted-foreground tracking-wide">{t("trust.community")}</p>
         </div>
       </div>
     </section>

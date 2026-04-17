@@ -12,8 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "sans-serif"],
-        display: ["DM Serif Display", "Georgia", "serif"],
+        sans: ["Mulish", "system-ui", "sans-serif"],
+        display: ["Jost", "Mulish", "sans-serif"],
+        serif: ["Jost", "Mulish", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

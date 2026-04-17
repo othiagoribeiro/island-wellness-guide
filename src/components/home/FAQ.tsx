@@ -82,7 +82,7 @@ export default function FAQ() {
   const { t, locale } = useI18n();
 
   return (
-    <section className="py-16 md:py-28 bg-background">
+    <section className="py-24 md:py-36 bg-background">
       <div className="container mx-auto px-4 max-w-2xl">
         <h2 className="text-2xl md:text-3xl font-bold text-primary text-center mb-3">
           {t("faq.title")}

@@ -72,20 +72,20 @@ export default function AboutPage() {
       </section>
 
       {/* Section 4 — CTA */}
-      <section className="bg-primary" style={{ padding: "80px 0" }}>
+      <section className="bg-background border-t border-border/50" style={{ padding: "80px 0" }}>
         <div className="max-w-[800px] mx-auto px-4 text-center">
-          <h2 className="font-sans text-2xl font-semibold text-white mb-2">
+          <h2 className="text-2xl text-primary mb-2">
             {t("about.cta.title")}
           </h2>
-          <p className="text-white/75 mb-6">{t("about.cta.body")}</p>
+          <p className="text-muted-foreground mb-6">{t("about.cta.body")}</p>
           <Link
             to="/pro/register"
-            className="inline-flex items-center justify-center bg-white text-primary font-semibold px-8 hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 hover:opacity-90 transition-opacity"
             style={{ height: 56, borderRadius: 10 }}
           >
             {t("about.cta.button")}
           </Link>
-          <p className="text-sm mt-4" style={{ color: "rgba(255,255,255,0.6)" }}>
+          <p className="text-sm mt-4 text-muted-foreground">
             hola@mallorcaholistica.com
           </p>
         </div>
