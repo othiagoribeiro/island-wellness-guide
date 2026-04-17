@@ -15,7 +15,7 @@ const testimonials: Testimonial[] = [
     name: "Laura M.",
     city: "Palma",
     initials: "LM",
-    color: "hsl(160,26%,35%)",
+    color: "hsl(145,24%,50%)",
     text: {
       es: "Encontré a mi osteópata en menos de cinco minutos. La verificación me dio mucha confianza.",
       ca: "Vaig trobar el meu osteòpata en menys de cinc minuts. La verificació em va donar molta confiança.",
@@ -75,7 +75,7 @@ const testimonials: Testimonial[] = [
     name: "James L.",
     city: "Alcúdia",
     initials: "JL",
-    color: "hsl(140,25%,40%)",
+    color: "hsl(145,24%,50%)",
     text: {
       es: "Vine de vacaciones y necesitaba un quiromasajista urgente. En diez minutos ya tenía cita confirmada.",
       ca: "Vaig venir de vacances i necessitava un quiromassatgista urgent. En deu minuts ja tenia cita confirmada.",
@@ -151,7 +151,7 @@ export default function Testimonials() {
             key={`${t.name}-${i}`}
             className="shrink-0 w-[340px] sm:w-[380px] bg-white rounded-2xl p-7 transition-shadow duration-300 hover:shadow-md"
             style={{
-              boxShadow: "0 2px 16px rgba(44,74,62,0.07)",
+              boxShadow: "0 2px 16px rgba(70,110,90,0.07)",
             }}
           >
             {/* Quote */}
