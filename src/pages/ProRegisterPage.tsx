@@ -99,11 +99,11 @@ const CITIES = ["Palma", "Sóller", "Deià", "Manacor", "Pollença", "Alcúdia"]
 /* ------------------------------------------------------------------ */
 
 const inputBase = "w-full h-14 rounded-[10px] text-base px-4 font-sans bg-white text-foreground outline-none transition-colors";
-const inputBorder = "border border-[rgba(44,74,62,0.25)] focus:border-[hsl(160,26%,35%)] focus:ring-2 focus:ring-[rgba(44,74,62,0.15)]";
+const inputBorder = "border border-[rgba(70,110,90,0.25)] focus:border-[hsl(145,24%,50%)] focus:ring-2 focus:ring-[rgba(70,110,90,0.15)]";
 const labelStyle = "block text-sm font-semibold text-ink mb-1.5";
 const errorStyle = "text-[#C0392B] text-xs mt-1 font-normal";
-const btnPrimary = "h-14 rounded-[10px] bg-[hsl(160,26%,23%)] text-white font-medium text-sm px-8 hover:opacity-90 transition-opacity disabled:opacity-50";
-const btnGhost = "h-14 rounded-[10px] border border-[hsl(160,26%,23%)] text-[hsl(160,26%,23%)] font-medium text-sm px-8 hover:bg-[hsl(160,26%,23%)]/5 transition-colors";
+const btnPrimary = "h-14 rounded-[10px] bg-[hsl(150,22%,38%)] text-white font-medium text-sm px-8 hover:opacity-90 transition-opacity disabled:opacity-50";
+const btnGhost = "h-14 rounded-[10px] border border-[hsl(150,22%,38%)] text-[hsl(150,22%,38%)] font-medium text-sm px-8 hover:bg-[hsl(150,22%,38%)]/5 transition-colors";
 
 const FormCard = ({ children }: { children: ReactNode }) => (
   <div className="bg-white rounded-2xl p-7 sm:p-10 shadow-sm">{children}</div>
@@ -211,10 +211,10 @@ export default function ProRegisterPage() {
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(30,40,34,0.55), rgba(30,40,34,0.7))" }} />
         </div>
         <div className="relative z-10 bg-white rounded-2xl p-12 max-w-[480px] w-full text-center shadow-sm">
-          <div className="mx-auto w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: "hsl(160,26%,35%)" }}>
+          <div className="mx-auto w-20 h-20 rounded-full flex items-center justify-center" style={{ backgroundColor: "hsl(145,24%,50%)" }}>
             <Check className="text-white" size={36} />
           </div>
-          <h2 className="text-2xl font-bold mt-6" style={{ color: "hsl(160,26%,23%)", fontFamily: "DM Sans" }}>
+          <h2 className="text-2xl font-bold mt-6" style={{ color: "hsl(150,22%,38%)", fontFamily: "DM Sans" }}>
             {t("success.title")}
           </h2>
           <p className="text-stone text-[15px] leading-[1.7] mt-4">{t("success.body")}</p>
@@ -247,9 +247,9 @@ export default function ProRegisterPage() {
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-all"
                   style={{
-                    backgroundColor: isCompleted ? "hsl(160,26%,35%)" : isActive ? "hsl(160,26%,23%)" : "hsl(34,33%,95%)",
+                    backgroundColor: isCompleted ? "hsl(145,24%,50%)" : isActive ? "hsl(150,22%,38%)" : "hsl(34,33%,95%)",
                     color: isCompleted || isActive ? "white" : "hsl(24,16%,58%)",
-                    boxShadow: isActive ? "0 0 0 3px rgba(44,74,62,0.15)" : "none",
+                    boxShadow: isActive ? "0 0 0 3px rgba(70,110,90,0.15)" : "none",
                   }}
                 >
                   {isCompleted ? <Check size={16} strokeWidth={2.5} /> : num}
@@ -257,7 +257,7 @@ export default function ProRegisterPage() {
                 <span
                   className="text-[11px] sm:text-xs mt-2 text-center leading-tight whitespace-nowrap"
                   style={{
-                    color: isActive ? "hsl(160,26%,23%)" : isCompleted ? "hsl(160,26%,35%)" : "hsl(24,16%,58%)",
+                    color: isActive ? "hsl(150,22%,38%)" : isCompleted ? "hsl(145,24%,50%)" : "hsl(24,16%,58%)",
                     fontFamily: "DM Sans",
                     fontWeight: isActive ? 700 : isCompleted ? 600 : 400,
                   }}
@@ -269,7 +269,7 @@ export default function ProRegisterPage() {
                 <div className="flex-1 mx-2 sm:mx-3 mt-[-18px]">
                   <div
                     className="h-[2px] w-full rounded-full transition-colors"
-                    style={{ backgroundColor: isCompleted ? "hsl(160,26%,35%)" : "rgba(44,74,62,0.12)" }}
+                    style={{ backgroundColor: isCompleted ? "hsl(145,24%,50%)" : "rgba(70,110,90,0.12)" }}
                   />
                 </div>
               )}
@@ -334,7 +334,7 @@ export default function ProRegisterPage() {
                     onChange={(e) => setS1({ ...s1, bio: e.target.value })}
                     placeholder={t("field.bio.ph")}
                   />
-                  <span className="absolute bottom-2 right-3 text-xs" style={{ color: 500 - s1.bio.length < 50 ? "hsl(160,26%,35%)" : "hsl(24,16%,58%)" }}>
+                  <span className="absolute bottom-2 right-3 text-xs" style={{ color: 500 - s1.bio.length < 50 ? "hsl(145,24%,50%)" : "hsl(24,16%,58%)" }}>
                     {s1.bio.length}/500
                   </span>
                 </div>
@@ -366,9 +366,9 @@ export default function ProRegisterPage() {
                       tabIndex={0}
                       className="cursor-pointer rounded-full text-sm font-medium px-5 py-2.5 transition-all select-none"
                       style={{
-                        backgroundColor: sel ? "hsl(160,26%,23%)" : "white",
+                        backgroundColor: sel ? "hsl(150,22%,38%)" : "white",
                         color: sel ? "white" : "hsl(0,0%,18%)",
-                        border: sel ? "none" : "1px solid rgba(44,74,62,0.25)",
+                        border: sel ? "none" : "1px solid rgba(70,110,90,0.25)",
                         fontFamily: "DM Sans",
                         fontWeight: 500,
                         fontSize: 14,
@@ -397,9 +397,9 @@ export default function ProRegisterPage() {
                       tabIndex={0}
                       className="cursor-pointer rounded-full text-sm font-medium px-5 py-2.5 transition-all select-none"
                       style={{
-                        backgroundColor: sel ? "hsl(160,26%,23%)" : "white",
+                        backgroundColor: sel ? "hsl(150,22%,38%)" : "white",
                         color: sel ? "white" : "hsl(0,0%,18%)",
-                        border: sel ? "none" : "1px solid rgba(44,74,62,0.25)",
+                        border: sel ? "none" : "1px solid rgba(70,110,90,0.25)",
                         fontFamily: "DM Sans",
                         fontWeight: 500,
                         fontSize: 14,
@@ -417,7 +417,7 @@ export default function ProRegisterPage() {
             <div className="mb-8">
               <div className="flex items-baseline justify-between mb-3">
                 <label className={labelStyle + " mb-0"}>{t("plan.label")}</label>
-                <a href="/para-profesionales" target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium" style={{ color: "hsl(160,26%,35%)" }}>
+                <a href="/para-profesionales" target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium" style={{ color: "hsl(145,24%,50%)" }}>
                   {t("plan.compare")}
                 </a>
               </div>
@@ -439,18 +439,18 @@ export default function ProRegisterPage() {
                       tabIndex={0}
                       className="relative rounded-xl p-5 cursor-pointer transition-all"
                       style={{
-                        border: sel ? "2px solid hsl(160,26%,23%)" : "1.5px solid rgba(44,74,62,0.15)",
-                        backgroundColor: sel ? "rgba(44,74,62,0.04)" : "white",
+                        border: sel ? "2px solid hsl(150,22%,38%)" : "1.5px solid rgba(70,110,90,0.15)",
+                        backgroundColor: sel ? "rgba(70,110,90,0.04)" : "white",
                       }}
                       onClick={() => setS2({ ...s2, plan })}
                       onKeyDown={(e) => e.key === "Enter" && setS2({ ...s2, plan })}
                     >
                       {plan === "pro" && (
-                        <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded text-white" style={{ backgroundColor: "hsl(160,26%,35%)" }}>
+                        <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded text-white" style={{ backgroundColor: "hsl(145,24%,50%)" }}>
                           {t("plan.recommended")}
                         </span>
                       )}
-                      <p className="font-bold text-base" style={{ color: "hsl(160,26%,23%)", fontFamily: "DM Sans" }}>
+                      <p className="font-bold text-base" style={{ color: "hsl(150,22%,38%)", fontFamily: "DM Sans" }}>
                         {titles[plan]}
                       </p>
                       <p className="text-stone text-sm mt-1">{prices[plan]}</p>
@@ -510,8 +510,8 @@ export default function ProRegisterPage() {
                   tabIndex={0}
                   className="w-5 h-5 rounded shrink-0 mt-0.5 flex items-center justify-center cursor-pointer transition-colors"
                   style={{
-                    backgroundColor: s3.acceptCode ? "hsl(160,26%,23%)" : "white",
-                    border: s3.acceptCode ? "none" : "1.5px solid rgba(44,74,62,0.25)",
+                    backgroundColor: s3.acceptCode ? "hsl(150,22%,38%)" : "white",
+                    border: s3.acceptCode ? "none" : "1.5px solid rgba(70,110,90,0.25)",
                   }}
                   onClick={() => setS3({ ...s3, acceptCode: !s3.acceptCode })}
                   onKeyDown={(e) => e.key === "Enter" && setS3({ ...s3, acceptCode: !s3.acceptCode })}
@@ -520,7 +520,7 @@ export default function ProRegisterPage() {
                 </div>
                 <p className="text-ink text-sm leading-relaxed">
                   {t("code.text1")}
-                  <Link to="/about" className="underline" style={{ color: "hsl(160,26%,35%)" }}>
+                  <Link to="/about" className="underline" style={{ color: "hsl(145,24%,50%)" }}>
                     {t("code.link")}
                   </Link>
                   {t("code.text2")}
@@ -581,8 +581,8 @@ function UploadArea({
       <div>
         <label className={labelStyle}>{label}</label>
         <p className="text-stone text-[13px] mb-2">{subtitle}</p>
-        <div className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ border: "1.5px solid rgba(44,74,62,0.25)", background: "rgba(44,74,62,0.03)" }}>
-          <Check size={18} style={{ color: "hsl(160,26%,35%)" }} />
+        <div className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ border: "1.5px solid rgba(70,110,90,0.25)", background: "rgba(70,110,90,0.03)" }}>
+          <Check size={18} style={{ color: "hsl(145,24%,50%)" }} />
           <span className="text-sm text-ink truncate flex-1">{file.name}</span>
           <span role="button" tabIndex={0} className="text-stone text-xs cursor-pointer hover:underline" onClick={() => onFile(null)} onKeyDown={(e) => e.key === "Enter" && onFile(null)}>
             {removeText}
@@ -599,8 +599,8 @@ function UploadArea({
       <div
         role="button"
         tabIndex={0}
-        className="flex flex-col items-center justify-center rounded-xl py-8 cursor-pointer transition-colors hover:bg-[rgba(44,74,62,0.05)]"
-        style={{ border: "2px dashed rgba(44,74,62,0.3)", background: "rgba(44,74,62,0.03)" }}
+        className="flex flex-col items-center justify-center rounded-xl py-8 cursor-pointer transition-colors hover:bg-[rgba(70,110,90,0.05)]"
+        style={{ border: "2px dashed rgba(70,110,90,0.3)", background: "rgba(70,110,90,0.03)" }}
         onClick={() => inputRef.current?.click()}
         onKeyDown={(e) => e.key === "Enter" && inputRef.current?.click()}
         onDragOver={(e) => e.preventDefault()}
@@ -609,7 +609,7 @@ function UploadArea({
           handleFile(e.dataTransfer.files);
         }}
       >
-        <UploadCloud size={32} style={{ color: "hsl(160,26%,35%)" }} />
+        <UploadCloud size={32} style={{ color: "hsl(145,24%,50%)" }} />
         <p className="text-stone text-sm mt-2 text-center px-4">{dragText}</p>
         <p className="text-stone text-xs mt-1">PDF, JPG, PNG · Máx 5MB</p>
         <input ref={inputRef} type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => handleFile(e.target.files)} />

@@ -8,9 +8,9 @@ import "leaflet/dist/leaflet.css";
 
 function createProfilePin() {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40" fill="none">
-    <path d="M15 0C6.716 0 0 6.716 0 15c0 10.5 15 25 15 25s15-14.5 15-25C30 6.716 23.284 0 15 0z" fill="hsl(160,26%,23%)"/>
+    <path d="M15 0C6.716 0 0 6.716 0 15c0 10.5 15 25 15 25s15-14.5 15-25C30 6.716 23.284 0 15 0z" fill="hsl(150,22%,38%)"/>
     <circle cx="15" cy="14" r="6" fill="white" fill-opacity="0.95"/>
-    <circle cx="15" cy="14" r="3" fill="hsl(160,26%,23%)"/>
+    <circle cx="15" cy="14" r="3" fill="hsl(150,22%,38%)"/>
   </svg>`;
   return L.divIcon({
     html: svg,
@@ -113,7 +113,7 @@ export default function ProfessionalProfilePage() {
               <span
                 key={kw.id}
                 className="text-[13px] text-primary px-3.5 py-1 rounded-full"
-                style={{ background: "rgba(44,74,62,0.1)" }}
+                style={{ background: "rgba(70,110,90,0.1)" }}
               >
                 {kw.name[locale]}
               </span>
@@ -130,7 +130,7 @@ export default function ProfessionalProfilePage() {
                 <div
                   key={i}
                   className="flex items-start gap-3 py-3"
-                  style={{ borderBottom: i < pro.certifications!.length - 1 ? "1px solid rgba(44,74,62,0.08)" : undefined }}
+                  style={{ borderBottom: i < pro.certifications!.length - 1 ? "1px solid rgba(70,110,90,0.08)" : undefined }}
                 >
                   <GraduationCap size={18} className="text-accent shrink-0 mt-0.5" />
                   <div>
