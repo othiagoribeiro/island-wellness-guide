@@ -7,7 +7,7 @@ import { Heart, MapPin, Star, ArrowRight, RotateCcw, Users } from "lucide-react"
 
 interface OrientResultsProps {
   query: string;
-  explanation: string;
+  explanation?: string;
   professionals: Professional[];
   onNewSearch: () => void;
 }
@@ -32,18 +32,20 @@ export default function OrientResults({ query, explanation, professionals, onNew
       <div className="container mx-auto px-3 md:px-4 max-w-3xl">
         <div className="bg-card rounded-2xl shadow-md border border-border/50 overflow-hidden animate-fade-in">
           {/* Empathetic message */}
-          <div className="p-4 md:p-8">
-            <div className="flex gap-4">
-              <div className="shrink-0 mt-1">
-                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Heart size={18} className="text-primary" />
+          {explanation && (
+            <div className="p-4 md:p-8">
+              <div className="flex gap-4">
+                <div className="shrink-0 mt-1">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Heart size={18} className="text-primary" />
+                  </div>
                 </div>
+                <p className="text-foreground text-sm md:text-base leading-relaxed">
+                  {explanation}
+                </p>
               </div>
-              <p className="text-foreground text-sm md:text-base leading-relaxed">
-                {explanation}
-              </p>
             </div>
-          </div>
+          )}
 
           {/* Recommended professionals */}
           <div className="border-t border-border/50 px-4 md:px-8 py-4 md:py-5">
