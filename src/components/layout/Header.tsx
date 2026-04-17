@@ -33,7 +33,7 @@ export default function Header() {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium tracking-wide uppercase transition-colors hover:text-terracotta ${
+              className={`text-xs font-medium tracking-wide capitalize transition-colors hover:text-terracotta ${
                 location.pathname === link.path ? "text-terracotta" : "text-brown"
               }`}
             >
