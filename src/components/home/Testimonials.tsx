@@ -127,7 +127,7 @@ export default function Testimonials() {
   }, [isPaused]);
 
   return (
-    <section className="py-16 md:py-24 bg-background overflow-hidden">
+    <section className="py-24 md:py-36 bg-background overflow-hidden">
       <div className="container mx-auto px-4 mb-10 md:mb-14">
         <h2
           className="text-2xl md:text-3xl font-bold text-primary text-center"

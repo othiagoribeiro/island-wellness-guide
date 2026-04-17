@@ -63,7 +63,7 @@ export default function Header() {
 
           <Link
             to="/para-profesionales"
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            className="border border-primary text-primary px-5 py-2 rounded-lg text-sm font-medium hover:bg-primary/5 transition-colors"
           >
             {t("nav.pro")}
           </Link>
@@ -113,7 +113,7 @@ export default function Header() {
           <Link
             to="/para-profesionales"
             onClick={() => setMobileOpen(false)}
-            className="block text-center bg-primary text-primary-foreground px-5 py-3 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            className="block text-center border border-primary text-primary px-5 py-3 rounded-lg text-sm font-medium hover:bg-primary/5 transition-colors"
           >
             {t("nav.pro")}
           </Link>

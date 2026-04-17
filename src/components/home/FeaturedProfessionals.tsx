@@ -16,7 +16,7 @@ export default function FeaturedProfessionals({ professionals }: FeaturedProfess
   const [showMap, setShowMap] = useState(false);
 
   return (
-    <section className="py-10 md:py-24 bg-background">
+    <section className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-3 md:px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4 uppercase tracking-wider">
           {t("home.professionals.title")}

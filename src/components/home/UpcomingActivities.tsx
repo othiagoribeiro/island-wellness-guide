@@ -22,7 +22,7 @@ export default function UpcomingActivities() {
   if (upcoming.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-24 md:py-36 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-primary text-center mb-3">
           {t("activities.preview.title")}
