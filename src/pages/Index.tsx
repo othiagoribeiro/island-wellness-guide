@@ -53,10 +53,9 @@ export default function Index() {
   const { locale } = useI18n();
   const [orientResult, setOrientResult] = useState<{
     query: string;
-    explanation: string;
+    explanation?: string;
     professionals: Professional[];
   } | null>(null);
-  const [searchedProfessionals, setSearchedProfessionals] = useState<Professional[] | null>(null);
 
   const handleAiSearch = useCallback(
     (query: string) => {
@@ -67,7 +66,6 @@ export default function Index() {
         explanation,
         professionals: results.professionals,
       });
-      setSearchedProfessionals(results.professionals);
     },
     [locale]
   );
@@ -75,15 +73,17 @@ export default function Index() {
   const handleClassicSearch = useCallback(
     (filters: { q?: string; therapyId?: string; city?: string }) => {
       const results = getProfessionals(filters);
-      setSearchedProfessionals(results);
-      setOrientResult(null);
+      const queryLabel = filters.q || filters.therapyId || filters.city || "";
+      setOrientResult({
+        query: queryLabel,
+        professionals: results,
+      });
     },
     []
   );
 
   const handleNewSearch = useCallback(() => {
     setOrientResult(null);
-    setSearchedProfessionals(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -92,19 +92,14 @@ export default function Index() {
       {/* 1. Hero */}
       <Hero onAiSearch={handleAiSearch} onClassicSearch={handleClassicSearch} />
 
-      {/* Orient results (conditional) */}
-      {orientResult && (
+      {/* Search results (conditional, both AI and classic) */}
+      {orientResult && orientResult.professionals.length > 0 && (
         <OrientResults
           query={orientResult.query}
           explanation={orientResult.explanation}
           professionals={orientResult.professionals}
           onNewSearch={handleNewSearch}
         />
-      )}
-
-      {/* Featured professionals with map */}
-      {searchedProfessionals && searchedProfessionals.length > 0 && (
-        <FeaturedProfessionals professionals={searchedProfessionals} />
       )}
 
       {/* 2. Community counter strip */}
