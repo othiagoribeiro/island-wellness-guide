@@ -43,6 +43,7 @@ function AppLayout() {
         <Route path="/therapies" element={<TherapiesPage />} />
         <Route path="/therapies/:id" element={<TherapyDetailPage />} />
         <Route path="/terapia/:slug" element={<TerapiaDetailPage />} />
+        <Route path="/profesional/:slug" element={<ProfesionalDetailPage />} />
         <Route path="/activities" element={<ActivitiesPage />} />
         <Route path="/orient" element={<OrientPage />} />
         <Route path="/blog" element={<BlogPage />} />
