@@ -18,49 +18,37 @@ export default function TherapiesPage() {
         </p>
 
         <div
-          className="mt-16 max-w-[1100px] mx-auto pb-24"
-          style={{ columnCount: 3, columnGap: 64 }}
+          className="mt-16 max-w-[1100px] mx-auto pb-24 columns-1 sm:columns-2 lg:columns-3"
+          style={{ columnGap: 64 }}
         >
-          <style>{`
-            @media (max-width: 1024px) { .therapy-columns { column-count: 2 !important; } }
-            @media (max-width: 640px) { .therapy-columns { column-count: 1 !important; } }
-          `}</style>
-          <div className="therapy-columns" style={{ columnCount: "inherit" as any }}>
-            {letters.map((letter) => (
-              <div key={letter} className="break-inside-avoid mb-8">
-                <h2
-                  className="text-primary mb-4 pb-2"
-                  style={{
-                    fontWeight: 500,
-                    fontSize: 24,
-                    borderBottom: "1px solid rgba(0,0,0,0.08)",
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  {letter}
-                </h2>
-                <ul className="list-none p-0 m-0">
-                  {terapiasGrouped[letter].map((t) => (
-                    <li key={t.slug}>
-                      <Link
-                        to={`/terapia/${t.slug}`}
-                        className="block py-2 text-foreground hover:text-primary transition-colors"
-                        style={{
-                          fontWeight: 400,
-                          fontSize: 17,
-                          textDecoration: "none",
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
-                        onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
-                      >
-                        {t.nombre}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          {letters.map((letter) => (
+            <div key={letter} className="break-inside-avoid mb-8">
+              <h2
+                className="text-primary mb-4 pb-2"
+                style={{
+                  fontWeight: 500,
+                  fontSize: 24,
+                  borderBottom: "1px solid rgba(0,0,0,0.08)",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                {letter}
+              </h2>
+              <ul className="list-none p-0 m-0">
+                {terapiasGrouped[letter].map((t) => (
+                  <li key={t.slug}>
+                    <Link
+                      to={`/terapia/${t.slug}`}
+                      className="block py-2 text-foreground hover:text-primary hover:underline transition-colors"
+                      style={{ fontWeight: 400, fontSize: 17 }}
+                    >
+                      {t.nombre}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </div>
