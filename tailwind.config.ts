@@ -12,9 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Mulish", "system-ui", "sans-serif"],
-        display: ["Jost", "Mulish", "sans-serif"],
-        serif: ["Jost", "Mulish", "sans-serif"],
+        sans: ["Jost", "sans-serif"],
+        display: ["Jost", "sans-serif"],
+        serif: ["Jost", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

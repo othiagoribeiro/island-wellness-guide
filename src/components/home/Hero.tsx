@@ -1,257 +1,179 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useI18n } from "@/i18n/useI18n";
 import { getTherapies } from "@/lib/api";
-import { CITIES } from "@/lib/mocks";
-import { Sparkles, Search } from "lucide-react";
-import type { Locale } from "@/i18n/locales";
+import { ChevronDown, MapPin } from "lucide-react";
 import heroCala from "@/assets/hero_cala.jpg";
-
-const HERO_IMAGES = [heroCala];
-
-const ROTATING_TITLES: Record<Locale, string[]> = {
-  es: [
-    "Encuentra tu bienestar en Mallorca",
-    "Terapias naturales, cerca de ti",
-    "Tu cuerpo y mente, en equilibrio",
-    "Profesionales verificados, resultados reales",
-  ],
-  ca: [
-    "Troba el teu benestar a Mallorca",
-    "Teràpies naturals, a prop teu",
-    "El teu cos i ment, en equilibri",
-    "Professionals verificats, resultats reals",
-  ],
-  en: [
-    "Find your wellbeing in Mallorca",
-    "Natural therapies, close to you",
-    "Your body and mind, in balance",
-    "Verified professionals, real results",
-  ],
-  de: [
-    "Finde dein Wohlbefinden auf Mallorca",
-    "Natürliche Therapien, in deiner Nähe",
-    "Dein Körper und Geist, im Gleichgewicht",
-    "Verifizierte Fachleute, echte Ergebnisse",
-  ],
-};
 
 interface HeroProps {
   onAiSearch?: (query: string) => void;
   onClassicSearch?: (filters: { q?: string; therapyId?: string; city?: string }) => void;
 }
 
-export default function Hero({ onAiSearch, onClassicSearch }: HeroProps) {
-  const { t, locale } = useI18n();
+export default function Hero({ onClassicSearch }: HeroProps) {
   const navigate = useNavigate();
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const [aiText, setAiText] = useState("");
-  const [searchQ, setSearchQ] = useState("");
   const [therapyId, setTherapyId] = useState("");
-  const [city, setCity] = useState("");
-
+  const [location, setLocation] = useState("");
   const therapies = getTherapies();
-  const titles = ROTATING_TITLES[locale] || ROTATING_TITLES.es;
-  const heroTitle = titles[0];
 
-  // Background slideshow
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleAiSubmit = useCallback(() => {
-    if (aiText.trim()) {
-      if (onAiSearch) {
-        onAiSearch(aiText.trim());
-      } else {
-        navigate(`/orient?q=${encodeURIComponent(aiText.trim())}`);
-      }
-    }
-  }, [aiText, navigate, onAiSearch]);
-
-  const handleSearchSubmit = useCallback(() => {
-    const filters: { q?: string; therapyId?: string; city?: string } = {};
-    if (searchQ) filters.q = searchQ;
+  const handleSearch = useCallback(() => {
+    const filters: { therapyId?: string; city?: string } = {};
     if (therapyId) filters.therapyId = therapyId;
-    if (city) filters.city = city;
+    if (location) filters.city = location;
     if (onClassicSearch) {
       onClassicSearch(filters);
     } else {
       const params = new URLSearchParams();
-      if (searchQ) params.set("q", searchQ);
       if (therapyId) params.set("therapyId", therapyId);
-      if (city) params.set("city", city);
+      if (location) params.set("city", location);
       navigate(`/professionals?${params.toString()}`);
     }
-  }, [searchQ, therapyId, city, navigate, onClassicSearch]);
+  }, [therapyId, location, navigate, onClassicSearch]);
 
   return (
-    <section className="relative min-h-screen md:min-h-[720px] flex items-center justify-center overflow-hidden py-20 md:py-0">
-      {/* Background slideshow */}
-      {HERO_IMAGES.map((src, i) => (
-        <div
-          key={i}
-          className="absolute inset-0"
-          style={{
-            opacity: i === currentSlide ? 1 : 0,
-            backgroundImage: `url(${src})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "saturate(0.55) brightness(0.85)",
-            transition: "opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-        />
-      ))}
-
-      {/* Dark overlay for readability */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.35) 100%)",
-        }}
-      />
-
+    <section
+      className="relative flex items-center justify-center overflow-hidden"
+      style={{
+        minHeight: "85vh",
+        backgroundImage: `url(${heroCala})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       {/* Content */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-3 md:px-4 text-center">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
         {/* Eyebrow */}
         <p
-          className="text-xs font-medium tracking-[0.3em] uppercase mb-5"
-          style={{ color: "rgba(255,255,255,0.6)" }}
+          className="text-[13px] font-normal tracking-[2px] uppercase mb-6"
+          style={{ color: "rgba(255,255,255,0.75)" }}
         >
-          {t("hero.eyebrow")}
+          MALLORCA · BIENESTAR · COMUNIDAD
         </p>
 
-        {/* Static H1 */}
+        {/* Main title */}
         <h1
-          className="font-display italic text-3xl md:text-5xl lg:text-[56px] mb-4 md:mb-5 leading-tight"
-          style={{ color: "white" }}
+          className="uppercase mb-3 leading-tight"
+          style={{
+            fontSize: "clamp(36px, 5vw, 64px)",
+            fontWeight: 500,
+            letterSpacing: "4px",
+            color: "white",
+            textShadow: "0 2px 20px rgba(0,0,0,0.25)",
+          }}
         >
-          {heroTitle}
+          ENCUENTRA TU BIENESTAR
         </h1>
 
         {/* Subtitle */}
         <p
-          className="text-sm md:text-lg mb-8 md:mb-12 max-w-2xl mx-auto"
-          style={{ color: "rgba(255,255,255,0.7)" }}
-        >
-          {t("hero.subtitle")}
-        </p>
-
-        {/* Glass panels */}
-        <div className="flex flex-col lg:flex-row max-w-[960px] mx-auto rounded-2xl overflow-hidden"
+          className="uppercase mb-6"
           style={{
-            background: "linear-gradient(135deg, rgba(220,225,230,0.18) 0%, rgba(255,255,255,0.14) 50%, rgba(200,210,220,0.16) 100%)",
-            backdropFilter: "blur(28px) saturate(1.3)",
-            WebkitBackdropFilter: "blur(28px) saturate(1.3)",
-            border: "1px solid rgba(255,255,255,0.22)",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.18)",
+            fontSize: "clamp(18px, 2vw, 24px)",
+            fontWeight: 400,
+            letterSpacing: "6px",
+            color: "white",
+            textShadow: "0 1px 10px rgba(0,0,0,0.2)",
           }}
         >
-          {/* Panel Left — AI */}
-          <div className="p-5 md:p-8 lg:w-[55%] text-left">
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles size={18} style={{ color: "rgba(255,255,255,0.7)" }} />
-              <h2 className="text-lg font-semibold text-white">{t("hero.ai.title")}</h2>
+          EN MALLORCA
+        </p>
+
+        {/* Tagline */}
+        <p
+          className="mx-auto mb-10"
+          style={{
+            fontSize: "clamp(15px, 1.2vw, 18px)",
+            fontWeight: 300,
+            color: "rgba(255,255,255,0.85)",
+            maxWidth: "600px",
+          }}
+        >
+          Profesionales verificados en terapias naturales y complementarias
+        </p>
+
+        {/* Search bar */}
+        <div className="mx-auto" style={{ maxWidth: "720px" }}>
+          {/* Desktop: horizontal bar */}
+          <div
+            className="hidden md:flex items-center bg-white rounded-full overflow-hidden"
+            style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.12)" }}
+          >
+            {/* Therapy dropdown */}
+            <div className="flex-1 relative">
+              <select
+                value={therapyId}
+                onChange={(e) => setTherapyId(e.target.value)}
+                className="w-full h-14 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] appearance-none focus:outline-none cursor-pointer"
+              >
+                <option value="">Terapia, síntoma o nombre</option>
+                {therapies.map((th) => (
+                  <option key={th.id} value={th.id}>{th.name.es}</option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
             </div>
-            <textarea
-              value={aiText}
-              onChange={(e) => setAiText(e.target.value)}
-              placeholder={t("hero.ai.placeholder")}
-              className="w-full bg-transparent border-0 border-b text-white placeholder:text-white/40 text-base resize-none focus:outline-none transition-colors"
-              style={{
-                borderBottomColor: "rgba(255,255,255,0.2)",
-                minHeight: "72px",
-                fontSize: "16px",
-              }}
-              onFocus={(e) => { e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.5)"; }}
-              onBlur={(e) => { e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.2)"; }}
-            />
+
+            {/* Divider */}
+            <div className="w-px h-8 bg-border/60" />
+
+            {/* Location input */}
+            <div className="flex-1 relative">
+              <input
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                placeholder="Cerca de mí, Código Postal..."
+                className="w-full h-14 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] focus:outline-none"
+                style={{ fontSize: "16px" }}
+              />
+              <MapPin size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
+            </div>
+
+            {/* Search button */}
             <button
-              onClick={handleAiSubmit}
-              className="mt-4 w-full font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-              style={{
-                height: "48px",
-                fontSize: "15px",
-                background: "rgba(255,255,255,0.15)",
-                color: "white",
-                border: "1px solid rgba(255,255,255,0.2)",
-                backdropFilter: "blur(8px)",
-              }}
+              onClick={handleSearch}
+              className="bg-primary text-primary-foreground font-medium text-[14px] tracking-wide px-7 h-14 rounded-full mr-1 hover:opacity-90 transition-opacity whitespace-nowrap"
             >
-              {t("hero.ai.button")}
+              VER PROFESIONALES
             </button>
           </div>
 
-          {/* Divider */}
-          <div className="hidden lg:block w-px" style={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
-          <div className="lg:hidden h-px mx-5" style={{ backgroundColor: "rgba(255,255,255,0.1)" }} />
-
-          {/* Panel Right — Search */}
-          <div className="p-5 md:p-8 lg:w-[45%] text-left">
-            <div className="flex items-center gap-2 mb-4">
-              <Search size={18} style={{ color: "rgba(255,255,255,0.7)" }} />
-              <h2 className="text-lg font-semibold text-white">{t("hero.search.title")}</h2>
+          {/* Mobile: stacked */}
+          <div className="md:hidden flex flex-col gap-3">
+            <div
+              className="relative bg-white rounded-full overflow-hidden"
+              style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}
+            >
+              <select
+                value={therapyId}
+                onChange={(e) => setTherapyId(e.target.value)}
+                className="w-full h-12 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] appearance-none focus:outline-none"
+              >
+                <option value="">Terapia, síntoma o nombre</option>
+                {therapies.map((th) => (
+                  <option key={th.id} value={th.id}>{th.name.es}</option>
+                ))}
+              </select>
+              <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
             </div>
 
-            <input
-              value={searchQ}
-              onChange={(e) => setSearchQ(e.target.value)}
-              placeholder={t("hero.search.placeholder")}
-              className="w-full rounded-lg px-4 text-white placeholder:text-white/40 focus:outline-none focus:ring-1 focus:ring-white/30 mb-2"
-              style={{
-                height: "44px",
-                fontSize: "15px",
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.12)",
-              }}
-            />
-
-            <select
-              value={therapyId}
-              onChange={(e) => setTherapyId(e.target.value)}
-              className="w-full rounded-lg px-4 text-white focus:outline-none focus:ring-1 focus:ring-white/30 mb-2 appearance-none"
-              style={{
-                height: "44px",
-                fontSize: "15px",
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                colorScheme: "dark",
-              }}
+            <div
+              className="relative bg-white rounded-full overflow-hidden"
+              style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}
             >
-              <option value="" style={{ background: "#2C4A3E" }}>{t("hero.search.allTherapies")}</option>
-              {therapies.map((th) => (
-                <option key={th.id} value={th.id} style={{ background: "#2C4A3E" }}>{th.name[locale]}</option>
-              ))}
-            </select>
-
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="w-full rounded-lg px-4 text-white focus:outline-none focus:ring-1 focus:ring-white/30 mb-3 appearance-none"
-              style={{
-                height: "44px",
-                fontSize: "15px",
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                colorScheme: "dark",
-              }}
-            >
-              <option value="" style={{ background: "#2C4A3E" }}>{t("hero.search.allCities")}</option>
-              {CITIES.map((c) => (
-                <option key={c} value={c} style={{ background: "#2C4A3E" }}>{c}</option>
-              ))}
-            </select>
+              <input
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                placeholder="Cerca de mí, Código Postal..."
+                className="w-full h-12 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] focus:outline-none"
+                style={{ fontSize: "16px" }}
+              />
+              <MapPin size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
+            </div>
 
             <button
-              onClick={handleSearchSubmit}
-              className="w-full bg-primary text-primary-foreground font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-              style={{ height: "48px", fontSize: "15px" }}
+              onClick={handleSearch}
+              className="bg-primary text-primary-foreground font-medium text-[14px] tracking-wide h-12 rounded-full hover:opacity-90 transition-opacity"
             >
-              {t("hero.search.button")}
+              VER PROFESIONALES
             </button>
           </div>
         </div>
