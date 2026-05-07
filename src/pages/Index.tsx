@@ -51,7 +51,13 @@ export default function Index() {
         />
       )}
 
-      {/* 2. How it works */}
+      {/* 2. Emotional search */}
+      <EmotionalSearch />
+
+      {/* 3. Start here */}
+      <StartHere />
+
+      {/* 4. How it works */}
       <HowItWorks />
 
       {/* 3. Verification trust block */}
