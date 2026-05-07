@@ -39,6 +39,9 @@ export default function Hero({ onClassicSearch }: HeroProps) {
         backgroundPosition: "center",
       }}
     >
+      {/* Subtle overlay for text legibility */}
+      <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.25)" }} />
+
       {/* Content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
         {/* Eyebrow */}
