@@ -12,6 +12,7 @@ import ProfessionalsPage from "./pages/ProfessionalsPage";
 import ProfessionalProfilePage from "./pages/ProfessionalProfilePage";
 import TherapiesPage from "./pages/TherapiesPage";
 import TherapyDetailPage from "./pages/TherapyDetailPage";
+import TerapiaDetailPage from "./pages/TerapiaDetailPage";
 import ActivitiesPage from "./pages/ActivitiesPage";
 import OrientPage from "./pages/OrientPage";
 import BlogPage from "./pages/BlogPage";
