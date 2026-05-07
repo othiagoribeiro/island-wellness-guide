@@ -1,5 +1,7 @@
 import { useState, useCallback } from "react";
 import Hero from "@/components/home/Hero";
+import EmotionalSearch from "@/components/home/EmotionalSearch";
+import StartHere from "@/components/home/StartHere";
 import HowItWorks from "@/components/home/HowItWorks";
 import VerificationTrust from "@/components/home/VerificationTrust";
 import UpcomingActivities from "@/components/home/UpcomingActivities";
