@@ -40,7 +40,7 @@ export default function Hero({ onClassicSearch }: HeroProps) {
       }}
     >
       {/* Subtle overlay for text legibility */}
-      <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.25)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.30) 50%, rgba(0,0,0,0.18) 100%)" }} />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
