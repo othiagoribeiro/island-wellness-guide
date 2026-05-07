@@ -12,6 +12,7 @@ import ProfessionalsPage from "./pages/ProfessionalsPage";
 import ProfessionalProfilePage from "./pages/ProfessionalProfilePage";
 import TherapiesPage from "./pages/TherapiesPage";
 import TherapyDetailPage from "./pages/TherapyDetailPage";
+import TerapiaDetailPage from "./pages/TerapiaDetailPage";
 import ActivitiesPage from "./pages/ActivitiesPage";
 import OrientPage from "./pages/OrientPage";
 import BlogPage from "./pages/BlogPage";
@@ -40,6 +41,7 @@ function AppLayout() {
         <Route path="/professionals/:id" element={<ProfessionalProfilePage />} />
         <Route path="/therapies" element={<TherapiesPage />} />
         <Route path="/therapies/:id" element={<TherapyDetailPage />} />
+        <Route path="/terapia/:slug" element={<TerapiaDetailPage />} />
         <Route path="/activities" element={<ActivitiesPage />} />
         <Route path="/orient" element={<OrientPage />} />
         <Route path="/blog" element={<BlogPage />} />
