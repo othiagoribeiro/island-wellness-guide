@@ -43,8 +43,8 @@ export default function Hero({ onClassicSearch }: HeroProps) {
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
         {/* Eyebrow */}
         <p
-          className="text-[13px] font-normal tracking-[2px] uppercase mb-6"
-          style={{ color: "rgba(255,255,255,0.75)" }}
+          className="text-[13px] uppercase mb-6"
+          style={{ color: "rgba(255,255,255,0.75)", fontWeight: 400, letterSpacing: "3px" }}
         >
           MALLORCA · BIENESTAR · COMUNIDAD
         </p>
@@ -54,8 +54,8 @@ export default function Hero({ onClassicSearch }: HeroProps) {
           className="uppercase mb-3 leading-tight"
           style={{
             fontSize: "clamp(36px, 5vw, 64px)",
-            fontWeight: 500,
-            letterSpacing: "4px",
+            fontWeight: 300,
+            letterSpacing: "6px",
             color: "white",
             textShadow: "0 2px 20px rgba(0,0,0,0.25)",
           }}
@@ -68,8 +68,8 @@ export default function Hero({ onClassicSearch }: HeroProps) {
           className="uppercase mb-6"
           style={{
             fontSize: "clamp(18px, 2vw, 24px)",
-            fontWeight: 400,
-            letterSpacing: "6px",
+            fontWeight: 300,
+            letterSpacing: "8px",
             color: "white",
             textShadow: "0 1px 10px rgba(0,0,0,0.2)",
           }}
