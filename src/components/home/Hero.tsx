@@ -141,13 +141,17 @@ export default function Hero({ onClassicSearch }: HeroProps) {
 
   const therapyWrapRef = useRef<HTMLDivElement>(null);
   const locationWrapRef = useRef<HTMLDivElement>(null);
+  const therapyWrapRefM = useRef<HTMLDivElement>(null);
+  const locationWrapRefM = useRef<HTMLDivElement>(null);
 
   // Click-outside
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const target = e.target as Node;
-      if (therapyWrapRef.current && !therapyWrapRef.current.contains(target)) setTherapyOpen(false);
-      if (locationWrapRef.current && !locationWrapRef.current.contains(target)) setLocationOpen(false);
+      const inTherapy = therapyWrapRef.current?.contains(target) || therapyWrapRefM.current?.contains(target);
+      const inLocation = locationWrapRef.current?.contains(target) || locationWrapRefM.current?.contains(target);
+      if (!inTherapy) setTherapyOpen(false);
+      if (!inLocation) setLocationOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
