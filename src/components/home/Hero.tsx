@@ -189,7 +189,7 @@ export default function Hero({ onClassicSearch }: HeroProps) {
 
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden"
+      className="relative flex items-center justify-center"
       style={{
         minHeight: "85vh",
         backgroundImage: `url(${heroCala})`,
