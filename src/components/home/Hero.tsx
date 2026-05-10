@@ -1,33 +1,187 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTherapies } from "@/lib/api";
-import { ChevronDown, MapPin } from "lucide-react";
+import { ChevronDown, MapPin, Navigation, Map as MapIcon, Search } from "lucide-react";
 import heroCala from "@/assets/hero_cala.jpg";
+import { municipios, popularTherapies } from "@/data/municipios";
+import type { Therapy } from "@/lib/mocks";
 
 interface HeroProps {
   onAiSearch?: (query: string) => void;
   onClassicSearch?: (filters: { q?: string; therapyId?: string; city?: string }) => void;
 }
 
+interface TherapyPopoverProps {
+  open: boolean;
+  query: string;
+  therapies: Therapy[];
+  onPick: (label: string, id?: string) => void;
+  onSeeAll: () => void;
+}
+
+function TherapyPopover({ open, query, therapies, onPick, onSeeAll }: TherapyPopoverProps) {
+  if (!open) return null;
+  const q = query.trim().toLowerCase();
+  const filtered = q
+    ? therapies.filter((t) => t.name.es.toLowerCase().includes(q))
+    : [];
+
+  return (
+    <div
+      className="absolute left-0 right-0 top-full mt-2 bg-white rounded-[10px] shadow-xl z-50 max-h-[320px] overflow-y-auto"
+      style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.14)" }}
+    >
+      {q ? (
+        <div className="py-2">
+          {filtered.length > 0 ? (
+            filtered.map((t) => (
+              <button
+                key={t.id}
+                onMouseDown={(e) => { e.preventDefault(); onPick(t.name.es, t.id); }}
+                className="w-full text-left px-5 py-2.5 text-[14px] text-foreground/80 hover:bg-muted transition-colors"
+              >
+                {t.name.es}
+              </button>
+            ))
+          ) : (
+            <p className="px-5 py-3 text-[13px] text-muted-foreground italic">Sin resultados</p>
+          )}
+        </div>
+      ) : (
+        <>
+          <p className="px-5 pt-4 pb-2 text-[11px] uppercase tracking-[0.15em] text-muted-foreground" style={{ fontWeight: 500 }}>
+            Terapias más buscadas
+          </p>
+          <div className="pb-2">
+            {popularTherapies.map((label) => {
+              const matched = therapies.find((t) => t.name.es.toLowerCase() === label.toLowerCase());
+              return (
+                <button
+                  key={label}
+                  onMouseDown={(e) => { e.preventDefault(); onPick(label, matched?.id); }}
+                  className="w-full text-left px-5 py-2 text-[14px] text-foreground/80 hover:bg-muted transition-colors"
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+          <button
+            onMouseDown={(e) => { e.preventDefault(); onSeeAll(); }}
+            className="w-full text-left px-5 py-3 text-[13px] text-primary border-t border-border/40 hover:bg-muted/60 transition-colors"
+            style={{ fontWeight: 500 }}
+          >
+            Ver todas las terapias →
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
+interface LocationPopoverProps {
+  open: boolean;
+  query: string;
+  onPick: (label: string, special?: "near" | "all") => void;
+}
+
+function LocationPopover({ open, query, onPick }: LocationPopoverProps) {
+  if (!open) return null;
+  const q = query.trim().toLowerCase();
+  const filtered = q
+    ? municipios.filter((m) => m.toLowerCase().includes(q))
+    : municipios;
+
+  return (
+    <div
+      className="absolute left-0 right-0 top-full mt-2 bg-white rounded-[10px] shadow-xl z-50 max-h-[320px] overflow-y-auto"
+      style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.14)" }}
+    >
+      <button
+        onMouseDown={(e) => { e.preventDefault(); onPick("Cerca de mí", "near"); }}
+        className="w-full text-left px-5 py-2.5 text-[14px] text-foreground/85 hover:bg-muted transition-colors flex items-center gap-2"
+      >
+        <Navigation size={14} className="text-primary" /> Cerca de mí
+      </button>
+      <button
+        onMouseDown={(e) => { e.preventDefault(); onPick("Toda Mallorca", "all"); }}
+        className="w-full text-left px-5 py-2.5 text-[14px] text-foreground/85 hover:bg-muted transition-colors flex items-center gap-2 border-b border-border/40"
+      >
+        <MapIcon size={14} className="text-primary" /> Toda Mallorca
+      </button>
+      <div className="py-1">
+        {filtered.map((m) => (
+          <button
+            key={m}
+            onMouseDown={(e) => { e.preventDefault(); onPick(m); }}
+            className="w-full text-left px-5 py-2 text-[14px] text-foreground/80 hover:bg-muted transition-colors"
+          >
+            {m}
+          </button>
+        ))}
+        {filtered.length === 0 && (
+          <p className="px-5 py-3 text-[13px] text-muted-foreground italic">Sin resultados</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 export default function Hero({ onClassicSearch }: HeroProps) {
   const navigate = useNavigate();
-  const [therapyId, setTherapyId] = useState("");
-  const [location, setLocation] = useState("");
   const therapies = getTherapies();
 
+  const [therapyText, setTherapyText] = useState("");
+  const [therapyId, setTherapyId] = useState<string | undefined>(undefined);
+  const [therapyOpen, setTherapyOpen] = useState(false);
+
+  const [locationText, setLocationText] = useState("");
+  const [locationMode, setLocationMode] = useState<"near" | "all" | "city" | "">("");
+  const [locationOpen, setLocationOpen] = useState(false);
+
+  const therapyWrapRef = useRef<HTMLDivElement>(null);
+  const locationWrapRef = useRef<HTMLDivElement>(null);
+
+  // Click-outside
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (therapyWrapRef.current && !therapyWrapRef.current.contains(target)) setTherapyOpen(false);
+      if (locationWrapRef.current && !locationWrapRef.current.contains(target)) setLocationOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
   const handleSearch = useCallback(() => {
-    const filters: { therapyId?: string; city?: string } = {};
+    const filters: { q?: string; therapyId?: string; city?: string } = {};
     if (therapyId) filters.therapyId = therapyId;
-    if (location) filters.city = location;
+    else if (therapyText.trim()) filters.q = therapyText.trim();
+    if (locationMode === "city" && locationText.trim()) filters.city = locationText.trim();
+    // "near" and "all" => no city filter
+
     if (onClassicSearch) {
       onClassicSearch(filters);
     } else {
       const params = new URLSearchParams();
-      if (therapyId) params.set("therapyId", therapyId);
-      if (location) params.set("city", location);
+      if (filters.therapyId) params.set("therapyId", filters.therapyId);
+      if (filters.q) params.set("q", filters.q);
+      if (filters.city) params.set("city", filters.city);
       navigate(`/professionals?${params.toString()}`);
     }
-  }, [therapyId, location, navigate, onClassicSearch]);
+  }, [therapyId, therapyText, locationMode, locationText, navigate, onClassicSearch]);
+
+  const handleTherapyPick = (label: string, id?: string) => {
+    setTherapyText(label);
+    setTherapyId(id);
+    setTherapyOpen(false);
+  };
+
+  const handleLocationPick = (label: string, special?: "near" | "all") => {
+    setLocationText(label);
+    setLocationMode(special ?? "city");
+    setLocationOpen(false);
+  };
 
   return (
     <section
@@ -44,7 +198,6 @@ export default function Hero({ onClassicSearch }: HeroProps) {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
-        {/* Eyebrow */}
         <p
           className="text-[13px] uppercase mb-6"
           style={{ color: "rgba(255,255,255,0.75)", fontWeight: 400, letterSpacing: "3px" }}
@@ -52,7 +205,6 @@ export default function Hero({ onClassicSearch }: HeroProps) {
           MALLORCA · BIENESTAR · COMUNIDAD
         </p>
 
-        {/* Main title */}
         <h1
           className="uppercase mb-3 leading-tight"
           style={{
@@ -66,7 +218,6 @@ export default function Hero({ onClassicSearch }: HeroProps) {
           ENCUENTRA TU BIENESTAR
         </h1>
 
-        {/* Subtitle */}
         <p
           className="uppercase mb-6"
           style={{
@@ -80,7 +231,6 @@ export default function Hero({ onClassicSearch }: HeroProps) {
           EN MALLORCA
         </p>
 
-        {/* Tagline */}
         <p
           className="mx-auto mb-10"
           style={{
@@ -94,89 +244,103 @@ export default function Hero({ onClassicSearch }: HeroProps) {
         </p>
 
         {/* Search bar */}
-        <div className="mx-auto" style={{ maxWidth: "720px" }}>
-          {/* Desktop: horizontal bar */}
+        <div className="mx-auto" style={{ maxWidth: "780px" }}>
+          {/* Desktop pill */}
           <div
-            className="hidden md:flex items-center bg-white rounded-full overflow-hidden"
+            className="hidden md:flex items-stretch bg-white rounded-full overflow-visible relative"
             style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.12)" }}
           >
-            {/* Therapy dropdown */}
-            <div className="flex-1 relative">
-              <select
-                value={therapyId}
-                onChange={(e) => setTherapyId(e.target.value)}
-                className="w-full h-14 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] appearance-none focus:outline-none cursor-pointer"
-              >
-                <option value="">Terapia, síntoma o nombre</option>
-                {therapies.map((th) => (
-                  <option key={th.id} value={th.id}>{th.name.es}</option>
-                ))}
-              </select>
+            {/* Therapy field */}
+            <div ref={therapyWrapRef} className="flex-1 relative">
+              <input
+                value={therapyText}
+                onChange={(e) => { setTherapyText(e.target.value); setTherapyId(undefined); setTherapyOpen(true); }}
+                onFocus={() => setTherapyOpen(true)}
+                placeholder="Terapia, síntoma o nombre"
+                className="w-full h-14 pl-5 pr-9 bg-transparent text-foreground/85 text-[15px] focus:outline-none rounded-l-full"
+                style={{ fontSize: "16px" }}
+              />
               <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
+              <TherapyPopover
+                open={therapyOpen}
+                query={therapyText}
+                therapies={therapies}
+                onPick={handleTherapyPick}
+                onSeeAll={() => { setTherapyOpen(false); navigate("/therapies"); }}
+              />
             </div>
 
-            {/* Divider */}
-            <div className="w-px h-8 bg-border/60" />
+            <div className="w-px h-8 self-center bg-border/60" />
 
-            {/* Location input */}
-            <div className="flex-1 relative">
+            {/* Location field */}
+            <div ref={locationWrapRef} className="flex-1 relative">
               <input
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                value={locationText}
+                onChange={(e) => { setLocationText(e.target.value); setLocationMode("city"); setLocationOpen(true); }}
+                onFocus={() => setLocationOpen(true)}
                 placeholder="Cerca de mí, Código Postal..."
-                className="w-full h-14 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] focus:outline-none"
+                className="w-full h-14 pl-5 pr-9 bg-transparent text-foreground/85 text-[15px] focus:outline-none"
                 style={{ fontSize: "16px" }}
               />
               <MapPin size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
+              <LocationPopover
+                open={locationOpen}
+                query={locationMode === "city" ? locationText : ""}
+                onPick={handleLocationPick}
+              />
             </div>
 
-            {/* Search button */}
             <button
               onClick={handleSearch}
-              className="bg-primary text-primary-foreground font-medium text-[14px] tracking-wide px-7 h-14 rounded-full mr-1 hover:opacity-90 transition-opacity whitespace-nowrap"
+              className="bg-primary text-primary-foreground font-medium text-[14px] tracking-wide px-7 h-14 rounded-full m-1 hover:opacity-90 transition-opacity whitespace-nowrap"
             >
               VER PROFESIONALES
             </button>
           </div>
 
-          {/* Mobile: stacked */}
+          {/* Mobile stacked */}
           <div className="md:hidden flex flex-col gap-3">
-            <div
-              className="relative bg-white rounded-full overflow-hidden"
-              style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}
-            >
-              <select
-                value={therapyId}
-                onChange={(e) => setTherapyId(e.target.value)}
-                className="w-full h-12 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] appearance-none focus:outline-none"
-              >
-                <option value="">Terapia, síntoma o nombre</option>
-                {therapies.map((th) => (
-                  <option key={th.id} value={th.id}>{th.name.es}</option>
-                ))}
-              </select>
+            <div ref={therapyWrapRef} className="relative bg-white rounded-full" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
+              <input
+                value={therapyText}
+                onChange={(e) => { setTherapyText(e.target.value); setTherapyId(undefined); setTherapyOpen(true); }}
+                onFocus={() => setTherapyOpen(true)}
+                placeholder="Terapia, síntoma o nombre"
+                className="w-full h-12 pl-5 pr-10 bg-transparent text-foreground/85 text-[15px] focus:outline-none rounded-full"
+                style={{ fontSize: "16px" }}
+              />
               <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
+              <TherapyPopover
+                open={therapyOpen}
+                query={therapyText}
+                therapies={therapies}
+                onPick={handleTherapyPick}
+                onSeeAll={() => { setTherapyOpen(false); navigate("/therapies"); }}
+              />
             </div>
 
-            <div
-              className="relative bg-white rounded-full overflow-hidden"
-              style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}
-            >
+            <div ref={locationWrapRef} className="relative bg-white rounded-full" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
               <input
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                value={locationText}
+                onChange={(e) => { setLocationText(e.target.value); setLocationMode("city"); setLocationOpen(true); }}
+                onFocus={() => setLocationOpen(true)}
                 placeholder="Cerca de mí, Código Postal..."
-                className="w-full h-12 pl-5 pr-10 bg-transparent text-foreground/80 text-[15px] focus:outline-none"
+                className="w-full h-12 pl-5 pr-10 bg-transparent text-foreground/85 text-[15px] focus:outline-none rounded-full"
                 style={{ fontSize: "16px" }}
               />
               <MapPin size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-foreground/40 pointer-events-none" />
+              <LocationPopover
+                open={locationOpen}
+                query={locationMode === "city" ? locationText : ""}
+                onPick={handleLocationPick}
+              />
             </div>
 
             <button
               onClick={handleSearch}
-              className="bg-primary text-primary-foreground font-medium text-[14px] tracking-wide h-12 rounded-full hover:opacity-90 transition-opacity"
+              className="bg-primary text-primary-foreground font-medium text-[14px] tracking-wide h-12 rounded-full hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
             >
-              VER PROFESIONALES
+              <Search size={16} /> VER PROFESIONALES
             </button>
           </div>
         </div>
