@@ -21,19 +21,6 @@ export default function Index() {
     variant: "classic" | "emotional";
   } | null>(null);
 
-  const scrollToResults = useCallback(() => {
-    // Wait for render so the section exists in the DOM
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        const el = document.getElementById("orient-results");
-        if (el) {
-          const top = el.getBoundingClientRect().top + window.scrollY - 80;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }, 60);
-    });
-  }, []);
-
   const handleClassicSearch = useCallback(
     (filters: { q?: string; therapyId?: string; city?: string }) => {
       const results = getProfessionals(filters);
@@ -43,9 +30,8 @@ export default function Index() {
         professionals: results,
         variant: "classic",
       });
-      scrollToResults();
     },
-    [scrollToResults]
+    []
   );
 
   const handleEmotionalSearch = useCallback((query: string) => {
@@ -55,8 +41,7 @@ export default function Index() {
       professionals: results.length > 0 ? results : getProfessionals().slice(0, 3),
       variant: "emotional",
     });
-    scrollToResults();
-  }, [scrollToResults]);
+  }, []);
 
   const handleNewSearch = useCallback(() => {
     setOrientResult(null);
