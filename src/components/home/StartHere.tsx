@@ -27,17 +27,17 @@ const cards = [
 
 export default function StartHere() {
   return (
-    <section style={{ background: "#FAFAF7", padding: "96px 16px" }}>
+    <section style={{ background: "#FAFAF7", padding: "56px 16px" }}>
       {/* Title */}
       <h2
         className="text-center uppercase"
         style={{
           fontFamily: "'Jost', sans-serif",
           fontWeight: 400,
-          fontSize: 32,
+          fontSize: 28,
           letterSpacing: 2,
           color: "hsl(150, 22%, 38%)",
-          marginBottom: 64,
+          marginBottom: 40,
         }}
       >
         Empieza por aquí
@@ -55,9 +55,9 @@ export default function StartHere() {
             style={{
               background: "#F5F1E8",
               borderRadius: 16,
-              padding: "48px 32px",
+              padding: "36px 28px",
               border: "1px solid rgba(0,0,0,0.06)",
-              minHeight: 320,
+              minHeight: 260,
               transition: "background 0.2s",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "#EFE9DD")}

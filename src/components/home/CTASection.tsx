@@ -5,7 +5,7 @@ export default function CTASection() {
   const { t } = useI18n();
 
   return (
-    <section className="py-24 md:py-32 border-t border-border/50" style={{ background: "hsl(var(--primary) / 0.12)" }}>
+    <section className="py-16 md:py-20 border-t border-border/50" style={{ background: "hsl(var(--primary) / 0.12)" }}>
       <div className="container mx-auto px-4 text-center">
         <span className="text-primary text-xs uppercase tracking-[0.15em] mb-4 block">
           {t("cta.eyebrow")}

@@ -191,7 +191,7 @@ export default function Hero({ onClassicSearch }: HeroProps) {
     <section
       className="relative flex items-center justify-center"
       style={{
-        minHeight: "85vh",
+        minHeight: "55vh",
         backgroundImage: `url(${heroCala})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -203,18 +203,18 @@ export default function Hero({ onClassicSearch }: HeroProps) {
       {/* Content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
         <p
-          className="text-[13px] uppercase mb-6"
+          className="text-[12px] uppercase mb-2"
           style={{ color: "rgba(255,255,255,0.75)", fontWeight: 400, letterSpacing: "3px" }}
         >
           MALLORCA · BIENESTAR · COMUNIDAD
         </p>
 
         <h1
-          className="uppercase mb-3 leading-tight"
+          className="uppercase mb-1 leading-tight"
           style={{
-            fontSize: "clamp(36px, 5vw, 64px)",
+            fontSize: "clamp(30px, 4.2vw, 52px)",
             fontWeight: 300,
-            letterSpacing: "6px",
+            letterSpacing: "4px",
             color: "white",
             textShadow: "0 2px 20px rgba(0,0,0,0.25)",
           }}
@@ -223,11 +223,11 @@ export default function Hero({ onClassicSearch }: HeroProps) {
         </h1>
 
         <p
-          className="uppercase mb-6"
+          className="uppercase mb-3"
           style={{
-            fontSize: "clamp(18px, 2vw, 24px)",
+            fontSize: "clamp(15px, 1.6vw, 20px)",
             fontWeight: 300,
-            letterSpacing: "8px",
+            letterSpacing: "5px",
             color: "white",
             textShadow: "0 1px 10px rgba(0,0,0,0.2)",
           }}
@@ -236,12 +236,12 @@ export default function Hero({ onClassicSearch }: HeroProps) {
         </p>
 
         <p
-          className="mx-auto mb-10"
+          className="mx-auto mb-5"
           style={{
-            fontSize: "clamp(15px, 1.2vw, 18px)",
+            fontSize: "clamp(14px, 1.05vw, 16px)",
             fontWeight: 300,
             color: "rgba(255,255,255,0.85)",
-            maxWidth: "600px",
+            maxWidth: "520px",
           }}
         >
           Profesionales verificados en terapias naturales y complementarias

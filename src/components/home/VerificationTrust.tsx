@@ -17,9 +17,9 @@ export default function VerificationTrust() {
   ];
 
   return (
-    <section className="py-24 md:py-36 bg-surface">
+    <section className="py-16 md:py-20 bg-surface">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-primary text-center mb-10 md:mb-14">
+        <h2 className="text-2xl md:text-3xl font-bold text-primary text-center mb-8 md:mb-10">
           {t("trust.block.title")}
         </h2>
 
