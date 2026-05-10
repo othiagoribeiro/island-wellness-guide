@@ -57,17 +57,17 @@ export default function RecentBlog() {
   const featuredTherapy = featured ? getTherapy(featured.therapyId) : null;
 
   return (
-    <section className="py-20 md:py-36 bg-background">
+    <section className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <FadeInOnScroll>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-14">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
             {t("blog.sectionTitle")}
           </h2>
         </FadeInOnScroll>
 
         {/* Featured article */}
         {featured && (
-          <FadeInOnScroll delay={0.1} className="mb-12">
+          <FadeInOnScroll delay={0.1} className="mb-10">
             <Link
               to={`/blog/${featured.id}`}
               className="group block relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500 max-w-5xl mx-auto"
