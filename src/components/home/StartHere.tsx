@@ -55,9 +55,9 @@ export default function StartHere() {
             style={{
               background: "#F5F1E8",
               borderRadius: 16,
-              padding: "48px 32px",
+              padding: "36px 28px",
               border: "1px solid rgba(0,0,0,0.06)",
-              minHeight: 320,
+              minHeight: 260,
               transition: "background 0.2s",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "#EFE9DD")}
