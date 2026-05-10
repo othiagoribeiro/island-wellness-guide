@@ -191,7 +191,7 @@ export default function Hero({ onClassicSearch }: HeroProps) {
     <section
       className="relative flex items-center justify-center"
       style={{
-        minHeight: "55vh",
+        minHeight: "70vh",
         backgroundImage: `url(${heroCala})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -203,16 +203,16 @@ export default function Hero({ onClassicSearch }: HeroProps) {
       {/* Content */}
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
         <p
-          className="text-[12px] uppercase mb-2"
+          className="text-[12px] uppercase mb-3"
           style={{ color: "rgba(255,255,255,0.75)", fontWeight: 400, letterSpacing: "3px" }}
         >
           MALLORCA · BIENESTAR · COMUNIDAD
         </p>
 
         <h1
-          className="uppercase mb-1 leading-tight"
+          className="uppercase mb-2 leading-tight"
           style={{
-            fontSize: "clamp(30px, 4.2vw, 52px)",
+            fontSize: "clamp(32px, 4.8vw, 56px)",
             fontWeight: 300,
             letterSpacing: "4px",
             color: "white",
@@ -223,9 +223,9 @@ export default function Hero({ onClassicSearch }: HeroProps) {
         </h1>
 
         <p
-          className="uppercase mb-3"
+          className="uppercase mb-5"
           style={{
-            fontSize: "clamp(15px, 1.6vw, 20px)",
+            fontSize: "clamp(16px, 1.8vw, 22px)",
             fontWeight: 300,
             letterSpacing: "5px",
             color: "white",
@@ -236,12 +236,12 @@ export default function Hero({ onClassicSearch }: HeroProps) {
         </p>
 
         <p
-          className="mx-auto mb-5"
+          className="mx-auto mb-8"
           style={{
-            fontSize: "clamp(14px, 1.05vw, 16px)",
+            fontSize: "clamp(14px, 1.1vw, 17px)",
             fontWeight: 300,
             color: "rgba(255,255,255,0.85)",
-            maxWidth: "520px",
+            maxWidth: "540px",
           }}
         >
           Profesionales verificados en terapias naturales y complementarias
