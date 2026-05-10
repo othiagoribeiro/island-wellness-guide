@@ -304,7 +304,7 @@ export default function Hero({ onClassicSearch }: HeroProps) {
 
           {/* Mobile stacked */}
           <div className="md:hidden flex flex-col gap-3">
-            <div ref={therapyWrapRef} className="relative bg-white rounded-full" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
+            <div ref={therapyWrapRefM} className="relative bg-white rounded-full" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
               <input
                 value={therapyText}
                 onChange={(e) => { setTherapyText(e.target.value); setTherapyId(undefined); setTherapyOpen(true); }}
@@ -323,7 +323,7 @@ export default function Hero({ onClassicSearch }: HeroProps) {
               />
             </div>
 
-            <div ref={locationWrapRef} className="relative bg-white rounded-full" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
+            <div ref={locationWrapRefM} className="relative bg-white rounded-full" style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
               <input
                 value={locationText}
                 onChange={(e) => { setLocationText(e.target.value); setLocationMode("city"); setLocationOpen(true); }}
