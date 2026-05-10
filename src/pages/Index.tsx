@@ -10,7 +10,7 @@ import FAQ from "@/components/home/FAQ";
 import CTASection from "@/components/home/CTASection";
 import Testimonials from "@/components/home/Testimonials";
 import OrientResults from "@/components/home/OrientResults";
-import { getOrientResults, getProfessionals } from "@/lib/api";
+import { getProfessionals } from "@/lib/api";
 import type { Professional } from "@/lib/mocks";
 
 export default function Index() {
@@ -18,6 +18,7 @@ export default function Index() {
     query: string;
     explanation?: string;
     professionals: Professional[];
+    variant: "classic" | "emotional";
   } | null>(null);
 
   const handleClassicSearch = useCallback(
@@ -27,10 +28,20 @@ export default function Index() {
       setOrientResult({
         query: queryLabel,
         professionals: results,
+        variant: "classic",
       });
     },
     []
   );
+
+  const handleEmotionalSearch = useCallback((query: string) => {
+    const results = getProfessionals({ q: query });
+    setOrientResult({
+      query,
+      professionals: results.length > 0 ? results : getProfessionals().slice(0, 3),
+      variant: "emotional",
+    });
+  }, []);
 
   const handleNewSearch = useCallback(() => {
     setOrientResult(null);
@@ -39,43 +50,33 @@ export default function Index() {
 
   return (
     <>
-      {/* 1. Hero */}
       <Hero onClassicSearch={handleClassicSearch} />
 
-      {/* Search results */}
       {orientResult && orientResult.professionals.length > 0 && (
         <OrientResults
           query={orientResult.query}
           professionals={orientResult.professionals}
           onNewSearch={handleNewSearch}
+          variant={orientResult.variant}
         />
       )}
 
-      {/* 2. Emotional search */}
-      <EmotionalSearch />
+      <EmotionalSearch onSearch={handleEmotionalSearch} />
 
-      {/* 3. Start here */}
       <StartHere />
 
-      {/* 4. How it works */}
       <HowItWorks />
 
-      {/* 3. Verification trust block */}
       <VerificationTrust />
 
-      {/* 4. Upcoming activities */}
       <UpcomingActivities />
 
-      {/* 5. Blog preview */}
       <RecentBlog />
 
-      {/* 6. Testimonials */}
       <Testimonials />
 
-      {/* 7. FAQ */}
       <FAQ />
 
-      {/* 8. Therapist CTA */}
       <CTASection />
     </>
   );
