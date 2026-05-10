@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface EmotionalSearchProps {
+  onSearch?: (query: string) => void;
+}
+
 const chips = [
   "Me duele la espalda",
   "Tengo ansiedad",
@@ -11,9 +15,15 @@ const chips = [
   "Me siento deprimido",
 ];
 
-export default function EmotionalSearch() {
+export default function EmotionalSearch({ onSearch }: EmotionalSearchProps) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
+
+  const handleQuery = (q: string) => {
+    if (!q.trim()) return;
+    if (onSearch) onSearch(q.trim());
+    else navigate("/professionals");
+  };
 
   return (
     <section style={{ background: "#E8EDE3", padding: "96px 16px" }}>
@@ -60,7 +70,7 @@ export default function EmotionalSearch() {
               </p>
             </div>
             <button
-              onClick={() => navigate("/professionals")}
+              onClick={() => handleQuery(query)}
               style={{
                 fontFamily: "'Jost', sans-serif",
                 fontWeight: 400,
@@ -86,7 +96,7 @@ export default function EmotionalSearch() {
             {chips.map((chip) => (
               <button
                 key={chip}
-                onClick={() => navigate("/professionals")}
+                onClick={() => handleQuery(chip)}
                 style={{
                   fontFamily: "'Jost', sans-serif",
                   fontWeight: 300,

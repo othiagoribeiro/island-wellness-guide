@@ -139,41 +139,47 @@ export default function Testimonials() {
 
       <div
         ref={scrollRef}
-        className="flex gap-5 overflow-hidden cursor-grab select-none"
+        className="flex gap-8 md:gap-12 overflow-hidden cursor-grab select-none px-4 md:px-8"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onTouchStart={() => setIsPaused(true)}
         onTouchEnd={() => setIsPaused(false)}
       >
-        {items.map((t, i) => (
-          <div
-            key={`${t.name}-${i}`}
-            className="shrink-0 w-[340px] sm:w-[380px] bg-white rounded-2xl p-7 transition-shadow duration-300 hover:shadow-md"
-            style={{
-              boxShadow: "0 2px 16px rgba(70,110,90,0.07)",
-            }}
-          >
-            {/* Quote */}
-            <p className="text-[15px] leading-[1.7] mb-6" style={{ color: "rgba(0,0,0,0.85)" }}>
-              "{t.text[locale]}"
-            </p>
+        {items.map((t, i) => {
+          // Organic width variation
+          const widths = [340, 380, 360, 400, 360, 380];
+          const w = widths[i % widths.length];
+          return (
+            <div
+              key={`${t.name}-${i}`}
+              className="shrink-0 bg-white rounded-2xl p-8 transition-shadow duration-300 hover:shadow-md"
+              style={{
+                width: `${w}px`,
+                boxShadow: "0 2px 16px rgba(70,110,90,0.07)",
+              }}
+            >
+              {/* Quote */}
+              <p className="text-[15px] leading-[1.7] mb-6" style={{ color: "rgba(0,0,0,0.85)" }}>
+                "{t.text[locale]}"
+              </p>
 
-            {/* Author */}
-            <div className="flex items-center gap-3">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold shrink-0"
-                style={{ backgroundColor: t.color }}
-              >
-                {t.initials}
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-primary leading-tight">{t.name}</p>
-                <p className="text-xs text-stone">{t.city}</p>
+              {/* Author */}
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-semibold shrink-0"
+                  style={{ backgroundColor: t.color }}
+                >
+                  {t.initials}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-primary leading-tight">{t.name}</p>
+                  <p className="text-xs text-stone">{t.city}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

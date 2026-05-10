@@ -10,9 +10,10 @@ interface OrientResultsProps {
   explanation?: string;
   professionals: Professional[];
   onNewSearch: () => void;
+  variant?: "classic" | "emotional";
 }
 
-export default function OrientResults({ query, explanation, professionals, onNewSearch }: OrientResultsProps) {
+export default function OrientResults({ query, explanation, professionals, onNewSearch, variant = "classic" }: OrientResultsProps) {
   const { t, locale } = useI18n();
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -31,6 +32,20 @@ export default function OrientResults({ query, explanation, professionals, onNew
     <section ref={containerRef} className="py-8 md:py-16 bg-muted/30 scroll-mt-20">
       <div className="container mx-auto px-3 md:px-4 max-w-3xl">
         <div className="bg-card rounded-2xl shadow-md border border-border/50 overflow-hidden animate-fade-in">
+          {variant === "emotional" && (
+            <div className="px-5 md:px-10 pt-8 pb-2 text-center">
+              <h2
+                className="text-primary text-xl md:text-2xl mb-2"
+                style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300, letterSpacing: "0.04em" }}
+              >
+                Gracias por compartirlo.
+              </h2>
+              <p className="text-muted-foreground text-sm md:text-base" style={{ fontWeight: 300 }}>
+                Aquí tienes personas y propuestas que pueden acompañarte.
+              </p>
+            </div>
+          )}
+
           {/* Empathetic message */}
           {explanation && (
             <div className="p-4 md:p-8">
