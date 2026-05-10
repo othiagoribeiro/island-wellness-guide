@@ -127,8 +127,8 @@ export default function Testimonials() {
   }, [isPaused]);
 
   return (
-    <section className="py-24 md:py-36 bg-background overflow-hidden">
-      <div className="container mx-auto px-4 mb-10 md:mb-14">
+    <section className="py-16 md:py-20 bg-background overflow-hidden">
+      <div className="container mx-auto px-4 mb-8 md:mb-10">
         <h2
           className="text-2xl md:text-3xl font-bold text-primary text-center"
           style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
