@@ -70,7 +70,7 @@ export default function EmotionalSearch({ onSearch }: EmotionalSearchProps) {
               </p>
             </div>
             <button
-              onClick={() => navigate("/professionals")}
+              onClick={() => handleQuery(query)}
               style={{
                 fontFamily: "'Jost', sans-serif",
                 fontWeight: 400,
@@ -96,7 +96,7 @@ export default function EmotionalSearch({ onSearch }: EmotionalSearchProps) {
             {chips.map((chip) => (
               <button
                 key={chip}
-                onClick={() => navigate("/professionals")}
+                onClick={() => handleQuery(chip)}
                 style={{
                   fontFamily: "'Jost', sans-serif",
                   fontWeight: 300,
